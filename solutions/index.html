@@ -18,14 +18,14 @@
       --surface-3: #1a1a2e;
       --ink: #e8eaf6;
       --muted: #7986cb;
-      --accent: #ff6600;
-      --accent-dim: rgba(255,102,0,0.15);
-      --accent-glow: rgba(255,102,0,0.45);
+      --accent: #3f4652;
+      --accent-dim: rgba(63,70,82,0.15);
+      --accent-glow: rgba(63,70,82,0.35);
       --cyan: #00e5ff;
       --cyan-dim: rgba(0,229,255,0.12);
       --cyan-glow: rgba(0,229,255,0.35);
       --border: rgba(255,255,255,0.06);
-      --border-accent: rgba(255,102,0,0.25);
+      --border-accent: rgba(63,70,82,0.25);
       --border-cyan: rgba(0,229,255,0.2);
       --white: #ffffff;
       --soft: #f0f4ff;
@@ -177,15 +177,15 @@
       text-transform: uppercase;
       padding: 8px 18px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), #cc5200);
-      box-shadow: 0 0 20px rgba(255,102,0,0.35);
+      background: linear-gradient(135deg, var(--accent), #252a31);
+      box-shadow: 0 0 20px rgba(21,23,26,0.24);
       transition: filter var(--ease), transform var(--ease), box-shadow var(--ease);
     }
 
     .cart-link:hover {
       filter: brightness(1.15);
       transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(255,102,0,0.55);
+      box-shadow: 0 0 30px rgba(21,23,26,0.32);
     }
 
     .hero {
@@ -257,7 +257,7 @@
       right: -5%;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(237, 16, 24, 0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(63,70,82,0.05) 0%, transparent 70%);
       filter: blur(60px);
       z-index: -1;
     }
@@ -285,7 +285,7 @@
       }
 
       header {
-        align-items: flex-start;
+        align-items: center;
         flex-direction: column;
         border-radius: 22px;
       }
@@ -385,7 +385,7 @@
       padding: 0 0 20px;
       scroll-snap-type: x mandatory;
       scrollbar-width: thin;
-      scrollbar-color: var(--red) rgba(237, 16, 24, 0.1);
+      scrollbar-color: var(--red) rgba(63,70,82,0.1);
       justify-content: flex-start;
     }
 
@@ -452,7 +452,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color var(--ease), box-shadow var(--ease), background var(--ease);
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
@@ -541,6 +541,34 @@
     }
 
     @media (max-width: 768px) {
+      body {
+        align-items: stretch;
+      }
+
+      header,
+      main,
+      footer {
+        width: min(100% - 28px, var(--page-width));
+      }
+
+      .hero {
+        width: 100%;
+        align-items: center;
+        padding-inline: 0;
+      }
+
+      .hero > section,
+      .category-block {
+        animation: none;
+      }
+
+      header,
+      .panel,
+      .product-card {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+
       .categories-section {
         gap: 46px;
         margin-top: 54px;
@@ -564,12 +592,13 @@
         gap: 14px;
         overflow-x: auto;
         overflow-y: hidden;
-        width: calc(100% + 28px);
-        margin-inline: -14px;
-        padding: 0 14px 18px;
+        width: 100%;
+        margin-inline: 0;
+        padding: 0 2px 18px;
         scroll-snap-type: x mandatory;
+        scroll-padding-inline: 2px;
         scrollbar-width: thin;
-        scrollbar-color: var(--red) rgba(237, 16, 24, 0.1);
+        scrollbar-color: var(--red) rgba(63,70,82,0.1);
         -webkit-overflow-scrolling: touch;
       }
 
@@ -632,14 +661,14 @@
       letter-spacing: 0.02em;
       text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.25s;
+      transition: background var(--ease), border-color var(--ease), color var(--ease), box-shadow var(--ease);
       width: 100%;
     }
     .add-to-cart-btn:hover {
       background: var(--accent);
       border-color: var(--accent);
       color: #ffffff;
-      box-shadow: 0 0 20px rgba(255,102,0,0.35);
+      box-shadow: 0 0 20px rgba(21,23,26,0.24);
     }
 
     @media (max-width: 768px) {
@@ -655,7 +684,7 @@
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: linear-gradient(135deg, var(--accent), #cc5200);
+      background: linear-gradient(135deg, var(--accent), #252a31);
       color: white;
       width: 60px;
       height: 60px;
@@ -663,7 +692,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 30px rgba(255,102,0,0.5);
+      box-shadow: 0 18px 38px rgba(21,23,26,0.22);
       cursor: pointer;
       z-index: 1000;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -671,7 +700,7 @@
     }
     .cart-floating-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 45px rgba(255,102,0,0.7);
+      box-shadow: 0 22px 48px rgba(21,23,26,0.3);
     }
     .cart-count-badge {
       position: absolute;
@@ -782,54 +811,56 @@
     }
     .whatsapp-btn:hover { filter: brightness(1.05); }
 
-    /* ── LIGHT RED THEME — aligned with Security ───────────────── */
+    /* ── LIGHT NEUTRAL THEME — Solutions ───────────────── */
     :root {
       --black: #ffffff;
-      --dark: #fff6f6;
+      --dark: #f4f5f7;
       --surface: #ffffff;
-      --surface-2: #fff8f8;
-      --surface-3: #fff0f0;
-      --ink: #151111;
-      --muted: #685555;
-      --accent: #ed1018;
-      --red: #ed1018;
-      --accent-dim: rgba(237,16,24,0.09);
-      --accent-glow: rgba(237,16,24,0.34);
-      --cyan: #ed1018;
-      --cyan-dim: rgba(237,16,24,0.08);
-      --cyan-glow: rgba(237,16,24,0.28);
-      --border: rgba(24,17,17,0.09);
-      --border-accent: rgba(237,16,24,0.28);
-      --border-cyan: rgba(237,16,24,0.26);
-      --soft: #fff6f6;
+      --surface-2: #f8f9fb;
+      --surface-3: #eef1f4;
+      --ink: #15171a;
+      --muted: #626a73;
+      --accent: #3f4652;
+      --red: #3f4652;
+      --accent-dim: rgba(63,70,82,0.09);
+      --accent-glow: rgba(63,70,82,0.3);
+      --cyan: #3f4652;
+      --cyan-dim: rgba(63,70,82,0.08);
+      --cyan-glow: rgba(63,70,82,0.24);
+      --border: rgba(21,23,26,0.1);
+      --border-accent: rgba(63,70,82,0.28);
+      --border-cyan: rgba(63,70,82,0.24);
+      --soft: #f4f5f7;
     }
 
-    ::-webkit-scrollbar-track { background: #fff4f4; }
+    ::-webkit-scrollbar-track { background: #f1f3f5; }
     ::-webkit-scrollbar-thumb { background: var(--accent); }
-    ::-webkit-scrollbar-thumb:hover { background: #b80b11; }
+    ::-webkit-scrollbar-thumb:hover { background: #252a31; }
 
     body {
       color: var(--ink);
       background:
-        radial-gradient(circle at 18% 0%, rgba(237, 16, 24, 0.12), transparent 28%),
-        radial-gradient(circle at 86% 18%, rgba(237, 16, 24, 0.08), transparent 24%),
-        linear-gradient(180deg, #ffffff 0%, #fff8f8 54%, #ffffff 100%);
+        radial-gradient(circle at 18% 0%, rgba(63,70,82,0.1), transparent 28%),
+        radial-gradient(circle at 86% 18%, rgba(148,163,184,0.16), transparent 24%),
+        linear-gradient(180deg, #ffffff 0%, #f5f6f8 54%, #ffffff 100%);
     }
 
     header {
       background: rgba(255,255,255,0.92);
-      border-color: rgba(237,16,24,0.24);
-      box-shadow: 0 18px 50px rgba(64, 10, 14, 0.1), inset 0 1px 0 rgba(255,255,255,0.88);
+      border-color: rgba(63,70,82,0.18);
+      box-shadow: 0 18px 50px rgba(21, 23, 26, 0.1), inset 0 1px 0 rgba(255,255,255,0.88);
       color: var(--ink);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
 
     header::before {
-      background: linear-gradient(90deg, rgba(237,16,24,0.08), transparent 52%, rgba(237,16,24,0.04));
+      background: linear-gradient(90deg, rgba(63,70,82,0.08), transparent 52%, rgba(148,163,184,0.08));
     }
 
     .brand-logo,
     .brand:hover .brand-logo {
-      filter: drop-shadow(0 8px 18px rgba(237,16,24,0.2));
+      filter: drop-shadow(0 8px 18px rgba(21,23,26,0.16));
     }
 
     .brand-text {
@@ -841,15 +872,15 @@
 
     .back-link {
       color: var(--accent);
-      border-color: rgba(237,16,24,0.26);
-      background: rgba(237,16,24,0.07);
+      border-color: rgba(63,70,82,0.18);
+      background: rgba(63,70,82,0.07);
     }
 
     .back-link:hover {
-      color: #b80b11;
-      border-color: rgba(237,16,24,0.56);
-      background: rgba(237,16,24,0.12);
-      box-shadow: 0 12px 26px rgba(237,16,24,0.14);
+      color: #15171a;
+      border-color: rgba(63,70,82,0.46);
+      background: rgba(63,70,82,0.12);
+      box-shadow: 0 12px 26px rgba(21,23,26,0.12);
     }
 
     .hero {
@@ -857,18 +888,19 @@
     }
 
     .hero-visual-bg {
-      background: radial-gradient(circle, rgba(237, 16, 24, 0.08) 0%, transparent 70%);
-      filter: blur(70px);
+      background: radial-gradient(circle, rgba(63,70,82,0.06) 0%, transparent 70%);
+      filter: none;
     }
 
     .panel {
       position: relative;
       overflow: hidden;
-      border-color: rgba(237,16,24,0.28);
+      backdrop-filter: none;
+      border-color: rgba(63,70,82,0.2);
       background:
-        linear-gradient(145deg, rgba(237,16,24,0.08), rgba(255,255,255,0.98) 42%),
+        linear-gradient(145deg, rgba(63,70,82,0.07), rgba(255,255,255,0.98) 42%),
         #ffffff;
-      box-shadow: 0 30px 90px rgba(64, 10, 14, 0.1), 0 0 36px rgba(237,16,24,0.08);
+      box-shadow: 0 30px 90px rgba(21,23,26,0.1), 0 0 36px rgba(63,70,82,0.08);
     }
 
     .panel::before {
@@ -876,8 +908,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(237,16,24,0.08) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(237,16,24,0.06) 1px, transparent 1px);
+        linear-gradient(90deg, rgba(63,70,82,0.07) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(63,70,82,0.05) 1px, transparent 1px);
       background-size: 54px 54px;
       mask-image: linear-gradient(180deg, rgba(0,0,0,0.45), transparent 72%);
       pointer-events: none;
@@ -889,7 +921,7 @@
     }
 
     .hero-logo {
-      filter: drop-shadow(0 18px 34px rgba(237,16,24,0.17));
+      filter: drop-shadow(0 18px 34px rgba(21,23,26,0.14));
     }
 
     p,
@@ -898,7 +930,7 @@
     }
 
     .categories-section {
-      border-top-color: rgba(237,16,24,0.22);
+      border-top-color: rgba(63,70,82,0.18);
     }
 
     .categories-section h2 {
@@ -912,33 +944,35 @@
 
     .category-block h3 {
       color: var(--accent);
-      border-bottom-color: rgba(237,16,24,0.24);
+      border-bottom-color: rgba(63,70,82,0.2);
       text-shadow: none;
     }
 
     .product-card {
       background:
-        linear-gradient(145deg, rgba(237,16,24,0.06), rgba(255,255,255,0.98) 42%),
+        linear-gradient(145deg, rgba(63,70,82,0.055), rgba(255,255,255,0.98) 42%),
         #ffffff;
-      border-color: rgba(237,16,24,0.2);
-      box-shadow: 0 14px 44px rgba(64, 10, 14, 0.08);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-color: rgba(63,70,82,0.16);
+      box-shadow: 0 14px 44px rgba(21,23,26,0.08);
     }
 
     .product-card:hover {
-      border-color: rgba(237,16,24,0.66);
-      box-shadow: 0 24px 64px rgba(64, 10, 14, 0.12), 0 0 30px rgba(237,16,24,0.12);
+      border-color: rgba(63,70,82,0.46);
+      box-shadow: 0 24px 64px rgba(21,23,26,0.12), 0 0 30px rgba(63,70,82,0.1);
     }
 
     .product-image-placeholder {
       background:
-        radial-gradient(circle at 50% 45%, rgba(237,16,24,0.08), transparent 58%),
-        #fffafa;
-      border-bottom-color: rgba(237,16,24,0.16);
+        radial-gradient(circle at 50% 45%, rgba(63,70,82,0.07), transparent 58%),
+        #f8f9fb;
+      border-bottom-color: rgba(63,70,82,0.14);
     }
 
     .paper-rolls-bg {
       background:
-        radial-gradient(circle at 50% 45%, rgba(237,16,24,0.08), transparent 58%),
+        radial-gradient(circle at 50% 45%, rgba(63,70,82,0.07), transparent 58%),
         #ffffff;
     }
 
@@ -952,13 +986,13 @@
 
     .product-meta {
       color: var(--accent);
-      background: rgba(237,16,24,0.08);
-      border-color: rgba(237,16,24,0.18);
+      background: rgba(63,70,82,0.08);
+      border-color: rgba(63,70,82,0.16);
     }
 
     .add-to-cart-btn {
-      background: rgba(237,16,24,0.08);
-      border-color: rgba(237,16,24,0.26);
+      background: rgba(63,70,82,0.08);
+      border-color: rgba(63,70,82,0.22);
       color: var(--accent);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.84);
     }
@@ -967,25 +1001,25 @@
       background: var(--accent);
       border-color: var(--accent);
       color: #ffffff;
-      box-shadow: 0 16px 34px rgba(237,16,24,0.24);
+      box-shadow: 0 16px 34px rgba(21,23,26,0.2);
     }
 
     .scroll-arrow {
       background: rgba(255,255,255,0.94);
       color: var(--accent);
-      border-color: rgba(237,16,24,0.28);
-      box-shadow: 0 12px 30px rgba(64, 10, 14, 0.12);
+      border-color: rgba(63,70,82,0.22);
+      box-shadow: 0 12px 30px rgba(21,23,26,0.1);
     }
 
     .scroll-arrow:hover {
       border-color: var(--accent);
-      box-shadow: 0 18px 36px rgba(237,16,24,0.18);
+      box-shadow: 0 18px 36px rgba(21,23,26,0.16);
     }
 
     .horizontal-scroll-small,
     .product-grid,
     .category-row .product-grid {
-      scrollbar-color: var(--accent) rgba(237,16,24,0.08);
+      scrollbar-color: var(--accent) rgba(63,70,82,0.08);
     }
 
     .horizontal-scroll-small::-webkit-scrollbar-thumb,
@@ -994,13 +1028,13 @@
     }
 
     .cart-floating-btn {
-      background: linear-gradient(135deg, var(--accent), #b80b11);
-      box-shadow: 0 18px 38px rgba(237,16,24,0.28);
-      border-color: rgba(237,16,24,0.34);
+      background: linear-gradient(135deg, var(--accent), #252a31);
+      box-shadow: 0 18px 38px rgba(21,23,26,0.22);
+      border-color: rgba(63,70,82,0.34);
     }
 
     .cart-floating-btn:hover {
-      box-shadow: 0 22px 48px rgba(237,16,24,0.38);
+      box-shadow: 0 22px 48px rgba(21,23,26,0.3);
     }
 
     .cart-count-badge {
@@ -1009,13 +1043,153 @@
     }
 
     footer {
-      color: #fff6f6;
+      color: #f8f9fb;
       background:
-        radial-gradient(circle at 82% 0%, rgba(237,16,24,0.22), transparent 28%),
-        linear-gradient(180deg, #161111 0%, #050505 100%);
-      border-top-color: rgba(237,16,24,0.28);
+        radial-gradient(circle at 82% 0%, rgba(148,163,184,0.2), transparent 28%),
+        linear-gradient(180deg, #15171a 0%, #050505 100%);
+      border-top-color: rgba(148,163,184,0.24);
       width: 100%;
       padding-inline: 20px;
+      padding-block: 34px 24px;
+    }
+
+    .footer-inner {
+      width: min(var(--page-width), calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: start;
+      text-align: left;
+    }
+
+    .footer-block h2,
+    .footer-block h3 {
+      margin: 0 0 12px;
+      color: #ffffff;
+      font-size: clamp(1.05rem, 2.4vw, 1.55rem);
+      line-height: 1.12;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .footer-block p,
+    .footer-contact-list {
+      margin: 0;
+      color: #d7dce2;
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+
+    .footer-contact-list {
+      display: grid;
+      gap: 9px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-contact-list li,
+    .footer-contact-list a,
+    .footer-icon-link {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .footer-contact-list svg,
+    .footer-icon-link svg {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 17px;
+      color: #ffffff;
+    }
+
+    .footer-contact-list a {
+      color: #ffffff;
+      transition: color var(--ease);
+    }
+
+    .footer-contact-list a:hover {
+      color: #d7dce2;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .header-nav-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #4a525c;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color var(--ease), background var(--ease), transform var(--ease);
+    }
+
+    .header-nav-link:hover {
+      color: #15171a;
+      background: rgba(63,70,82,0.08);
+      transform: translateY(-1px);
+    }
+
+    .header-nav-link.is-featured {
+      color: #087a55;
+      background: rgba(8,122,85,0.08);
+      border: 1px solid rgba(8,122,85,0.2);
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: #15171a;
+      color: #ffffff;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: transform var(--ease), filter var(--ease), box-shadow var(--ease);
+      box-shadow: 0 14px 30px rgba(21,23,26,0.18);
+    }
+
+    .contact-link svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      fill: currentColor;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+      box-shadow: 0 18px 38px rgba(21,23,26,0.24);
+    }
+
+    .contact-link.secondary {
+      background: rgba(63,70,82,0.08);
+      color: #252a31;
+      border: 1px solid rgba(63,70,82,0.18);
+      box-shadow: none;
     }
 
     .licenses-section {
@@ -1078,37 +1252,33 @@
       max-width: 690px;
     }
 
+    .runfood-logo {
+      display: block;
+      width: min(100%, 260px);
+      height: auto;
+      margin: 0 auto;
+      filter: drop-shadow(0 12px 26px rgba(8,82,58,0.14));
+    }
+
     .license-carousel {
       position: relative;
     }
 
+    .license-mobile-arrow {
+      display: none;
+    }
+
     .license-track {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding: 8px 4px 22px;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: thin;
-      scrollbar-color: var(--license-accent) rgba(8,122,85,0.08);
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .license-track::-webkit-scrollbar {
-      height: 7px;
-    }
-
-    .license-track::-webkit-scrollbar-thumb {
-      background: var(--license-accent);
-      border-radius: 999px;
+      padding: 8px 0 0;
     }
 
     .license-card {
-      flex: 0 0 min(340px, 86vw);
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      scroll-snap-align: center;
       border: 1px solid rgba(8,122,85,0.2);
       border-radius: 20px;
       background: #ffffff;
@@ -1199,39 +1369,217 @@
       box-shadow: 0 16px 34px rgba(8,122,85,0.24);
     }
 
-    .license-scroll-arrow {
-      top: 38%;
-      color: var(--license-accent);
-      border-color: rgba(8,122,85,0.28);
-      box-shadow: 0 12px 30px rgba(8, 82, 58, 0.12);
-    }
-
-    .license-scroll-arrow:hover {
-      border-color: var(--license-accent);
-      box-shadow: 0 18px 36px rgba(8,122,85,0.18);
-    }
-
-    @media (min-width: 1120px) {
+    @media (min-width: 769px) and (max-width: 980px) {
       .license-track {
-        justify-content: center;
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
       }
     }
 
     @media (max-width: 768px) {
       .licenses-section {
-        margin-top: 54px;
-        padding: 26px 18px;
-        border-radius: 20px;
+        margin-top: 42px;
+        padding: 20px 14px;
+        border-radius: 18px;
+      }
+
+      .licenses-header {
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .licenses-header p {
+        font-size: 0.86rem;
+        line-height: 1.55;
+      }
+
+      .runfood-logo {
+        width: min(100%, 176px);
       }
 
       .license-track {
-        width: calc(100% + 36px);
-        margin-inline: -18px;
-        padding-inline: 18px;
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+        margin-inline: 0;
+        padding: 2px 4px 12px;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 4px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .license-track::-webkit-scrollbar {
+        display: none;
       }
 
       .license-card {
-        flex-basis: min(292px, 82vw);
+        flex: 0 0 calc(100% - 8px);
+        scroll-snap-align: center;
+        border-radius: 16px;
+        box-shadow: 0 14px 34px rgba(8,82,58,0.1);
+      }
+
+      .license-card:hover {
+        transform: none;
+      }
+
+      .license-body {
+        gap: 12px;
+        padding: 14px;
+      }
+
+      .license-body h3 {
+        font-size: 0.98rem;
+      }
+
+      .license-benefits {
+        gap: 6px;
+      }
+
+      .license-benefits li {
+        font-size: 0.76rem;
+        line-height: 1.38;
+      }
+
+      .license-mobile-arrow {
+        position: absolute;
+        top: 34%;
+        z-index: 2;
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(8,122,85,0.28);
+        border-radius: 999px;
+        background: rgba(255,255,255,0.96);
+        color: var(--license-accent);
+        box-shadow: 0 12px 26px rgba(8,82,58,0.16);
+        font-size: 1.35rem;
+        cursor: pointer;
+      }
+
+      .license-mobile-arrow-left {
+        left: -8px;
+      }
+
+      .license-mobile-arrow-right {
+        right: -8px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 22px;
+      }
+
+      .footer-contact-list li,
+      .footer-contact-list a,
+      .footer-icon-link {
+        justify-content: center;
+      }
+
+      .footer-actions {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 860px) {
+      header {
+        gap: 6px;
+        padding: 7px 46px 8px 10px;
+        min-height: 0;
+      }
+
+      .brand {
+        gap: 7px;
+        font-size: 0.78rem;
+        line-height: 1;
+      }
+
+      .brand-logo {
+        width: 32px;
+        height: 24px;
+      }
+
+      .header-nav {
+        justify-content: center;
+        gap: 4px;
+        flex-wrap: nowrap;
+        width: 100%;
+      }
+
+      .header-nav-link {
+        min-height: 24px;
+        padding: 4px 5px;
+        font-size: 0.5rem;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+      }
+
+      .back-link {
+        display: none;
+      }
+
+      .cart-floating-btn {
+        top: 8px;
+        right: max(8px, env(safe-area-inset-right));
+        bottom: auto;
+        width: 38px;
+        height: 38px;
+        box-shadow: 0 10px 22px rgba(21,23,26,0.2);
+      }
+
+      .cart-floating-btn svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .cart-count-badge {
+        top: 0;
+        right: 0;
+        width: 17px;
+        height: 17px;
+        border-width: 1px;
+        font-size: 0.58rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      header {
+        padding-left: 8px;
+        padding-right: 42px;
+      }
+
+      .brand {
+        font-size: 0.72rem;
+      }
+
+      .header-nav {
+        gap: 3px;
+      }
+
+      .header-nav-link {
+        padding-inline: 4px;
+        font-size: 0.46rem;
+      }
+
+      .cart-floating-btn {
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
       }
     }
   </style>
@@ -1239,40 +1587,43 @@
 <body>
   <header>
     <a class="brand" href="../index.html">
-      <img class="brand-logo" src="../photos/Solutions/solutions_logo_transparent.png" alt="Clickline Solutions"/>
+      <img class="brand-logo" src="../photos/Solutions/solutions_logo_transparent.webp" alt="Clickline Solutions" width="48" height="36" decoding="async"/>
       <span class="brand-text">Clickline Solutions</span>
     </a>
     <div class="nav-right">
-      <a class="back-link" href="../index.html">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Portal
-      </a>
+      <nav class="header-nav" aria-label="Navegación de Clickline Solutions">
+        <a class="header-nav-link" href="#inicio">Inicio</a>
+        <a class="header-nav-link is-featured" href="#runfoodapp">RunFoodApp</a>
+        <a class="header-nav-link" href="#productos">Productos</a>
+        <a class="header-nav-link" href="#contacto">Contacto</a>
+        <a class="back-link" href="../index.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Portal
+        </a>
+      </nav>
     </div>
   </header>
 
   <main class="hero">
     <div class="hero-visual-bg"></div>
-    <div style="position: fixed; top: 20%; left: -5%; width: 300px; height: 300px; background: rgba(237, 16, 24, 0.03); filter: blur(100px); border-radius: 50%; z-index: -1;"></div>
-    <div style="position: fixed; bottom: 10%; right: -5%; width: 400px; height: 400px; background: rgba(237, 16, 24, 0.04); filter: blur(80px); border-radius: 50%; z-index: -1;"></div>
-    <section class="panel" aria-label="Clickline Solutions">
+    <section class="panel" id="inicio" aria-label="Clickline Solutions">
       <div>
-        <img class="hero-logo" src="../photos/Solutions/solutions_logo_transparent.png" alt="Clickline Solutions">
+        <img class="hero-logo" src="../photos/Solutions/solutions_logo_transparent.webp" alt="Clickline Solutions" width="420" height="220" fetchpriority="high" decoding="async">
         <p>Click Line Solutions se especializa en optimizar la operación de negocios mediante tecnología de vanguardia, ofreciendo soluciones en sistemas POS, impresoras térmicas y dispositivos biométricos. Su compromiso principal es mejorar la eficiencia y seguridad empresarial a través de productos de alta calidad, soporte especializado y asesoría personalizada.</p>
       </div>
     </section>
-    <section class="licenses-section" aria-labelledby="licencias-title">
+    <section class="licenses-section" id="runfoodapp" aria-labelledby="licencias-title">
       <div class="licenses-header">
-        <span class="licenses-kicker">Sistema de facturación</span>
-        <h2 id="licencias-title">Licencias <span>Run Food App</span></h2>
-        <p>Elige la licencia que mejor se adapte a tu operación. Cada imagen incluye el detalle completo de funcionalidades.</p>
+        <img class="runfood-logo" id="licencias-title" src="../photos/Solutions/RunFoodLogo_transparent.webp" alt="Run Food App" width="260" height="260" loading="lazy" decoding="async">
+        <p>Runfood App es un sistema POS para restaurantes y negocios de comida que te permite controlar ventas, inventario, facturación, pedidos y reportes en tiempo real desde una plataforma rápida, moderna y fácil de usar.</p>
       </div>
 
       <div class="license-carousel">
-        <button class="scroll-arrow scroll-arrow-left license-scroll-arrow" type="button" aria-label="Ver licencia anterior" data-scroll-target="license-products" data-scroll-dir="-1">‹</button>
+        <button class="license-mobile-arrow license-mobile-arrow-left" type="button" aria-label="Ver licencia anterior" data-scroll-target="license-products" data-scroll-dir="-1">‹</button>
         <div class="license-track" id="license-products" aria-label="Licencias disponibles">
           <article class="license-card">
             <div class="license-image-wrap">
-              <img src="../photos/Solutions/Licencia_1.jpeg" alt="Licencia Sencilla de Run Food App con facturación ilimitada, inventario, caja y reportes">
+              <img src="../photos/Solutions/Licencia_1.jpeg" alt="Licencia Sencilla de Run Food App con facturación ilimitada, inventario, caja y reportes" width="1023" height="1280" loading="lazy" decoding="async">
             </div>
             <div class="license-body">
               <h3>Licencia Sencilla</h3>
@@ -1289,7 +1640,7 @@
 
           <article class="license-card">
             <div class="license-image-wrap">
-              <img src="../photos/Solutions/Licencia_2.jpeg" alt="Licencia Tiempo Real de Run Food App con comandas, acceso remoto, API y seguridad avanzada">
+              <img src="../photos/Solutions/Licencia_2.jpeg" alt="Licencia Tiempo Real de Run Food App con comandas, acceso remoto, API y seguridad avanzada" width="1023" height="1280" loading="lazy" decoding="async">
             </div>
             <div class="license-body">
               <h3>Licencia Tiempo Real</h3>
@@ -1306,7 +1657,7 @@
 
           <article class="license-card">
             <div class="license-image-wrap">
-              <img src="../photos/Solutions/Licencia_3.jpeg" alt="Licencia Avanzada de Run Food App con tablets, multiples cajas, fidelidad y cupones">
+              <img src="../photos/Solutions/Licencia_3.jpeg" alt="Licencia Avanzada de Run Food App con tablets, multiples cajas, fidelidad y cupones" width="1023" height="1280" loading="lazy" decoding="async">
             </div>
             <div class="license-body">
               <h3>Licencia Avanzada</h3>
@@ -1321,10 +1672,10 @@
             </div>
           </article>
         </div>
-        <button class="scroll-arrow scroll-arrow-right license-scroll-arrow" type="button" aria-label="Ver más licencias" data-scroll-target="license-products" data-scroll-dir="1">›</button>
+        <button class="license-mobile-arrow license-mobile-arrow-right" type="button" aria-label="Ver más licencias" data-scroll-target="license-products" data-scroll-dir="1">›</button>
       </div>
     </section>
-    <section class="categories-section">
+    <section class="categories-section" id="productos">
       <h2>Catálogo de productos</h2>
       
       <!-- Row 1: Impresoras (Centered) -->
@@ -1333,7 +1684,7 @@
         <div class="product-grid">
           <article class="product-card">
             <div class="product-image-placeholder">
-              <img src="../photos/Solutions/SAT_15T.png" alt="Impresora Térmica SAT 15T">
+              <img src="../photos/Solutions/SAT_15T.webp" alt="Impresora Térmica SAT 15T" loading="lazy" decoding="async">
             </div>
             <div class="product-content">
               <h4>Impresora Térmica SAT 15T</h4>
@@ -1348,7 +1699,7 @@
           </article>
           <article class="product-card">
             <div class="product-image-placeholder">
-              <img src="../photos/Solutions/SAT_22T.png" alt="Impresora Térmica SAT 22T">
+              <img src="../photos/Solutions/SAT_22T.webp" alt="Impresora Térmica SAT 22T" loading="lazy" decoding="async">
             </div>
             <div class="product-content">
               <h4>Impresora Térmica SAT 22T</h4>
@@ -1363,7 +1714,7 @@
           </article>
           <article class="product-card">
             <div class="product-image-placeholder">
-              <img src="../photos/Solutions/SAT_38T.png" alt="Impresora Térmica SAT 38T">
+              <img src="../photos/Solutions/SAT_38T.webp" alt="Impresora Térmica SAT 38T" loading="lazy" decoding="async">
             </div>
             <div class="product-content">
               <h4>Impresora Térmica SAT 38T</h4>
@@ -1386,7 +1737,7 @@
           <div class="product-grid">
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/AIO_SAT_POS.png" alt="AIO SAT POS">
+                <img src="../photos/Solutions/AIO_SAT_POS.webp" alt="AIO SAT POS" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>AIO SAT POS</h4>
@@ -1401,7 +1752,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/Intel_NUC.png" alt="Intel NUC">
+                <img src="../photos/Solutions/Intel_NUC.webp" alt="Intel NUC" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Intel NUC</h4>
@@ -1422,7 +1773,7 @@
           <div class="product-grid">
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/SAT AI402.png" alt="Scanner SAT AI402">
+                <img src="../photos/Solutions/SAT AI402.webp" alt="Scanner SAT AI402" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Scanner SAT AI402</h4>
@@ -1437,7 +1788,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/SAT AI8600.png" alt="Scanner SAT AI8600">
+                <img src="../photos/Solutions/SAT AI8600.webp" alt="Scanner SAT AI8600" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Scanner SAT AI8600</h4>
@@ -1462,7 +1813,7 @@
           <div class="horizontal-scroll-small" id="misc-products">
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/SPEEDFACE-V5L.png" alt="ZKTeco SpeedFace-V5L">
+                <img src="../photos/Solutions/SPEEDFACE-V5L.webp" alt="ZKTeco SpeedFace-V5L" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>ZKTeco SpeedFace</h4>
@@ -1477,7 +1828,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/ZKTECO-MB20-VL-.png" alt="ZKTeco MB20">
+                <img src="../photos/Solutions/ZKTECO-MB20-VL-.webp" alt="ZKTeco MB20" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>ZKTeco MB20</h4>
@@ -1492,7 +1843,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img class="cash-drawer-img" src="../photos/Solutions/Cajón 119X.png" alt="Cajón 119X">
+                <img class="cash-drawer-img" src="../photos/Solutions/Cajón 119X.webp" alt="Cajón 119X" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Cajón 119X</h4>
@@ -1507,7 +1858,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder paper-rolls-bg">
-                <img src="../photos/Solutions/papel.png" alt="Rollos Papel">
+                <img src="../photos/Solutions/papel.webp" alt="Rollos Papel" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Rollos Papel</h4>
@@ -1522,7 +1873,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img class="bill-counter-img" src="../photos/Solutions/Contador de billetes.png" alt="Contador de billetes SAT BC5120">
+                <img class="bill-counter-img" src="../photos/Solutions/Contador de billetes.webp" alt="Contador de billetes SAT BC5120" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Contador de billetes</h4>
@@ -1542,7 +1893,54 @@
     </section>
   </main>
 
-  <footer>© 2026 Clickline Solutions. Todos los derechos reservados.</footer>
+  <footer id="contacto">
+    <div class="footer-inner">
+      <div class="footer-block">
+        <h3>Contáctanos</h3>
+        <ul class="footer-contact-list">
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 4.8-8 12-8 12S4 14.8 4 10a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>López de Ayala y Blasco Ibáñez, Ambato - Ecuador</span>
+          </li>
+          <li>
+            <a href="tel:+593984454938">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.2a2 2 0 0 1 2.11-.45c.84.3 1.71.51 2.61.63A2 2 0 0 1 22 16.92Z"></path>
+              </svg>
+              <span>098 445 4938</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.clickline.mobi" target="_blank" rel="noopener">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M2 12h20"></path>
+                <path d="M12 2a15.3 15.3 0 0 1 0 20"></path>
+                <path d="M12 2a15.3 15.3 0 0 0 0 20"></path>
+              </svg>
+              <span>www.clickline.mobi</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-block">
+        <h2>Hablemos de tu operación</h2>
+        <p>Te ayudamos a elegir licencias, equipos POS, impresoras térmicas y accesorios según el flujo real de tu negocio.</p>
+        <div class="footer-actions">
+          <a class="contact-link" href="https://wa.me/593984454938" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 32 32">
+              <path d="M16.02 3.2A12.76 12.76 0 0 0 5.14 22.6L3.6 28.8l6.34-1.48A12.78 12.78 0 1 0 16.02 3.2Zm0 22.88c-2.08 0-4.02-.62-5.64-1.68l-.4-.26-3.76.88.9-3.64-.28-.42a10.02 10.02 0 1 1 9.18 5.12Zm5.5-7.48c-.3-.16-1.8-.9-2.08-1-.28-.1-.48-.16-.68.16-.2.3-.78 1-.96 1.2-.18.2-.36.22-.66.08-.3-.16-1.28-.48-2.44-1.52-.9-.8-1.52-1.8-1.7-2.1-.18-.3-.02-.48.14-.62.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.54-.08-.16-.68-1.64-.94-2.24-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.04 1.02-1.04 2.48s1.06 2.88 1.2 3.08c.16.2 2.1 3.2 5.08 4.48.7.3 1.26.48 1.7.62.72.22 1.36.2 1.88.12.58-.08 1.8-.74 2.06-1.44.26-.72.26-1.32.18-1.44-.08-.14-.28-.22-.58-.38Z"/>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+          <a class="contact-link secondary" href="mailto:contacto@clickline.mobi">Correo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Cart UI -->
   <button class="cart-floating-btn" id="cart-btn" aria-label="Abrir cesta">
