@@ -7,15 +7,26 @@
   <meta name="theme-color" content="#050505"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --red: #ed1018;
-      --red-dark: #c00d14;
-      --soft: #f8f9fa;
-      --ink: #111111;
+      --black: #030308;
+      --dark: #08080f;
+      --surface: #0d0d18;
+      --surface-2: #12121f;
+      --surface-3: #1a1a2e;
+      --ink: #e8eaf6;
+      --muted: #7986cb;
+      --accent: #ff6600;
+      --accent-dim: rgba(255,102,0,0.15);
+      --cyan: #00e5ff;
+      --cyan-dim: rgba(0,229,255,0.12);
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(255,102,0,0.25);
+      --border-cyan: rgba(0,229,255,0.2);
       --white: #ffffff;
-      --muted: #6c757d;
+      --font: "Ethnocentric", "Orbitron", "Eurostile Extended", "Bank Gothic", Arial, sans-serif;
+      --ease: 220ms cubic-bezier(.25,.46,.45,.94);
     }
 
     * {
@@ -24,59 +35,102 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
     body {
       min-height: 100vh;
       margin: 0;
       overflow-x: hidden;
-      font-family: "Plus Jakarta Sans", Arial, sans-serif;
+      font-family: var(--font);
       color: var(--ink);
-      background: linear-gradient(180deg, var(--white) 0%, var(--soft) 100%);
+      background:
+        radial-gradient(ellipse 70% 50% at 10% 0%, rgba(255,102,0,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 100%, rgba(0,229,255,0.07) 0%, transparent 50%),
+        linear-gradient(180deg, var(--dark) 0%, var(--black) 100%);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     header, main, footer {
       width: min(900px, calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* ── HEADER FUTURISTA ── */
     header {
+      position: sticky;
+      top: 12px;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 28px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      gap: 16px;
+      margin-top: 12px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: rgba(8, 8, 20, 0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--border-cyan);
+      box-shadow: 0 0 0 1px rgba(0,229,255,0.05), 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(0,229,255,0.08);
+      color: #ffffff;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-size: 1.35rem;
+      gap: 14px;
+      font-family: var(--font);
+      font-size: 1.1rem;
       font-weight: 800;
-      letter-spacing: -0.04em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #ffffff;
     }
 
     .brand-logo {
-      width: 60px;
-      height: 45px;
+      width: 48px;
+      height: 36px;
       object-fit: contain;
+      filter: drop-shadow(0 0 12px rgba(0,229,255,0.4)) brightness(1.1);
+      transition: filter var(--ease);
+    }
+
+    .brand:hover .brand-logo {
+      filter: drop-shadow(0 0 18px rgba(0,229,255,0.65)) brightness(1.2);
+    }
+
+    .brand-text {
+      background: linear-gradient(135deg, #ffffff 30%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .back-link {
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 700;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      color: rgba(0,229,255,0.75);
+      font-family: var(--font);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border-cyan);
+      background: var(--cyan-dim);
+      transition: color var(--ease), border-color var(--ease), box-shadow var(--ease);
+      white-space: nowrap;
     }
-    
+
     .back-link:hover {
-      color: var(--ink);
+      color: var(--cyan);
+      border-color: rgba(0,229,255,0.45);
+      box-shadow: 0 0 20px rgba(0,229,255,0.2);
     }
 
     main {
@@ -86,24 +140,28 @@
 
     h1 {
       font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.04em;
+      letter-spacing: 0.04em;
       margin: 0 0 40px;
       text-align: center;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ffffff 40%, var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .cart-container {
-      background: #ffffff;
+      background: rgba(13,13,24,0.85);
+      backdrop-filter: blur(12px);
       border-radius: 20px;
-      border: 1px solid rgba(237, 16, 24, 0.1);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+      border: 1px solid var(--border-cyan);
+      box-shadow: 0 0 0 1px rgba(0,229,255,0.05), 0 40px 100px rgba(0,0,0,0.5);
       overflow: hidden;
       display: flex;
       flex-direction: column;
     }
 
-    .cart-items {
-      padding: 40px;
-    }
+    .cart-items { padding: 40px; }
 
     .cart-item {
       display: flex;
@@ -111,35 +169,23 @@
       align-items: center;
       padding-bottom: 24px;
       margin-bottom: 24px;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      border-bottom: 1px solid var(--border);
     }
-    
+
     .cart-item:last-child {
       border-bottom: none;
       margin-bottom: 0;
       padding-bottom: 0;
     }
 
-    .cart-item-info h4 {
-      margin: 0 0 8px;
-      font-size: 1.2rem;
-    }
+    .cart-item-info h4 { margin: 0 0 8px; font-size: 1.1rem; color: var(--white); }
+    .cart-item-info p { margin: 0; color: var(--muted); font-size: 0.88rem; }
 
-    .cart-item-info p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .cart-item-controls {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
+    .cart-item-controls { display: flex; align-items: center; gap: 16px; }
 
     .qty-btn {
-      background: var(--soft);
-      border: 1px solid rgba(0,0,0,0.1);
+      background: var(--surface-3);
+      border: 1px solid var(--border);
       width: 36px;
       height: 36px;
       border-radius: 8px;
@@ -149,115 +195,81 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s;
-    }
-    
-    .qty-btn:hover {
-      background: #e9ecef;
+      color: var(--white);
+      transition: border-color var(--ease), color var(--ease);
     }
 
-    .qty-display {
-      font-weight: bold;
-      font-size: 1.1rem;
-      min-width: 24px;
-      text-align: center;
-    }
+    .qty-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    .qty-display { font-weight: bold; font-size: 1.1rem; min-width: 24px; text-align: center; color: var(--white); }
 
     .cart-summary {
-      background: var(--soft);
+      background: var(--surface-2);
       padding: 30px 40px;
-      border-top: 1px solid rgba(0,0,0,0.05);
+      border-top: 1px solid var(--border-cyan);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .summary-text p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-    
-    .summary-text h3 {
-      margin: 4px 0 0;
-      font-size: 1.4rem;
-    }
+    .summary-text p { margin: 0; color: var(--muted); font-size: 1rem; }
+    .summary-text h3 { margin: 4px 0 0; font-size: 1.4rem; color: var(--white); }
 
     .checkout-btn {
       padding: 16px 32px;
-      background: #25D366; /* WhatsApp Green */
+      background: #25D366;
       color: white;
       border: none;
       border-radius: 12px;
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 12px;
       transition: all 0.2s;
-      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.25);
     }
 
     .checkout-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
       filter: brightness(1.05);
     }
 
-    .empty-cart {
-      text-align: center;
-      padding: 60px 20px;
-    }
-    
-    .empty-cart svg {
-      color: var(--muted);
-      margin-bottom: 20px;
-      opacity: 0.5;
-    }
-    
-    .empty-cart p {
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-    }
-    
+    .empty-cart { text-align: center; padding: 60px 20px; }
+    .empty-cart svg { color: var(--muted); margin-bottom: 20px; opacity: 0.5; }
+    .empty-cart p { color: var(--muted); font-size: 1rem; margin-bottom: 30px; }
+
     .return-btn {
       padding: 14px 28px;
-      background: var(--red);
+      background: linear-gradient(135deg, var(--accent), #cc5200);
       color: white;
       border-radius: 10px;
       font-weight: bold;
       display: inline-block;
       transition: all 0.2s;
+      box-shadow: 0 0 20px rgba(255,102,0,0.3);
     }
-    
+
     .return-btn:hover {
-      background: var(--red-dark);
+      filter: brightness(1.15);
       transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(255,102,0,0.5);
     }
 
     footer {
       text-align: center;
       padding: 40px 0;
       color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(0,0,0,0.05);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--border-cyan);
     }
 
     @media (max-width: 600px) {
-      .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-      .cart-summary {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 24px;
-        text-align: center;
-      }
+      .cart-item { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .cart-summary { flex-direction: column; align-items: stretch; gap: 24px; text-align: center; }
     }
   </style>
 </head>
@@ -265,11 +277,11 @@
   <header>
     <a class="brand" href="index.html">
       <img class="brand-logo" src="../photos/Solutions/solutions_logo_transparent.png" alt="Clickline Solutions"/>
-      <span>Clickline Solutions</span>
+      <span class="brand-text">Clickline Solutions</span>
     </a>
     <a class="back-link" href="index.html">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-      Volver al catálogo
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Catálogo
     </a>
   </header>
 

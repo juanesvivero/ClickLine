@@ -64,7 +64,7 @@ function buildEmail({ name, email, city, phone, service, message }) {
     .join('');
 
   const html = `
-    <div style="font-family:Arial,sans-serif;color:#111827;">
+    <div style="font-family:Ethnocentric, Orbitron, 'Eurostile Extended', 'Bank Gothic', Arial, sans-serif;color:#111827;">
       <h2 style="color:#061A2F;">Nueva solicitud de cotización - Click Line Security</h2>
       <p>Un visitante envió el formulario de contacto desde la landing.</p>
       <table style="border-collapse:collapse;width:100%;max-width:680px;">${htmlRows}</table>

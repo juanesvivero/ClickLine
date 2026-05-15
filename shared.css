@@ -4,7 +4,7 @@
 ═══════════════════════════════════════════════════════ */
 
 /* ── GOOGLE FONTS ───────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap');
 
 /* ── TOKENS ─────────────────────────────────────────── */
 :root {
@@ -25,7 +25,7 @@
   --cl-muted-2:      #c8c4c0;
 
   /* Tipografía */
-  --cl-font:         'Plus Jakarta Sans', system-ui, sans-serif;
+  --cl-font:         'Ethnocentric', 'Orbitron', 'Eurostile Extended', 'Bank Gothic', system-ui, sans-serif;
 
   /* Espaciado */
   --cl-radius-sm:    10px;

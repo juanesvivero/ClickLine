@@ -5,20 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Clickline Solutions | Soluciones digitales</title>
   <meta name="description" content="Clickline Solutions: tecnología, software, soluciones digitales y servicios de innovación."/>
-  <meta name="theme-color" content="#050505"/>
+  <meta name="theme-color" content="#ffffff"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --black: #050505;
-      --ink: #111111;
-      --muted: #554b45;
-      --red: #ed1018;
-      --red-dark: #a9070d;
+      --black: #030308;
+      --dark: #08080f;
+      --surface: #0d0d18;
+      --surface-2: #12121f;
+      --surface-3: #1a1a2e;
+      --ink: #e8eaf6;
+      --muted: #7986cb;
+      --accent: #ff6600;
+      --accent-dim: rgba(255,102,0,0.15);
+      --accent-glow: rgba(255,102,0,0.45);
+      --cyan: #00e5ff;
+      --cyan-dim: rgba(0,229,255,0.12);
+      --cyan-glow: rgba(0,229,255,0.35);
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(255,102,0,0.25);
+      --border-cyan: rgba(0,229,255,0.2);
       --white: #ffffff;
-      --soft: #fff5f5;
+      --soft: #f0f4ff;
       --page-width: 1120px;
+      --display-font: "Ethnocentric", "Orbitron", "Eurostile Extended", "Bank Gothic", Arial, sans-serif;
+      --body-font: var(--display-font);
+      --ease: 220ms cubic-bezier(.25,.46,.45,.94);
     }
 
     * {
@@ -27,23 +41,10 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #fdfdfd;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #ddd;
-      border-radius: 10px;
-      border: 3px solid #fdfdfd;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--red);
-    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
 
     body {
       min-height: 100vh;
@@ -52,53 +53,139 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-family: "Plus Jakarta Sans", Arial, sans-serif;
+      font-family: var(--body-font);
       color: var(--ink);
       background:
-        radial-gradient(circle at 78% 20%, rgba(237, 16, 24, 0.16), transparent 26%),
-        linear-gradient(180deg, var(--white) 0%, var(--soft) 100%);
+        radial-gradient(ellipse 70% 50% at 10% 0%, rgba(255,102,0,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 100%, rgba(0,229,255,0.07) 0%, transparent 50%),
+        linear-gradient(180deg, var(--dark) 0%, var(--black) 100%);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    header,
-    main,
-    footer {
+    header, main, footer {
       width: min(var(--page-width), calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* ── HEADER FUTURISTA ──────────────────────────────── */
     header {
+      position: sticky;
+      top: 12px;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 22px;
-      padding: 28px 0;
+      width: min(var(--page-width), calc(100% - 40px));
+      margin-top: 12px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: rgba(8, 8, 20, 0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--border-cyan);
+      box-shadow:
+        0 0 0 1px rgba(0,229,255,0.05),
+        0 20px 60px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(0,229,255,0.08);
+      color: #ffffff;
+      transition: border-color var(--ease), box-shadow var(--ease);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(0,229,255,0.03) 0%, transparent 50%, rgba(255,102,0,0.03) 100%);
+      pointer-events: none;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-size: 1.35rem;
+      gap: 14px;
+      font-family: var(--display-font);
+      font-size: 1.15rem;
       font-weight: 800;
-      letter-spacing: -0.04em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #ffffff;
+      position: relative;
     }
 
     .brand-logo {
-      width: 72px;
-      height: 54px;
+      width: 52px;
+      height: 38px;
       object-fit: contain;
-      filter: drop-shadow(0 8px 14px rgba(237, 16, 24, 0.16));
+      filter: drop-shadow(0 0 12px rgba(0,229,255,0.4)) brightness(1.1);
+      transition: filter var(--ease), transform var(--ease);
+    }
+
+    .brand:hover .brand-logo {
+      filter: drop-shadow(0 0 18px rgba(0,229,255,0.65)) brightness(1.2);
+      transform: scale(1.05);
+    }
+
+    .brand-text {
+      background: linear-gradient(135deg, #ffffff 30%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
     .back-link {
-      color: var(--muted);
-      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(0,229,255,0.75);
+      font-family: var(--display-font);
+      font-size: 0.8rem;
       font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border-cyan);
+      background: var(--cyan-dim);
+      transition: color var(--ease), border-color var(--ease), background var(--ease), box-shadow var(--ease);
+    }
+
+    .back-link:hover {
+      color: var(--cyan);
+      border-color: rgba(0,229,255,0.45);
+      background: rgba(0,229,255,0.18);
+      box-shadow: 0 0 20px rgba(0,229,255,0.2);
+    }
+
+    .cart-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+      font-family: var(--display-font);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #cc5200);
+      box-shadow: 0 0 20px rgba(255,102,0,0.35);
+      transition: filter var(--ease), transform var(--ease), box-shadow var(--ease);
+    }
+
+    .cart-link:hover {
+      filter: brightness(1.15);
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(255,102,0,0.55);
     }
 
     .hero {
@@ -106,33 +193,23 @@
       flex-direction: column;
       align-items: center;
       min-height: calc(100vh - 162px);
-      padding: 52px 0 72px;
+      padding: 32px 0 80px;
     }
 
     .panel {
       width: 100%;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1fr;
       gap: clamp(28px, 6vw, 72px);
       align-items: center;
-      padding: clamp(28px, 6vw, 64px);
-      border: 1px solid rgba(237, 16, 24, 0.2);
+      justify-items: center;
+      text-align: center;
+      padding: clamp(28px, 5vw, 52px);
+      border: 1px solid var(--border-cyan);
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.78);
-      box-shadow: 0 30px 90px rgba(31, 20, 12, 0.12);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      margin-bottom: 18px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(237, 16, 24, 0.1);
-      color: var(--red);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      background: rgba(13,13,24,0.8);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 0 1px rgba(0,229,255,0.05), 0 40px 100px rgba(0,0,0,0.5), inset 0 1px 0 rgba(0,229,255,0.06);
     }
 
     h1 {
@@ -141,93 +218,26 @@
       font-size: clamp(2.35rem, 7vw, 5.2rem);
       line-height: 0.98;
       letter-spacing: -0.07em;
+      color: #ffffff;
+    }
+
+    .hero-logo {
+      display: block;
+      width: min(100%, 420px);
+      max-height: 220px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 24px rgba(0,229,255,0.35)) brightness(1.05);
+      margin: 0 auto;
     }
 
     p {
       max-width: 640px;
-      margin: 24px 0 0;
+      margin: 24px auto 0;
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.7;
     }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 34px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
-      border-radius: 12px;
-      font-weight: 800;
-    }
-
-    .button.primary {
-      background: linear-gradient(135deg, var(--red), var(--red-dark));
-      color: var(--white);
-      box-shadow: 0 18px 38px rgba(237, 16, 24, 0.26);
-    }
-
-    .button.primary:hover {
-      transform: translateY(-4px);
-      filter: brightness(1.1);
-      box-shadow: 0 24px 48px rgba(237, 16, 24, 0.35);
-    }
-
-    .button.secondary:hover {
-      transform: translateY(-2px);
-      border-color: var(--ink);
-      background: #fdfdfd;
-    }
-
-    .button.secondary {
-      border: 1px solid rgba(17, 17, 17, 0.18);
-      color: var(--ink);
-      background: var(--white);
-    }
-
-    .visual {
-      min-height: 360px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 70% 30%, rgba(237, 16, 24, 0.58), transparent 28%),
-        linear-gradient(135deg, #111111 0%, #050505 100%);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
-    }
-
-    .visual::before,
-    .visual::after {
-      content: "";
-      position: absolute;
-      border: 1px solid rgba(237, 16, 24, 0.42);
-      border-radius: 24px;
-      transform: rotate(-12deg);
-    }
-
-    .visual::before {
-      inset: 74px 42px 126px 78px;
-    }
-
-    .visual::after {
-      inset: 132px 86px 62px 34px;
-    }
-
-    .solution-word {
-      position: absolute;
-      left: 32px;
-      right: 32px;
-      bottom: 30px;
-      color: var(--white);
-    }
-    
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -257,7 +267,7 @@
       color: var(--muted);
       font-size: 0.9rem;
       text-align: center;
-      border-top: 1px solid rgba(237, 16, 24, 0.05);
+      border-top: 1px solid var(--border-cyan);
     }
 
     @media (max-width: 520px) {
@@ -277,24 +287,36 @@
       header {
         align-items: flex-start;
         flex-direction: column;
+        border-radius: 22px;
       }
 
       .panel {
         grid-template-columns: 1fr;
+      }
+
+      .hero-logo {
+        width: min(100%, 320px);
       }
     }
     .categories-section {
       width: 100%;
       margin-top: 80px;
       padding-top: 64px;
-      border-top: 1px solid rgba(237, 16, 24, 0.1);
+      border-top: 1px solid var(--border-cyan);
     }
 
     .categories-section h2 {
+      font-family: var(--display-font);
       font-size: clamp(2rem, 5vw, 3rem);
-      letter-spacing: -0.05em;
+      letter-spacing: 0.04em;
       margin: 0 0 48px;
       text-align: center;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: linear-gradient(135deg, #ffffff 40%, var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .category-block {
@@ -321,14 +343,17 @@
     }
 
     .category-block h3 {
+      font-family: var(--display-font);
       font-size: 1.5rem;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.04em;
       margin: 0 auto 24px;
-      color: var(--red);
-      border-bottom: 2px solid rgba(237, 16, 24, 0.1);
+      color: var(--cyan);
+      border-bottom: 2px solid rgba(0,229,255,0.2);
       padding-bottom: 12px;
       text-align: center;
       max-width: fit-content;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px rgba(0,229,255,0.4);
     }
 
     .product-grid {
@@ -361,7 +386,7 @@
       scroll-snap-type: x mandatory;
       scrollbar-width: thin;
       scrollbar-color: var(--red) rgba(237, 16, 24, 0.1);
-      justify-content: safe center;
+      justify-content: flex-start;
     }
 
     .horizontal-scroll-small::-webkit-scrollbar {
@@ -373,38 +398,78 @@
       border-radius: 10px;
     }
 
+    .scroll-carousel {
+      position: relative;
+    }
+
+    .scroll-arrow {
+      position: absolute;
+      top: 42%;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border-cyan);
+      border-radius: 999px;
+      background: rgba(13,13,24,0.9);
+      color: var(--cyan);
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(0,229,255,0.2);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .scroll-arrow:hover {
+      transform: translateY(-2px);
+      border-color: var(--cyan);
+      box-shadow: 0 0 30px rgba(0,229,255,0.4);
+    }
+
+    .scroll-arrow-left {
+      left: -22px;
+    }
+
+    .scroll-arrow-right {
+      right: -22px;
+    }
+
+    @media (max-width: 768px) {
+      .scroll-arrow {
+        display: none;
+      }
+    }
+
 
 
     .product-card {
       flex: 0 0 260px;
       width: 260px;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(237, 16, 24, 0.08);
+      background: rgba(13,13,24,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
       border-radius: 16px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
     .product-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(237, 16, 24, 0.12);
-      border-color: rgba(237, 16, 24, 0.3);
-      background: #ffffff;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(0,229,255,0.12);
+      border-color: var(--border-cyan);
     }
 
     .product-image-placeholder {
       width: 100%;
       aspect-ratio: 1.1 / 1;
-      background: transparent;
+      background: var(--surface-2);
       display: flex;
       align-items: center;
       justify-content: center;
-      border-bottom: 1px solid rgba(237, 16, 24, 0.06);
+      border-bottom: 1px solid var(--border);
       overflow: hidden;
     }
 
@@ -417,9 +482,17 @@
     }
 
     .paper-rolls-bg {
-      background:
-        radial-gradient(circle at 50% 46%, rgba(237, 16, 24, 0.08), transparent 58%),
-        linear-gradient(135deg, #fff7f7 0%, #f1eeee 100%);
+      background: #ffffff;
+    }
+
+    .product-image-placeholder img.cash-drawer-img {
+      max-width: 92%;
+      max-height: 92%;
+    }
+
+    .product-image-placeholder img.bill-counter-img {
+      max-width: 92%;
+      max-height: 92%;
     }
 
     .product-card:hover .product-image-placeholder img {
@@ -439,19 +512,24 @@
 
     .product-content h4 {
       margin: 0 0 8px;
+      font-family: var(--display-font);
       font-size: 1.1rem;
       line-height: 1.3;
+      letter-spacing: 0.01em;
     }
 
     .product-meta {
       margin: 0 0 12px;
       font-size: 0.7rem;
-      color: var(--red-dark);
-      background: rgba(237, 16, 24, 0.05);
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border: 1px solid rgba(0,229,255,0.15);
       padding: 4px 10px;
       border-radius: 999px;
       display: inline-flex;
+      font-family: var(--display-font);
       font-weight: 700;
+      letter-spacing: 0.03em;
       text-transform: uppercase;
     }
 
@@ -463,25 +541,113 @@
     }
 
     @media (max-width: 768px) {
-      .product-card {
-        flex: 0 0 85%;
+      .categories-section {
+        gap: 46px;
+        margin-top: 54px;
+        padding-top: 44px;
+      }
+
+      .category-block {
+        width: 100%;
+        margin-bottom: 0;
+      }
+
+      .category-block h3 {
+        margin-bottom: 18px;
+      }
+
+      .product-grid,
+      .category-row .product-grid,
+      .horizontal-scroll-small {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 14px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: calc(100% + 28px);
+        margin-inline: -14px;
+        padding: 0 14px 18px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+        scrollbar-color: var(--red) rgba(237, 16, 24, 0.1);
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .product-grid::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .product-grid::-webkit-scrollbar-thumb {
+        background: var(--red);
+        border-radius: 10px;
+      }
+
+      .product-card,
+      .category-row .product-card,
+      .horizontal-scroll-small .product-card {
+        flex: 0 0 184px;
+        width: 184px;
+        scroll-snap-align: start;
+        border-radius: 14px;
+      }
+
+      .product-image-placeholder {
+        aspect-ratio: 1.18 / 1;
+      }
+
+      .product-content {
+        padding: 12px;
+      }
+
+      .product-content h4 {
+        font-size: 0.92rem;
+        line-height: 1.25;
+      }
+
+      .product-meta {
+        font-size: 0.62rem;
+        padding: 3px 8px;
+      }
+
+      .product-desc {
+        font-size: 0.76rem;
+        line-height: 1.42;
+      }
+
+      .add-to-cart-btn {
+        margin-top: 12px;
+        padding: 9px 8px;
+        font-size: 0.78rem;
       }
     }
     .add-to-cart-btn {
       margin-top: 16px;
       padding: 10px;
-      background: var(--soft);
-      border: 1px solid rgba(237, 16, 24, 0.1);
-      color: var(--red);
+      background: var(--accent-dim);
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
       border-radius: 8px;
-      font-weight: 600;
+      font-family: var(--display-font);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.25s;
       width: 100%;
     }
     .add-to-cart-btn:hover {
-      background: var(--red);
-      color: white;
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 20px rgba(255,102,0,0.35);
+    }
+
+    @media (max-width: 768px) {
+      .add-to-cart-btn {
+        margin-top: 12px;
+        padding: 9px 8px;
+        font-size: 0.78rem;
+      }
     }
 
     /* Cart Sidebar & Button */
@@ -489,7 +655,7 @@
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: var(--red);
+      background: linear-gradient(135deg, var(--accent), #cc5200);
       color: white;
       width: 60px;
       height: 60px;
@@ -497,14 +663,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 25px rgba(237, 16, 24, 0.4);
+      box-shadow: 0 0 30px rgba(255,102,0,0.5);
       cursor: pointer;
       z-index: 1000;
-      transition: transform 0.3s ease;
-      border: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255,102,0,0.3);
     }
     .cart-floating-btn:hover {
       transform: scale(1.1);
+      box-shadow: 0 0 45px rgba(255,102,0,0.7);
     }
     .cart-count-badge {
       position: absolute;
@@ -512,6 +679,7 @@
       right: -5px;
       background: var(--ink);
       color: white;
+      font-family: var(--display-font);
       font-size: 0.75rem;
       font-weight: bold;
       width: 24px;
@@ -530,8 +698,9 @@
       width: 100%;
       max-width: 380px;
       height: 100vh;
-      background: white;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+      background: var(--surface);
+      border-left: 1px solid var(--border-cyan);
+      box-shadow: -20px 0 60px rgba(0,0,0,0.7);
       z-index: 1001;
       transition: right 0.4s ease;
       display: flex;
@@ -558,13 +727,14 @@
     }
     .cart-header {
       padding: 24px;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      border-bottom: 1px solid var(--border-cyan);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .cart-header h3 { margin: 0; font-size: 1.2rem; }
-    .close-cart { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--ink); }
+    .cart-header h3 { margin: 0; font-size: 1.1rem; color: var(--cyan); letter-spacing: 0.06em; text-transform: uppercase; }
+    .close-cart { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--muted); transition: color 0.2s; }
+    .close-cart:hover { color: var(--white); }
     
     .cart-items {
       flex: 1;
@@ -579,16 +749,17 @@
       justify-content: space-between;
       align-items: center;
       padding-bottom: 16px;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      border-bottom: 1px solid var(--border);
     }
     .cart-item-info { flex: 1; padding-right: 12px; }
-    .cart-item-info h5 { margin: 0 0 4px; font-size: 0.95rem; }
+    .cart-item-info h5 { margin: 0 0 4px; font-size: 0.9rem; color: var(--white); }
     .cart-item-qty { display: flex; align-items: center; gap: 12px; }
-    .cart-item-qty button { background: var(--soft); border: 1px solid rgba(0,0,0,0.1); width: 28px; height: 28px; border-radius: 6px; cursor: pointer; font-weight: bold;}
+    .cart-item-qty button { background: var(--surface-3); border: 1px solid var(--border); width: 28px; height: 28px; border-radius: 6px; cursor: pointer; font-weight: bold; color: var(--white); transition: border-color 0.2s; }
+    .cart-item-qty button:hover { border-color: var(--cyan); color: var(--cyan); }
     
     .cart-footer {
       padding: 24px;
-      border-top: 1px solid rgba(0,0,0,0.05);
+      border-top: 1px solid var(--border-cyan);
     }
     .whatsapp-btn {
       width: 100%;
@@ -597,8 +768,11 @@
       color: white;
       border: none;
       border-radius: 12px;
+      font-family: var(--display-font);
       font-weight: bold;
       font-size: 1rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -607,33 +781,547 @@
       transition: filter 0.2s;
     }
     .whatsapp-btn:hover { filter: brightness(1.05); }
+
+    /* ── LIGHT RED THEME — aligned with Security ───────────────── */
+    :root {
+      --black: #ffffff;
+      --dark: #fff6f6;
+      --surface: #ffffff;
+      --surface-2: #fff8f8;
+      --surface-3: #fff0f0;
+      --ink: #151111;
+      --muted: #685555;
+      --accent: #ed1018;
+      --red: #ed1018;
+      --accent-dim: rgba(237,16,24,0.09);
+      --accent-glow: rgba(237,16,24,0.34);
+      --cyan: #ed1018;
+      --cyan-dim: rgba(237,16,24,0.08);
+      --cyan-glow: rgba(237,16,24,0.28);
+      --border: rgba(24,17,17,0.09);
+      --border-accent: rgba(237,16,24,0.28);
+      --border-cyan: rgba(237,16,24,0.26);
+      --soft: #fff6f6;
+    }
+
+    ::-webkit-scrollbar-track { background: #fff4f4; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); }
+    ::-webkit-scrollbar-thumb:hover { background: #b80b11; }
+
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(237, 16, 24, 0.12), transparent 28%),
+        radial-gradient(circle at 86% 18%, rgba(237, 16, 24, 0.08), transparent 24%),
+        linear-gradient(180deg, #ffffff 0%, #fff8f8 54%, #ffffff 100%);
+    }
+
+    header {
+      background: rgba(255,255,255,0.92);
+      border-color: rgba(237,16,24,0.24);
+      box-shadow: 0 18px 50px rgba(64, 10, 14, 0.1), inset 0 1px 0 rgba(255,255,255,0.88);
+      color: var(--ink);
+    }
+
+    header::before {
+      background: linear-gradient(90deg, rgba(237,16,24,0.08), transparent 52%, rgba(237,16,24,0.04));
+    }
+
+    .brand-logo,
+    .brand:hover .brand-logo {
+      filter: drop-shadow(0 8px 18px rgba(237,16,24,0.2));
+    }
+
+    .brand-text {
+      background: linear-gradient(135deg, #151111 24%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .back-link {
+      color: var(--accent);
+      border-color: rgba(237,16,24,0.26);
+      background: rgba(237,16,24,0.07);
+    }
+
+    .back-link:hover {
+      color: #b80b11;
+      border-color: rgba(237,16,24,0.56);
+      background: rgba(237,16,24,0.12);
+      box-shadow: 0 12px 26px rgba(237,16,24,0.14);
+    }
+
+    .hero {
+      padding-top: 38px;
+    }
+
+    .hero-visual-bg {
+      background: radial-gradient(circle, rgba(237, 16, 24, 0.08) 0%, transparent 70%);
+      filter: blur(70px);
+    }
+
+    .panel {
+      position: relative;
+      overflow: hidden;
+      border-color: rgba(237,16,24,0.28);
+      background:
+        linear-gradient(145deg, rgba(237,16,24,0.08), rgba(255,255,255,0.98) 42%),
+        #ffffff;
+      box-shadow: 0 30px 90px rgba(64, 10, 14, 0.1), 0 0 36px rgba(237,16,24,0.08);
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(237,16,24,0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(237,16,24,0.06) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.45), transparent 72%);
+      pointer-events: none;
+    }
+
+    .panel > div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-logo {
+      filter: drop-shadow(0 18px 34px rgba(237,16,24,0.17));
+    }
+
+    p,
+    .product-desc {
+      color: var(--muted);
+    }
+
+    .categories-section {
+      border-top-color: rgba(237,16,24,0.22);
+    }
+
+    .categories-section h2 {
+      color: var(--ink);
+      background: linear-gradient(135deg, #151111 32%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 0.02em;
+    }
+
+    .category-block h3 {
+      color: var(--accent);
+      border-bottom-color: rgba(237,16,24,0.24);
+      text-shadow: none;
+    }
+
+    .product-card {
+      background:
+        linear-gradient(145deg, rgba(237,16,24,0.06), rgba(255,255,255,0.98) 42%),
+        #ffffff;
+      border-color: rgba(237,16,24,0.2);
+      box-shadow: 0 14px 44px rgba(64, 10, 14, 0.08);
+    }
+
+    .product-card:hover {
+      border-color: rgba(237,16,24,0.66);
+      box-shadow: 0 24px 64px rgba(64, 10, 14, 0.12), 0 0 30px rgba(237,16,24,0.12);
+    }
+
+    .product-image-placeholder {
+      background:
+        radial-gradient(circle at 50% 45%, rgba(237,16,24,0.08), transparent 58%),
+        #fffafa;
+      border-bottom-color: rgba(237,16,24,0.16);
+    }
+
+    .paper-rolls-bg {
+      background:
+        radial-gradient(circle at 50% 45%, rgba(237,16,24,0.08), transparent 58%),
+        #ffffff;
+    }
+
+    .product-image-placeholder img {
+      filter: drop-shadow(0 14px 24px rgba(38, 20, 20, 0.1));
+    }
+
+    .product-content h4 {
+      color: var(--ink);
+    }
+
+    .product-meta {
+      color: var(--accent);
+      background: rgba(237,16,24,0.08);
+      border-color: rgba(237,16,24,0.18);
+    }
+
+    .add-to-cart-btn {
+      background: rgba(237,16,24,0.08);
+      border-color: rgba(237,16,24,0.26);
+      color: var(--accent);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.84);
+    }
+
+    .add-to-cart-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 16px 34px rgba(237,16,24,0.24);
+    }
+
+    .scroll-arrow {
+      background: rgba(255,255,255,0.94);
+      color: var(--accent);
+      border-color: rgba(237,16,24,0.28);
+      box-shadow: 0 12px 30px rgba(64, 10, 14, 0.12);
+    }
+
+    .scroll-arrow:hover {
+      border-color: var(--accent);
+      box-shadow: 0 18px 36px rgba(237,16,24,0.18);
+    }
+
+    .horizontal-scroll-small,
+    .product-grid,
+    .category-row .product-grid {
+      scrollbar-color: var(--accent) rgba(237,16,24,0.08);
+    }
+
+    .horizontal-scroll-small::-webkit-scrollbar-thumb,
+    .product-grid::-webkit-scrollbar-thumb {
+      background: var(--accent);
+    }
+
+    .cart-floating-btn {
+      background: linear-gradient(135deg, var(--accent), #b80b11);
+      box-shadow: 0 18px 38px rgba(237,16,24,0.28);
+      border-color: rgba(237,16,24,0.34);
+    }
+
+    .cart-floating-btn:hover {
+      box-shadow: 0 22px 48px rgba(237,16,24,0.38);
+    }
+
+    .cart-count-badge {
+      background: #151111;
+      color: #ffffff;
+    }
+
+    footer {
+      color: #fff6f6;
+      background:
+        radial-gradient(circle at 82% 0%, rgba(237,16,24,0.22), transparent 28%),
+        linear-gradient(180deg, #161111 0%, #050505 100%);
+      border-top-color: rgba(237,16,24,0.28);
+      width: 100%;
+      padding-inline: 20px;
+    }
+
+    .licenses-section {
+      --license-accent: #087a55;
+      --license-accent-dark: #065f46;
+      --license-accent-soft: rgba(8,122,85,0.09);
+      --license-border: rgba(8,122,85,0.24);
+      width: 100%;
+      margin-top: 80px;
+      padding: clamp(28px, 5vw, 52px);
+      border: 1px solid var(--license-border);
+      border-radius: 24px;
+      background:
+        linear-gradient(145deg, rgba(8,122,85,0.1), rgba(255,255,255,0.98) 38%),
+        #ffffff;
+      box-shadow: 0 26px 76px rgba(8, 82, 58, 0.1), 0 0 34px rgba(8,122,85,0.07);
+      overflow: hidden;
+    }
+
+    .licenses-header {
+      display: grid;
+      gap: 14px;
+      max-width: 760px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .licenses-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 7px 12px;
+      border: 1px solid var(--license-border);
+      border-radius: 999px;
+      background: var(--license-accent-soft);
+      color: var(--license-accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .licenses-header h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    .licenses-header h2 span {
+      color: var(--license-accent);
+    }
+
+    .licenses-header p {
+      margin-top: 0;
+      max-width: 690px;
+    }
+
+    .license-carousel {
+      position: relative;
+    }
+
+    .license-track {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 8px 4px 22px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--license-accent) rgba(8,122,85,0.08);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .license-track::-webkit-scrollbar {
+      height: 7px;
+    }
+
+    .license-track::-webkit-scrollbar-thumb {
+      background: var(--license-accent);
+      border-radius: 999px;
+    }
+
+    .license-card {
+      flex: 0 0 min(340px, 86vw);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      scroll-snap-align: center;
+      border: 1px solid rgba(8,122,85,0.2);
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 18px 48px rgba(8, 82, 58, 0.1);
+      transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+    }
+
+    .license-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(8,122,85,0.58);
+      box-shadow: 0 26px 64px rgba(8, 82, 58, 0.14), 0 0 30px rgba(8,122,85,0.1);
+    }
+
+    .license-image-wrap {
+      position: relative;
+      aspect-ratio: 1023 / 1280;
+      background: #fffafa;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(8,122,85,0.16);
+    }
+
+    .license-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .license-card:hover .license-image-wrap img {
+      transform: scale(1.018);
+    }
+
+    .license-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .license-body h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.08rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .license-benefits {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .license-benefits li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .license-benefits li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--license-accent);
+      box-shadow: 0 0 10px rgba(8,122,85,0.34);
+    }
+
+    .license-card .add-to-cart-btn {
+      margin-top: auto;
+      background: rgba(8,122,85,0.08);
+      border-color: rgba(8,122,85,0.26);
+      color: var(--license-accent);
+    }
+
+    .license-card .add-to-cart-btn:hover {
+      background: var(--license-accent);
+      border-color: var(--license-accent);
+      color: #ffffff;
+      box-shadow: 0 16px 34px rgba(8,122,85,0.24);
+    }
+
+    .license-scroll-arrow {
+      top: 38%;
+      color: var(--license-accent);
+      border-color: rgba(8,122,85,0.28);
+      box-shadow: 0 12px 30px rgba(8, 82, 58, 0.12);
+    }
+
+    .license-scroll-arrow:hover {
+      border-color: var(--license-accent);
+      box-shadow: 0 18px 36px rgba(8,122,85,0.18);
+    }
+
+    @media (min-width: 1120px) {
+      .license-track {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .licenses-section {
+        margin-top: 54px;
+        padding: 26px 18px;
+        border-radius: 20px;
+      }
+
+      .license-track {
+        width: calc(100% + 36px);
+        margin-inline: -18px;
+        padding-inline: 18px;
+      }
+
+      .license-card {
+        flex-basis: min(292px, 82vw);
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <a class="brand" href="../index.html">
       <img class="brand-logo" src="../photos/Solutions/solutions_logo_transparent.png" alt="Clickline Solutions"/>
-      <span>Clickline Solutions</span>
+      <span class="brand-text">Clickline Solutions</span>
     </a>
-    <a class="back-link" href="../index.html">Volver al portal</a>
+    <div class="nav-right">
+      <a class="back-link" href="../index.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Portal
+      </a>
+    </div>
   </header>
 
   <main class="hero">
     <div class="hero-visual-bg"></div>
     <div style="position: fixed; top: 20%; left: -5%; width: 300px; height: 300px; background: rgba(237, 16, 24, 0.03); filter: blur(100px); border-radius: 50%; z-index: -1;"></div>
-    <div style="position: fixed; bottom: 10%; right: -5%; width: 400px; height: 400px; background: rgba(0, 0, 0, 0.02); filter: blur(80px); border-radius: 50%; z-index: -1;"></div>
-    <section class="panel" aria-labelledby="solutions-title">
+    <div style="position: fixed; bottom: 10%; right: -5%; width: 400px; height: 400px; background: rgba(237, 16, 24, 0.04); filter: blur(80px); border-radius: 50%; z-index: -1;"></div>
+    <section class="panel" aria-label="Clickline Solutions">
       <div>
-        <span class="eyebrow">Tecnología y soluciones digitales</span>
-        <h1 id="solutions-title">Clickline Solutions</h1>
-        <p>Esta será la página de la línea Solutions. Queda preparada como espacio independiente para presentar software, servicios digitales, automatización, soporte tecnológico o la propuesta específica del cliente.</p>
-        <div class="actions">
-          <a class="button primary" href="mailto:contacto@clickline.mobi">Contactar</a>
-          <a class="button secondary" href="../security/index.html">Ver Clickline Security</a>
-        </div>
+        <img class="hero-logo" src="../photos/Solutions/solutions_logo_transparent.png" alt="Clickline Solutions">
+        <p>Click Line Solutions se especializa en optimizar la operación de negocios mediante tecnología de vanguardia, ofreciendo soluciones en sistemas POS, impresoras térmicas y dispositivos biométricos. Su compromiso principal es mejorar la eficiencia y seguridad empresarial a través de productos de alta calidad, soporte especializado y asesoría personalizada.</p>
       </div>
-      <div class="visual" aria-hidden="true">
-        <div class="solution-word">Digital<br/>Solutions</div>
+    </section>
+    <section class="licenses-section" aria-labelledby="licencias-title">
+      <div class="licenses-header">
+        <span class="licenses-kicker">Sistema de facturación</span>
+        <h2 id="licencias-title">Licencias <span>Run Food App</span></h2>
+        <p>Elige la licencia que mejor se adapte a tu operación. Cada imagen incluye el detalle completo de funcionalidades.</p>
+      </div>
+
+      <div class="license-carousel">
+        <button class="scroll-arrow scroll-arrow-left license-scroll-arrow" type="button" aria-label="Ver licencia anterior" data-scroll-target="license-products" data-scroll-dir="-1">‹</button>
+        <div class="license-track" id="license-products" aria-label="Licencias disponibles">
+          <article class="license-card">
+            <div class="license-image-wrap">
+              <img src="../photos/Solutions/Licencia_1.jpeg" alt="Licencia Sencilla de Run Food App con facturación ilimitada, inventario, caja y reportes">
+            </div>
+            <div class="license-body">
+              <h3>Licencia Sencilla</h3>
+              <ul class="license-benefits">
+                <li>Facturación electrónica ilimitada y control de inventario.</li>
+                <li>Arqueo, cierre de caja por turnos y cuentas divididas.</li>
+                <li>Usuarios, permisos, restricciones y reportes operativos.</li>
+              </ul>
+              <button class="add-to-cart-btn" onclick="addToCart('Licencia Run Food Sencilla')">
+                Añadir licencia
+              </button>
+            </div>
+          </article>
+
+          <article class="license-card">
+            <div class="license-image-wrap">
+              <img src="../photos/Solutions/Licencia_2.jpeg" alt="Licencia Tiempo Real de Run Food App con comandas, acceso remoto, API y seguridad avanzada">
+            </div>
+            <div class="license-body">
+              <h3>Licencia Tiempo Real</h3>
+              <ul class="license-benefits">
+                <li>Incluye las características de la licencia sencilla.</li>
+                <li>Pre-factura, distribución de comandas y control de anulaciones.</li>
+                <li>Acceso remoto, reportes por clientes, API y descuentos programados.</li>
+              </ul>
+              <button class="add-to-cart-btn" onclick="addToCart('Licencia Run Food Tiempo Real')">
+                Añadir licencia
+              </button>
+            </div>
+          </article>
+
+          <article class="license-card">
+            <div class="license-image-wrap">
+              <img src="../photos/Solutions/Licencia_3.jpeg" alt="Licencia Avanzada de Run Food App con tablets, multiples cajas, fidelidad y cupones">
+            </div>
+            <div class="license-body">
+              <h3>Licencia Avanzada</h3>
+              <ul class="license-benefits">
+                <li>Incluye las características de sencilla y tiempo real.</li>
+                <li>Toma de pedidos con tablets o celulares y hasta 5 dispositivos.</li>
+                <li>Múltiples cajas, cupones, fidelidad y reportes avanzados.</li>
+              </ul>
+              <button class="add-to-cart-btn" onclick="addToCart('Licencia Run Food Avanzada')">
+                Añadir licencia
+              </button>
+            </div>
+          </article>
+        </div>
+        <button class="scroll-arrow scroll-arrow-right license-scroll-arrow" type="button" aria-label="Ver más licencias" data-scroll-target="license-products" data-scroll-dir="1">›</button>
       </div>
     </section>
     <section class="categories-section">
@@ -649,8 +1337,8 @@
             </div>
             <div class="product-content">
               <h4>Impresora Térmica SAT 15T</h4>
-              <div><span class="product-meta">Rugged | 1 año</span></div>
-              <p class="product-desc">Compacta para alto tráfico, USB/Serial, cortador manual.</p>
+              <div><span class="product-meta">Tipo: Rugged | Garantía: 1 año</span></div>
+              <p class="product-desc">Impresora térmica compacta para puntos de venta de alto tráfico, conexión USB/Serial y cortador manual.</p>
             
               <button class="add-to-cart-btn" onclick="addToCart('Impresora Térmica SAT 15T')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -664,8 +1352,8 @@
             </div>
             <div class="product-content">
               <h4>Impresora Térmica SAT 22T</h4>
-              <div><span class="product-meta">Rugged | 1 año</span></div>
-              <p class="product-desc">Alta calidad, USB/Serial/Ethernet, soporte de pared.</p>
+              <div><span class="product-meta">Tipo: Rugged | Garantía: 1 año</span></div>
+              <p class="product-desc">Impresora térmica de alto rendimiento con USB, Serial y Ethernet, compatible con montaje en pared.</p>
             
               <button class="add-to-cart-btn" onclick="addToCart('Impresora Térmica SAT 22T')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -679,8 +1367,8 @@
             </div>
             <div class="product-content">
               <h4>Impresora Térmica SAT 38T</h4>
-              <div><span class="product-meta">Full Rugged | 2 años</span></div>
-              <p class="product-desc">Alto rendimiento, 300 mm/s, múltiples puertos.</p>
+              <div><span class="product-meta">Tipo: Full Rugged | Garantía: 2 años</span></div>
+              <p class="product-desc">Impresora térmica profesional de 300 mm/s para operación continua, con múltiples puertos de conexión.</p>
             
               <button class="add-to-cart-btn" onclick="addToCart('Impresora Térmica SAT 38T')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -702,8 +1390,8 @@
               </div>
               <div class="product-content">
                 <h4>AIO SAT POS</h4>
-                <div><span class="product-meta">Full Rugged | 1 año</span></div>
-                <p class="product-desc">Todo en uno táctil, resistente, trabajo 24/7.</p>
+                <div><span class="product-meta">Tipo: Full Rugged | Garantía: 1 año</span></div>
+                <p class="product-desc">Equipo POS todo en uno con pantalla táctil, diseñado para operación comercial resistente y trabajo 24/7.</p>
               
               <button class="add-to-cart-btn" onclick="addToCart('AIO SAT POS')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -717,8 +1405,8 @@
               </div>
               <div class="product-content">
                 <h4>Intel NUC</h4>
-                <div><span class="product-meta">i3 | 1 año</span></div>
-                <p class="product-desc">Mini PC con monitor LG 19.5”, SSD 1TB.</p>
+                <div><span class="product-meta">Procesador: Intel i3 | Garantía: 1 año</span></div>
+                <p class="product-desc">Mini PC Intel NUC con monitor LG de 19.5 pulgadas y almacenamiento SSD de 1TB para estaciones POS.</p>
               
               <button class="add-to-cart-btn" onclick="addToCart('Intel NUC')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -738,8 +1426,8 @@
               </div>
               <div class="product-content">
                 <h4>Scanner SAT AI402</h4>
-                <div><span class="product-meta">Rugged | 1 año</span></div>
-                <p class="product-desc">USB manual/auto, 1D/2D/OCR, 270 lecturas/s.</p>
+                <div><span class="product-meta">Tipo: Rugged | Garantía: 1 año</span></div>
+                <p class="product-desc">Scanner 1D/2D/OCR con conexión USB, modos manual y automático, hasta 270 lecturas por segundo.</p>
               
               <button class="add-to-cart-btn" onclick="addToCart('Scanner SAT AI402')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -753,8 +1441,8 @@
               </div>
               <div class="product-content">
                 <h4>Scanner SAT AI8600</h4>
-                <div><span class="product-meta">Rugged | 1 año</span></div>
-                <p class="product-desc">De mesa USB, 2500 códigos/s, resistente a caídas.</p>
+                <div><span class="product-meta">Tipo: Rugged | Garantía: 1 año</span></div>
+                <p class="product-desc">Scanner de mesa USB para alto volumen, hasta 2500 códigos por segundo y resistencia a caídas.</p>
               
               <button class="add-to-cart-btn" onclick="addToCart('Scanner SAT AI8600')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -769,80 +1457,86 @@
       <!-- Row 3: Biométricos & Otros (Combined Scroll) -->
       <div class="category-block">
         <h3>Biométricos & Otros</h3>
-        <div class="horizontal-scroll-small">
-          <article class="product-card">
-            <div class="product-image-placeholder">
-              <img src="../photos/Solutions/SPEEDFACE-V5L.png" alt="ZKTeco SpeedFace-V5L">
-            </div>
-            <div class="product-content">
-              <h4>ZKTeco SpeedFace</h4>
-              <div><span class="product-meta">1 año</span></div>
-              <p class="product-desc">Reconocimiento facial y palma sin contacto.</p>
-            
-              <button class="add-to-cart-btn" onclick="addToCart('ZKTeco SpeedFace')">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                Añadir a la cesta
-              </button>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image-placeholder">
-              <img src="../photos/Solutions/ZKTECO-MB20-VL-.png" alt="ZKTeco MB20">
-            </div>
-            <div class="product-content">
-              <h4>ZKTeco MB20</h4>
-              <div><span class="product-meta">1 año</span></div>
-              <p class="product-desc">Control de acceso moderno, TCP/IP, batería.</p>
-            
-              <button class="add-to-cart-btn" onclick="addToCart('ZKTeco MB20')">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                Añadir a la cesta
-              </button>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image-placeholder">
-              <img src="../photos/Solutions/Cajón 119X.png" alt="Cajón 119X">
-            </div>
-            <div class="product-content">
-              <h4>Cajón 119X</h4>
-              <div><span class="product-meta">Rugged</span></div>
-              <p class="product-desc">Metálico, apertura automática/manual.</p>
-            
-              <button class="add-to-cart-btn" onclick="addToCart('Cajón 119X')">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                Añadir a la cesta
-              </button>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image-placeholder paper-rolls-bg">
-              <img src="../photos/Solutions/Papel.png" alt="Rollos Papel">
-            </div>
-            <div class="product-content">
-              <h4>Rollos Papel</h4>
-              <div><span class="product-meta">Térmico</span></div>
-              <p class="product-desc">50mm, 79mm, bond y químico.</p>
-            
-              <button class="add-to-cart-btn" onclick="addToCart('Rollos Papel')">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                Añadir a la cesta
-              </button>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image-placeholder"></div>
-            <div class="product-content">
-              <h4>Contador SAT</h4>
-              <div><span class="product-meta">UV/MG</span></div>
-              <p class="product-desc">Velocidad hasta 1200 billetes/min.</p>
-            
-              <button class="add-to-cart-btn" onclick="addToCart('Contador SAT')">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                Añadir a la cesta
-              </button>
-            </div>
-          </article>
+        <div class="scroll-carousel">
+          <button class="scroll-arrow scroll-arrow-left" type="button" aria-label="Ver productos anteriores" data-scroll-target="misc-products" data-scroll-dir="-1">‹</button>
+          <div class="horizontal-scroll-small" id="misc-products">
+            <article class="product-card">
+              <div class="product-image-placeholder">
+                <img src="../photos/Solutions/SPEEDFACE-V5L.png" alt="ZKTeco SpeedFace-V5L">
+              </div>
+              <div class="product-content">
+                <h4>ZKTeco SpeedFace</h4>
+                <div><span class="product-meta">Biométrico facial | Garantía: 1 año</span></div>
+                <p class="product-desc">Terminal biométrico para reconocimiento facial y palma sin contacto, ideal para control de acceso.</p>
+              
+                <button class="add-to-cart-btn" onclick="addToCart('ZKTeco SpeedFace')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                  Añadir a la cesta
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image-placeholder">
+                <img src="../photos/Solutions/ZKTECO-MB20-VL-.png" alt="ZKTeco MB20">
+              </div>
+              <div class="product-content">
+                <h4>ZKTeco MB20</h4>
+                <div><span class="product-meta">Control de acceso | Garantía: 1 año</span></div>
+                <p class="product-desc">Equipo biométrico moderno con conectividad TCP/IP y batería de respaldo para gestión de entradas.</p>
+              
+                <button class="add-to-cart-btn" onclick="addToCart('ZKTeco MB20')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                  Añadir a la cesta
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image-placeholder">
+                <img class="cash-drawer-img" src="../photos/Solutions/Cajón 119X.png" alt="Cajón 119X">
+              </div>
+              <div class="product-content">
+                <h4>Cajón 119X</h4>
+                <div><span class="product-meta">Tipo: Rugged | Cajón metálico</span></div>
+                <p class="product-desc">Cajón monedero metálico para POS con apertura automática o manual y compartimentos organizados.</p>
+              
+                <button class="add-to-cart-btn" onclick="addToCart('Cajón 119X')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                  Añadir a la cesta
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image-placeholder paper-rolls-bg">
+                <img src="../photos/Solutions/papel.png" alt="Rollos Papel">
+              </div>
+              <div class="product-content">
+                <h4>Rollos Papel</h4>
+                <div><span class="product-meta">Tipo: Papel térmico | Varios formatos</span></div>
+                <p class="product-desc">Rollos para impresión POS en medidas de 50mm y 79mm, disponibles en papel térmico, bond y químico.</p>
+              
+                <button class="add-to-cart-btn" onclick="addToCart('Rollos Papel')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                  Añadir a la cesta
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image-placeholder">
+                <img class="bill-counter-img" src="../photos/Solutions/Contador de billetes.png" alt="Contador de billetes SAT BC5120">
+              </div>
+              <div class="product-content">
+                <h4>Contador de billetes</h4>
+                <div><span class="product-meta">Modelo: SAT BC5120 | Verificación UV/MG</span></div>
+                <p class="product-desc">Contador de billetes para caja y oficina, con detección UV/MG y velocidad de hasta 1200 billetes por minuto.</p>
+              
+                <button class="add-to-cart-btn" onclick="addToCart('Contador de billetes SAT BC5120')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle; margin-top:-2px"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                  Añadir a la cesta
+                </button>
+              </div>
+            </article>
+          </div>
+          <button class="scroll-arrow scroll-arrow-right" type="button" aria-label="Ver más productos" data-scroll-target="misc-products" data-scroll-dir="1">›</button>
         </div>
       </div>
     </section>
@@ -875,6 +1569,20 @@
     // Redirect to checkout page on cart click
     cartBtn.addEventListener('click', () => {
       window.location.href = 'cesta.html';
+    });
+
+    document.querySelectorAll('[data-scroll-target]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const scroller = document.getElementById(button.dataset.scrollTarget);
+        const direction = Number(button.dataset.scrollDir || 1);
+
+        if (!scroller) return;
+
+        scroller.scrollBy({
+          left: direction * Math.max(260, scroller.clientWidth * 0.72),
+          behavior: 'smooth'
+        });
+      });
     });
 
     window.addToCart = function(item) {
