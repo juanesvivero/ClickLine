@@ -1,0 +1,559 @@
+/* ═══════════════════════════════════════════════════════
+   CLICKLINE — SISTEMA DE DISEÑO COMPARTIDO
+   Aplicar en todas las páginas del portal
+═══════════════════════════════════════════════════════ */
+
+/* ── GOOGLE FONTS ───────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  /* Colores */
+  --cl-black:        #060606;
+  --cl-dark:         #0e0e0e;
+  --cl-surface:      #161616;
+  --cl-surface-2:    #1e1e1e;
+  --cl-surface-3:    #262626;
+  --cl-border:       rgba(255,255,255,0.08);
+  --cl-border-warm:  rgba(255,102,0,0.28);
+  --cl-orange:       #ff6600;
+  --cl-orange-dim:   rgba(255,102,0,0.16);
+  --cl-orange-glow:  rgba(255,102,0,0.42);
+  --cl-white:        #ffffff;
+  --cl-text:         #f0ece8;
+  --cl-muted:        #9a9490;
+  --cl-muted-2:      #c8c4c0;
+
+  /* Tipografía */
+  --cl-font:         'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Espaciado */
+  --cl-radius-sm:    10px;
+  --cl-radius:       16px;
+  --cl-radius-lg:    24px;
+  --cl-radius-xl:    32px;
+
+  /* Transiciones */
+  --cl-ease:         220ms cubic-bezier(.25,.46,.45,.94);
+}
+
+/* ── RESET ──────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  background: var(--cl-black);
+}
+
+body {
+  margin: 0;
+  font-family: var(--cl-font);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--cl-text);
+  background:
+    radial-gradient(ellipse 80% 60% at 15% -10%, rgba(255,102,0,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 90%, rgba(255,102,0,0.06) 0%, transparent 55%),
+    linear-gradient(180deg, #0e0e0e 0%, #080808 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+/* ── CONTENEDOR ─────────────────────────────────────── */
+.cl-wrap {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* ── BARRA DE PROGRESO ──────────────────────────────── */
+.cl-progress {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 70;
+  width: 100%;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--cl-orange), #ffb580);
+  box-shadow: 0 0 18px var(--cl-orange-glow);
+  pointer-events: none;
+}
+
+/* ── NAVBAR ─────────────────────────────────────────── */
+.cl-nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 50;
+  height: 72px;
+  background: rgba(8,8,8,0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--cl-border);
+  transition: border-color var(--cl-ease), box-shadow var(--cl-ease), background var(--cl-ease);
+}
+
+.cl-nav.scrolled {
+  border-color: var(--cl-border-warm);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 28px rgba(255,102,0,0.08);
+  background: rgba(6,6,6,0.96);
+}
+
+.cl-nav-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Logo de marca */
+.cl-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.04em;
+  color: var(--cl-white);
+  flex-shrink: 0;
+}
+
+.cl-logo-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--cl-radius-sm);
+  background: var(--cl-orange);
+  color: var(--cl-black);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  box-shadow: 0 0 28px rgba(255,102,0,0.38);
+  flex-shrink: 0;
+}
+
+/* Links de navegación */
+.cl-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.cl-nav-link {
+  position: relative;
+  color: var(--cl-muted-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: color var(--cl-ease);
+  padding: 4px 0;
+}
+
+.cl-nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -3px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--cl-orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--cl-ease);
+}
+
+.cl-nav-link:hover,
+.cl-nav-link.active {
+  color: var(--cl-white);
+}
+
+.cl-nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Botón CTA del nav */
+.cl-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--cl-orange);
+  color: var(--cl-black);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+  transition: transform var(--cl-ease), box-shadow var(--cl-ease), filter var(--cl-ease);
+  box-shadow: 0 8px 24px rgba(255,102,0,0.28);
+  white-space: nowrap;
+}
+
+.cl-nav-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 12px 32px rgba(255,102,0,0.38);
+}
+
+/* Hamburger */
+.cl-nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.cl-nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cl-white);
+  border-radius: 999px;
+  transition: transform var(--cl-ease), opacity var(--cl-ease);
+}
+
+/* ── PILL EYEBROW ───────────────────────────────────── */
+.cl-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--cl-orange-dim);
+  border: 1px solid var(--cl-border-warm);
+  color: #ffb580;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cl-eyebrow::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--cl-orange);
+  box-shadow: 0 0 12px rgba(255,102,0,0.8);
+  animation: cl-pulse 2s ease infinite;
+}
+
+@keyframes cl-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(0.85); }
+}
+
+/* ── BOTONES ────────────────────────────────────────── */
+.cl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: var(--cl-radius-sm);
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--cl-ease), box-shadow var(--cl-ease), filter var(--cl-ease), background var(--cl-ease);
+  white-space: nowrap;
+}
+
+.cl-btn-primary {
+  background: var(--cl-orange);
+  color: var(--cl-black);
+  box-shadow: 0 10px 28px rgba(255,102,0,0.28);
+}
+
+.cl-btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 14px 36px rgba(255,102,0,0.38);
+}
+
+.cl-btn-outline {
+  background: transparent;
+  color: var(--cl-text);
+  border: 1px solid var(--cl-border-warm);
+}
+
+.cl-btn-outline:hover {
+  background: var(--cl-orange-dim);
+  border-color: var(--cl-orange-glow);
+  transform: translateY(-2px);
+}
+
+.cl-btn-ghost {
+  background: var(--cl-surface-2);
+  color: var(--cl-text);
+  border: 1px solid var(--cl-border);
+}
+
+.cl-btn-ghost:hover {
+  background: var(--cl-surface-3);
+  border-color: var(--cl-border-warm);
+  transform: translateY(-2px);
+}
+
+.cl-btn-full { width: 100%; }
+
+/* ── SECCIÓN GENÉRICA ───────────────────────────────── */
+.cl-section {
+  padding: 96px 0;
+}
+
+.cl-section-alt {
+  background: var(--cl-surface);
+  border-top: 1px solid var(--cl-border);
+  border-bottom: 1px solid var(--cl-border);
+}
+
+.cl-section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.cl-section-header h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.cl-section-header p {
+  margin: 0 auto;
+  max-width: 680px;
+  color: var(--cl-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Divider naranja */
+.cl-divider {
+  width: 48px;
+  height: 3px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: var(--cl-orange);
+  box-shadow: 0 0 14px rgba(255,102,0,0.5);
+}
+
+/* ── CARD GENÉRICA ──────────────────────────────────── */
+.cl-card {
+  background: var(--cl-surface-2);
+  border: 1px solid var(--cl-border);
+  border-radius: var(--cl-radius-lg);
+  overflow: hidden;
+  transition: transform var(--cl-ease), border-color var(--cl-ease), box-shadow var(--cl-ease);
+}
+
+.cl-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--cl-border-warm);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.36), 0 0 32px rgba(255,102,0,0.1);
+}
+
+/* ── ICONO BADGE ────────────────────────────────────── */
+.cl-icon-badge {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--cl-radius-sm);
+  background: var(--cl-orange-dim);
+  color: var(--cl-orange);
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ─────────────────────────────────────────── */
+.cl-footer {
+  background: #040404;
+  border-top: 1px solid var(--cl-border-warm);
+  padding: 64px 0 0;
+}
+
+.cl-footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+}
+
+.cl-footer-brand p {
+  margin: 16px 0 0;
+  color: var(--cl-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  max-width: 320px;
+}
+
+.cl-footer-col h5 {
+  margin: 0 0 20px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cl-orange);
+}
+
+.cl-footer-col a {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--cl-muted);
+  font-size: 0.92rem;
+  transition: color var(--cl-ease);
+}
+
+.cl-footer-col a:hover {
+  color: var(--cl-white);
+}
+
+.cl-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  border-top: 1px solid var(--cl-border);
+  color: var(--cl-muted);
+  font-size: 0.85rem;
+}
+
+/* ── SCROLL REVEAL ──────────────────────────────────── */
+.cl-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  transition-delay: var(--delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.cl-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── FORMULARIO ─────────────────────────────────────── */
+.cl-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.cl-field {
+  display: grid;
+  gap: 8px;
+}
+
+.cl-field.full { grid-column: 1 / -1; }
+
+.cl-field label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cl-muted-2);
+}
+
+.cl-field input,
+.cl-field select,
+.cl-field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: var(--cl-radius-sm);
+  border: 1px solid var(--cl-border);
+  background: var(--cl-surface-3);
+  color: var(--cl-text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--cl-ease), box-shadow var(--cl-ease);
+}
+
+.cl-field input:focus,
+.cl-field select:focus,
+.cl-field textarea:focus {
+  border-color: var(--cl-orange-glow);
+  box-shadow: 0 0 0 3px rgba(255,102,0,0.12);
+}
+
+.cl-field textarea { resize: vertical; }
+
+.cl-form-status {
+  color: var(--cl-orange);
+  font-size: 0.9rem;
+  min-height: 1.4em;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .cl-nav-links,
+  .cl-nav-cta { display: none; }
+
+  .cl-nav-toggle { display: flex; }
+
+  .cl-nav-links.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: rgba(6,6,6,0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--cl-border-warm);
+    padding: 28px 24px;
+    z-index: 49;
+  }
+
+  .cl-nav-links.open .cl-nav-cta {
+    display: inline-flex;
+    margin-top: 8px;
+  }
+
+  .cl-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .cl-footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cl-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .cl-section { padding: 64px 0; }
+}
+
+/* ── WHATSAPP ICON ──────────────────────────────────── */
+.cl-wa-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: currentColor;
+}

@@ -1,15 +1,18 @@
-# Click Line Security
+# Clickline
 
-Sitio web dividido en frontend y backend para la landing page de Click Line Security.
+Sitio web dividido en frontend y backend para el portal corporativo de Clickline y sus marcas.
 
 ## Estructura
 
+- `index.html` — portal principal para elegir entre Clickline Security y Clickline Solutions.
+- `security/index.html` — landing de Clickline Security.
+- `solutions/index.html` — landing inicial de Clickline Solutions.
 - `frontend/`
-  - `index.html` — página principal con el diseño completo.
+  - `index.html` — versión anterior/alternativa del frontend.
   - `styles.css` — estilos personalizados adicionales.
   - `script.js` — lógica de formulario y mensajes de usuario.
 - `backend/`
-  - `server.js` — servidor Express que sirve el sitio y procesa el formulario.
+  - `server.js` — servidor Express que sirve el sitio y envía el formulario por email.
 - `package.json` — dependencias del backend.
 
 ## Uso
@@ -32,7 +35,26 @@ Sitio web dividido en frontend y backend para la landing page de Click Line Secu
    http://localhost:3000
    ```
 
+## Rutas
+
+- `/` — selector de marca.
+- `/security` — página de Clickline Security.
+- `/solutions` — página de Clickline Solutions.
+
 ## Notas
 
 - El formulario de contacto envía datos al endpoint `/api/contact`.
-- Esta estructura separa claramente el frontend estático del backend de recepción de solicitudes.
+- El backend usa Nodemailer. Configura estas variables de entorno antes de iniciar el servidor:
+
+  ```bash
+  SMTP_HOST=smtp.sendgrid.net
+  SMTP_PORT=587
+  SMTP_SECURE=false
+  SMTP_USER=apikey
+  SMTP_PASS=TU_API_KEY_DE_SENDGRID
+  EMAIL_FROM=contacto@clickline.mobi
+  EMAIL_TO=correo-destino@ejemplo.com
+  ```
+
+- Para Gmail u otro proveedor SMTP, cambia `SMTP_HOST`, `SMTP_USER`, `SMTP_PASS` y `EMAIL_FROM` según el proveedor.
+- Si faltan variables SMTP, `/api/contact` responderá con error y el frontend abrirá WhatsApp como alternativa.
