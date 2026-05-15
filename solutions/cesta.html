@@ -358,18 +358,35 @@
     const cartContainer = document.getElementById('cart-container');
     
     function loadCart() {
-      return JSON.parse(localStorage.getItem('clickline_cart')) || {};
+      try {
+        const storedCart = JSON.parse(localStorage.getItem('clickline_cart') || '{}');
+        return storedCart && typeof storedCart === 'object' && !Array.isArray(storedCart)
+          ? storedCart
+          : {};
+      } catch (error) {
+        localStorage.removeItem('clickline_cart');
+        return {};
+      }
     }
 
     function saveCart(cart) {
       localStorage.setItem('clickline_cart', JSON.stringify(cart));
     }
 
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
     function updateQuantity(item, delta) {
       const cart = loadCart();
       if (!cart[item]) return;
       
-      cart[item] += delta;
+      cart[item] = Number(cart[item] || 0) + delta;
       if (cart[item] <= 0) {
         delete cart[item];
       }
@@ -381,7 +398,7 @@
     function renderCart() {
       const cart = loadCart();
       const items = Object.entries(cart);
-      const totalItems = items.reduce((sum, [_, qty]) => sum + qty, 0);
+      const totalItems = items.reduce((sum, [_, qty]) => sum + Number(qty || 0), 0);
 
       if (items.length === 0) {
         cartContainer.innerHTML = `
@@ -400,16 +417,17 @@
 
       let itemsHtml = '<div class="cart-items">';
       items.forEach(([item, qty]) => {
+        const safeItem = escapeHtml(item);
         itemsHtml += `
           <div class="cart-item">
             <div class="cart-item-info">
-              <h4>${item}</h4>
+              <h4>${safeItem}</h4>
               <p>Unidad</p>
             </div>
             <div class="cart-item-controls">
-              <button class="qty-btn" onclick="updateQuantity('${item}', -1)">-</button>
-              <span class="qty-display">${qty}</span>
-              <button class="qty-btn" onclick="updateQuantity('${item}', 1)">+</button>
+              <button class="qty-btn" type="button" data-cart-item="${safeItem}" data-cart-delta="-1" aria-label="Quitar una unidad de ${safeItem}">-</button>
+              <span class="qty-display">${Number(qty || 0)}</span>
+              <button class="qty-btn" type="button" data-cart-item="${safeItem}" data-cart-delta="1" aria-label="Añadir una unidad de ${safeItem}">+</button>
             </div>
           </div>
         `;
@@ -422,7 +440,7 @@
             <p>Total de artículos</p>
             <h3>${totalItems} productos</h3>
           </div>
-          <button class="checkout-btn" onclick="checkout()">
+          <button class="checkout-btn" type="button" id="checkout-btn">
             <svg aria-hidden="true" width="24" height="24" viewBox="0 0 32 32" fill="currentColor">
               <path d="M16.02 3.2A12.76 12.76 0 0 0 5.14 22.6L3.6 28.8l6.34-1.48A12.78 12.78 0 1 0 16.02 3.2Zm0 22.88c-2.08 0-4.02-.62-5.64-1.68l-.4-.26-3.76.88.9-3.64-.28-.42a10.02 10.02 0 1 1 9.18 5.12Zm5.5-7.48c-.3-.16-1.8-.9-2.08-1-.28-.1-.48-.16-.68.16-.2.3-.78 1-.96 1.2-.18.2-.36.22-.66.08-.3-.16-1.28-.48-2.44-1.52-.9-.8-1.52-1.8-1.7-2.1-.18-.3-.02-.48.14-.62.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.54-.08-.16-.68-1.64-.94-2.24-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.04 1.02-1.04 2.48s1.06 2.88 1.2 3.08c.16.2 2.1 3.2 5.08 4.48.7.3 1.26.48 1.7.62.72.22 1.36.2 1.88.12.58-.08 1.8-.74 2.06-1.44.26-.72.26-1.32.18-1.44-.08-.14-.28-.22-.58-.38Z"></path>
             </svg>
@@ -451,6 +469,18 @@
 
     // Initialize
     renderCart();
+
+    cartContainer.addEventListener('click', (event) => {
+      const quantityButton = event.target.closest('[data-cart-item]');
+      if (quantityButton) {
+        updateQuantity(quantityButton.dataset.cartItem, Number(quantityButton.dataset.cartDelta));
+        return;
+      }
+
+      if (event.target.closest('#checkout-btn')) {
+        checkout();
+      }
+    });
   </script>
 </body>
 </html>

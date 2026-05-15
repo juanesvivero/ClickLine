@@ -1084,7 +1084,7 @@
       <div class="max-w-7xl mx-auto w-full grid grid-cols-1 gap-xl items-center relative z-10">
         <div class="hero-visual relative w-full">
           <div class="absolute inset-0 bg-primary-container/5 blur-[120px] rounded-full"></div>
-          <img alt="Servicios de Click Line Security" class="rounded-xl border border-surface-variant/50 shadow-2xl relative z-10 w-full object-contain" src="../photos/Security/Portada.png" width="1672" height="941" fetchpriority="high" decoding="async"/>
+          <img alt="Servicios de Click Line Security" class="rounded-xl border border-surface-variant/50 shadow-2xl relative z-10 w-full object-contain" src="../photos/Security/portada.png" width="1672" height="941" fetchpriority="high" decoding="async"/>
         </div>
         <div class="hero-copy mx-auto flex max-w-3xl flex-col items-center gap-md text-center">
           <div class="inline-flex items-center gap-2 bg-primary-container/10 border border-primary-container/30 px-3 py-1 rounded-full w-fit">
@@ -1430,7 +1430,8 @@
       });
     });
 
-    leadForm.addEventListener("submit", async (event) => {
+    if (leadForm) {
+      leadForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const data = new FormData(leadForm);
@@ -1452,7 +1453,9 @@
         `Mensaje: ${payload.message}`
       ].join("\n");
 
-      formStatus.textContent = "Enviando solicitud...";
+      if (formStatus) {
+        formStatus.textContent = "Enviando solicitud...";
+      }
 
       try {
         const response = await fetch("/api/contact", {
@@ -1468,21 +1471,30 @@
           throw new Error(result.message || "No se pudo enviar la solicitud.");
         }
 
-        formStatus.textContent = result.message;
+        if (formStatus) {
+          formStatus.textContent = result.message;
+        }
         leadForm.reset();
       } catch (error) {
-        formStatus.textContent = "No se pudo enviar por email. Abrimos WhatsApp como alternativa.";
+        if (formStatus) {
+          formStatus.textContent = "No se pudo enviar por email. Abrimos WhatsApp como alternativa.";
+        }
         window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
       }
-    });
+      });
+    }
 
     function updateScrollEffects() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progressScale = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
 
-      progress.style.transform = `scaleX(${progressScale})`;
-      nav.classList.toggle("is-scrolled", scrollTop > 24);
+      if (progress) {
+        progress.style.transform = `scaleX(${progressScale})`;
+      }
+      if (nav) {
+        nav.classList.toggle("is-scrolled", scrollTop > 24);
+      }
       updateActiveNav(scrollTop);
     }
 

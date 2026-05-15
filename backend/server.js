@@ -12,6 +12,12 @@ app.use('/frontend', express.static(path.join(projectRoot, 'frontend')));
 app.use('/security', express.static(path.join(projectRoot, 'security'), { redirect: false }));
 app.use('/solutions', express.static(path.join(projectRoot, 'solutions'), { redirect: false }));
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function cleanText(value = '', maxLength = 1000) {
+  return String(value).trim().slice(0, maxLength);
+}
+
 function getTransporter() {
   const required = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS', 'EMAIL_TO'];
   const missing = required.filter((key) => !process.env[key]);
@@ -76,7 +82,15 @@ function buildEmail({ name, email, city, phone, service, message }) {
 }
 
 app.post('/api/contact', async (req, res) => {
-  const { name, email, city, phone, service, message } = req.body;
+  const payload = {
+    name: cleanText(req.body.name, 120),
+    email: cleanText(req.body.email, 160),
+    city: cleanText(req.body.city, 120),
+    phone: cleanText(req.body.phone, 40),
+    service: cleanText(req.body.service, 160),
+    message: cleanText(req.body.message, 1200)
+  };
+  const { name, email, phone } = payload;
 
   if (!name || !email || !phone) {
     return res.status(400).json({
@@ -85,9 +99,16 @@ app.post('/api/contact', async (req, res) => {
     });
   }
 
+  if (!EMAIL_PATTERN.test(email)) {
+    return res.status(400).json({
+      success: false,
+      message: 'Ingresa un email válido.'
+    });
+  }
+
   try {
     const transporter = getTransporter();
-    const { text, html } = buildEmail({ name, email, city, phone, service, message });
+    const { text, html } = buildEmail(payload);
 
     await transporter.sendMail({
       from: process.env.EMAIL_FROM || process.env.SMTP_USER,

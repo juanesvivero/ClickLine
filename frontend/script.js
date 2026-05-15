@@ -4,9 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
 
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  if (!contactForm || !formStatus) {
+    return;
+  }
 
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -28,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
       formStatus.textContent = data.message || 'Solicitud enviada correctamente.';
       if (response.ok) contactForm.reset();
     } catch (error) {
