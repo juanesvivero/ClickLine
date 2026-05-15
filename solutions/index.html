@@ -1495,49 +1495,103 @@
       header {
         position: sticky;
         top: 0;
-        gap: 6px;
-        padding: 7px 10px 8px;
-        background: rgba(255,255,255,0.96);
-        border: none;
-        border-left: none;
-        border-right: none;
+        width: 100%;
+        gap: 12px;
+        align-items: stretch;
+        flex-direction: column;
+        padding: 12px 14px 10px;
+        background: rgba(255,255,255,0.94);
+        border: 0;
         border-bottom: 1px solid rgba(63,70,82,0.12);
-        border-radius: 0;
-        box-shadow: none;
+        border-radius: 0 0 18px 18px;
+        box-shadow: 0 12px 30px rgba(21,23,26,0.10);
         min-height: 0;
       }
 
       header::before {
-        content: none;
+        content: '';
+        inset: auto 14px 0;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, rgba(0,229,255,0.52), rgba(63,70,82,0.34), transparent);
       }
 
       .brand {
-        gap: 7px;
-        font-size: 0.78rem;
-        line-height: 1;
+        width: calc(100% - 58px);
+        min-height: 44px;
+        gap: 10px;
+        font-size: 0.88rem;
+        line-height: 1.05;
+        letter-spacing: 0.02em;
+        padding: 3px 0;
       }
 
       .brand-logo {
-        width: 32px;
-        height: 24px;
+        width: 48px;
+        height: 34px;
+        padding: 3px;
+        border: 1px solid rgba(63,70,82,0.12);
+        border-radius: 12px;
+        background: rgba(255,255,255,0.78);
+        box-shadow: 0 8px 18px rgba(21,23,26,0.08);
+      }
+
+      .brand-text {
+        display: block;
+        max-width: 210px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .nav-right {
+        width: 100%;
+        min-width: 0;
       }
 
       .header-nav {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        justify-content: stretch;
-        gap: 4px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 8px;
         width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+        padding: 2px 2px 4px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .header-nav::-webkit-scrollbar {
+        display: none;
       }
 
       .header-nav-link {
         justify-content: center;
-        min-height: 24px;
-        padding: 4px 3px;
-        font-size: 0.5rem;
-        letter-spacing: 0.01em;
+        flex: 0 0 auto;
+        min-height: 34px;
+        padding: 8px 12px;
+        border: 1px solid rgba(63,70,82,0.12);
+        border-radius: 999px;
+        background: rgba(248,250,252,0.82);
+        color: #323a45;
+        font-size: 0.62rem;
+        letter-spacing: 0.02em;
         white-space: nowrap;
         min-width: 0;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.86);
+      }
+
+      .header-nav-link:hover {
+        background: rgba(238,242,247,0.96);
+        color: #15171a;
+        transform: none;
+      }
+
+      .header-nav-link.is-featured {
+        color: #065f46;
+        border-color: rgba(8,122,85,0.24);
+        background: rgba(209,250,229,0.76);
       }
 
       .back-link {
@@ -1546,17 +1600,17 @@
 
       .mobile-header-cart {
         position: absolute;
-        top: 7px;
-        right: 10px;
+        top: 12px;
+        right: 14px;
         display: grid;
         place-items: center;
-        width: 42px;
-        height: 42px;
-        border: 1px solid rgba(63,70,82,0.22);
-        border-radius: 999px;
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(0,229,255,0.32);
+        border-radius: 14px;
         background: linear-gradient(135deg, var(--accent), #252a31);
         color: #ffffff;
-        box-shadow: 0 10px 22px rgba(21,23,26,0.2);
+        box-shadow: 0 12px 24px rgba(21,23,26,0.22), inset 0 1px 0 rgba(255,255,255,0.18);
       }
 
       .mobile-header-cart svg {
@@ -1566,18 +1620,20 @@
 
       .mobile-cart-count {
         position: absolute;
-        top: -2px;
-        right: -2px;
+        top: -5px;
+        right: -5px;
         display: grid;
         place-items: center;
-        width: 17px;
-        height: 17px;
+        min-width: 18px;
+        height: 18px;
+        padding: 0 5px;
         border: 1px solid #ffffff;
         border-radius: 999px;
-        background: var(--ink);
+        background: var(--cyan);
         color: #ffffff;
         font-size: 0.58rem;
         font-weight: 800;
+        box-shadow: 0 6px 14px rgba(0,229,255,0.26);
       }
 
       .cart-floating-btn {
@@ -1587,28 +1643,31 @@
 
     @media (max-width: 380px) {
       header {
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 10px;
       }
 
       .brand {
-        font-size: 0.72rem;
-        padding-right: 42px;
+        width: calc(100% - 54px);
+        font-size: 0.78rem;
       }
 
-      .header-nav {
-        gap: 2px;
+      .brand-logo {
+        width: 42px;
+        height: 31px;
       }
 
       .header-nav-link {
-        padding-inline: 2px;
-        font-size: 0.43rem;
+        min-height: 32px;
+        padding-inline: 10px;
+        font-size: 0.56rem;
       }
 
       .mobile-header-cart {
-        right: 8px;
-        width: 38px;
-        height: 38px;
+        right: 10px;
+        width: 42px;
+        height: 42px;
       }
     }
 
@@ -1639,7 +1698,6 @@
     </a>
     <div class="nav-right">
       <nav class="header-nav" aria-label="Navegación de Clickline Solutions">
-        <a class="header-nav-link" href="#inicio">Inicio</a>
         <a class="header-nav-link is-featured" href="#runfoodapp">RunFoodApp</a>
         <a class="header-nav-link" href="#productos">Productos</a>
         <a class="header-nav-link" href="#contacto">Contacto</a>

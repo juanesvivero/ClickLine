@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Click Line Security | Seguridad Electrónica y Monitoreo 24/7</title>
-  <meta name="description" content="Click Line Security en Ambato instala alarmas, cámaras CCTV, monitoreo 24/7, rastreo GPS, cercas eléctricas y control de acceso para hogares y empresas."/>
-  <meta name="keywords" content="seguridad electronica Ambato, camaras CCTV Ambato, alarmas Ambato, monitoreo 24/7 Ecuador, rastreo GPS, cercas electricas, control de acceso"/>
+  <title>Click Line Security | Guardias, Monitoreo 24/7 y Radio Comunicación POC</title>
+  <meta name="description" content="Click Line Security en Ambato ofrece guardias de seguridad, monitoreo 24/7, alarmas, cámaras CCTV, rastreo GPS y radio comunicación POC para hogares y empresas."/>
+  <meta name="keywords" content="guardias de seguridad Ambato, seguridad electronica Ambato, radio comunicacion POC, camaras CCTV Ambato, alarmas Ambato, monitoreo 24/7 Ecuador, rastreo GPS"/>
   <meta name="author" content="Click Line Security"/>
   <meta name="robots" content="index, follow"/>
   <meta name="theme-color" content="#0B0B0B"/>
@@ -17,13 +17,13 @@
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="es_EC"/>
   <meta property="og:site_name" content="Click Line Security"/>
-  <meta property="og:title" content="Click Line Security | Seguridad Electrónica y Monitoreo 24/7"/>
-  <meta property="og:description" content="Protección inteligente para hogares y empresas en Ambato: alarmas, cámaras CCTV, monitoreo 24/7, GPS, cercas eléctricas y control de acceso."/>
+  <meta property="og:title" content="Click Line Security | Guardias, Monitoreo 24/7 y Radio Comunicación POC"/>
+  <meta property="og:description" content="Protección integral para hogares y empresas en Ambato: guardias de seguridad, alarmas, cámaras CCTV, monitoreo 24/7, GPS y radio comunicación POC."/>
   <meta property="og:url" content="https://www.clickline.mobi/"/>
   <meta property="og:image" content="https://www.clickline.mobi/og-image.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Click Line Security | Seguridad Electrónica 24/7"/>
-  <meta name="twitter:description" content="Cotiza seguridad electrónica profesional en Ambato para hogares, negocios y vehículos."/>
+  <meta name="twitter:title" content="Click Line Security | Seguridad Integral 24/7"/>
+  <meta name="twitter:description" content="Cotiza guardias de seguridad, monitoreo 24/7, radio comunicación POC y seguridad electrónica profesional en Ambato."/>
   <meta name="twitter:image" content="https://www.clickline.mobi/og-image.jpg"/>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -415,12 +415,20 @@
 
     .hero-visual {
       animation: hero-visual-in 950ms ease 140ms both;
-      will-change: transform;
+      max-width: 1120px;
+      margin: 0 auto;
     }
 
     .hero-visual img {
-      transition: transform 220ms ease-out;
-      will-change: transform;
+      display: block;
+      height: auto;
+    }
+
+    .hero-logo-mark {
+      width: min(100%, 420px);
+      max-height: 250px;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 34px rgba(255, 102, 0, 0.22));
     }
 
     .lift-on-scroll {
@@ -458,16 +466,26 @@
 
     .service-card,
     .service-card-wide,
-    #nosotros .grid > div,
-    #promociones .group,
-    #contacto .bg-surface-container {
+    #contacto .bg-surface-container,
+    .contact-info-card {
       border-color: rgba(255, 144, 69, 0.34) !important;
     }
 
+    .contact-info-card {
+      padding: 18px;
+      border: 1px solid rgba(255, 144, 69, 0.34);
+      border-radius: 0.75rem;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 14px 36px rgba(31, 20, 12, 0.08);
+      min-width: 0;
+    }
+
+    .contact-info-card > div:last-child {
+      min-width: 0;
+    }
+
     .service-card:hover,
-    .service-card-wide:hover,
-    #nosotros .grid > div:hover,
-    #promociones .group:hover {
+    .service-card-wide:hover {
       border-color: rgba(255, 102, 0, 0.82) !important;
       background:
         linear-gradient(145deg, rgba(255, 102, 0, 0.14), rgba(255, 255, 255, 0.98) 46%),
@@ -476,8 +494,7 @@
     }
 
     .dark-section .service-card:hover,
-    .dark-section .service-card-wide:hover,
-    .dark-section#nosotros .grid > div:hover {
+    .dark-section .service-card-wide:hover {
       background:
         linear-gradient(145deg, rgba(255, 102, 0, 0.28), rgba(255, 255, 255, 0.08) 44%, rgba(0, 0, 0, 0.28)),
         #241a15 !important;
@@ -487,9 +504,7 @@
 
     .light-section .service-card:hover,
     .light-section .service-card-wide:hover,
-    .light-section #nosotros .grid > div:hover,
-    .light-section .group:hover,
-    #promociones.light-section .group:hover {
+    .light-section .group:hover {
       background:
         linear-gradient(145deg, rgba(255, 102, 0, 0.14), rgba(255, 255, 255, 0.98) 46%),
         #ffffff !important;
@@ -501,25 +516,469 @@
       text-shadow: 0 0 22px rgba(255, 102, 0, 0.45);
     }
 
-    footer.bg-surface-container-lowest {
+    .services-carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      max-width: 980px;
+      margin: 0 auto;
+      border: 1px solid rgba(255, 144, 69, 0.34);
       background:
-        radial-gradient(circle at 82% 0%, rgba(255, 102, 0, 0.24), transparent 28%),
-        linear-gradient(180deg, #111111 0%, #050505 100%) !important;
-      border-color: rgba(255, 102, 0, 0.28) !important;
-      box-shadow: none;
+        linear-gradient(145deg, rgba(255, 102, 0, 0.08), rgba(255, 255, 255, 0.96) 42%),
+        #ffffff;
+      box-shadow: 0 24px 70px rgba(31, 20, 12, 0.12);
     }
 
-    footer h5,
-    footer p,
-    footer a,
-    footer .text-on-surface,
-    footer .text-secondary {
-      color: #fff7f2 !important;
+    .services-track {
+      display: flex;
+      transition: transform 520ms cubic-bezier(.25,.46,.45,.94);
+      will-change: transform;
     }
 
-    footer h5,
-    footer a:hover,
-    footer .hover\:text-primary-container:hover {
+    .service-slide {
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.75fr);
+      gap: clamp(18px, 4vw, 36px);
+      align-items: center;
+      padding: clamp(18px, 3vw, 30px) clamp(56px, 7vw, 82px);
+    }
+
+    .service-slide-image {
+      min-height: clamp(240px, 34vw, 360px);
+      overflow: hidden;
+      border-radius: 0.875rem;
+      background: #0f0f0f;
+      border: 1px solid rgba(255, 102, 0, 0.24);
+      box-shadow: 0 22px 58px rgba(31, 20, 12, 0.12);
+    }
+
+    .service-slide-image img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+    }
+
+    .service-slide-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .service-slide-kicker {
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 102, 0, 0.1);
+      border: 1px solid rgba(255, 102, 0, 0.24);
+      color: #FF6600 !important;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .service-slide-copy p {
+      max-width: 520px;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      inset: 0;
+      display: block;
+      pointer-events: none;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      padding: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 102, 0, 0.16);
+      pointer-events: auto;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(17, 17, 17, 0.22);
+      cursor: pointer;
+      transition: width 220ms ease, background-color 220ms ease;
+    }
+
+    .carousel-dot.is-active {
+      width: 30px;
+      background: #FF6600;
+    }
+
+    .carousel-arrows {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      pointer-events: none;
+    }
+
+    .carousel-arrow {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 102, 0, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #111111;
+      font-size: 1.7rem;
+      line-height: 1;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: transform 200ms ease, border-color 200ms ease, color 200ms ease;
+    }
+
+    .carousel-arrow:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 102, 0, 0.72);
+      color: #FF6600;
+    }
+
+    @media (max-width: 900px) {
+      .service-slide {
+        grid-template-columns: 1fr;
+        padding: 18px 56px 74px;
+      }
+
+      .service-slide-image {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      #inicio {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 34px;
+        padding-bottom: 42px;
+        min-height: auto;
+      }
+
+      #inicio > .max-w-7xl {
+        gap: 28px;
+      }
+
+      .hero-visual {
+        width: 100vw;
+        max-width: none;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+      }
+
+      .hero-visual::before {
+        inset: 0;
+        opacity: 0.35;
+      }
+
+      .hero-visual img {
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+        box-shadow: 0 18px 42px rgba(31, 20, 12, 0.12);
+      }
+
+      .hero-copy {
+        width: min(100% - 32px, 420px);
+        gap: 14px;
+      }
+
+      .hero-logo-mark {
+        width: min(100%, 210px);
+        max-height: 150px;
+      }
+
+      .hero-copy .inline-flex {
+        padding: 6px 10px;
+      }
+
+      .hero-copy p {
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+
+      .hero-copy a {
+        min-height: 42px;
+        padding: 10px 14px;
+        font-size: 0.72rem;
+      }
+
+      #servicios {
+        padding-top: 46px;
+        padding-bottom: 44px;
+      }
+
+      #servicios .mb-xl {
+        margin-bottom: 24px;
+      }
+
+      #servicios h2,
+      #guardias h2 {
+        font-size: 1.35rem;
+        line-height: 1.25;
+      }
+
+      #servicios p,
+      #guardias p {
+        font-size: 0.78rem;
+        line-height: 1.55;
+      }
+
+      .services-carousel {
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .service-slide-copy {
+        gap: 10px;
+        padding-inline: 34px;
+      }
+
+      .service-slide-copy h3 {
+        font-size: 1.1rem;
+        line-height: 1.22;
+      }
+
+      .service-slide-kicker {
+        padding: 6px 10px;
+        font-size: 0.64rem;
+      }
+
+      .service-slide {
+        padding: 10px 8px 56px;
+      }
+
+      .service-slide-image {
+        min-height: 210px;
+        border-radius: 10px;
+        background: #ffffff;
+        box-shadow: 0 14px 34px rgba(31, 20, 12, 0.1);
+      }
+
+      .service-slide-image img {
+        object-fit: contain;
+      }
+
+      .carousel-arrows {
+        padding: 0 6px;
+      }
+
+      .carousel-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 1.35rem;
+      }
+
+      .carousel-dots {
+        bottom: 10px;
+        padding: 6px;
+      }
+
+      #guardias {
+        padding-top: 34px;
+        padding-bottom: 36px;
+      }
+
+      #guardias .max-w-7xl > .grid {
+        gap: 16px;
+      }
+
+      #guardias .flex.flex-col.gap-md {
+        gap: 10px;
+      }
+
+      #guardias .font-body-lg {
+        font-size: 0.78rem;
+        line-height: 1.45;
+      }
+
+      #guardias .flex.flex-wrap.gap-sm {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+
+      #guardias .flex.flex-wrap.gap-sm::-webkit-scrollbar {
+        display: none;
+      }
+
+      #guardias .flex.flex-wrap.gap-sm span {
+        flex: 0 0 auto;
+        padding: 6px 9px;
+        font-size: 0.56rem;
+      }
+
+      #guardias a.bg-primary-container {
+        width: 100%;
+        min-height: 38px;
+        justify-content: center;
+        padding: 8px 12px;
+        font-size: 0.66rem;
+      }
+
+      .guardias-card-row {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+
+      .guardias-card-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .guardias-card-row > div {
+        flex: 0 0 62%;
+        scroll-snap-align: start;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .guardias-card-row .material-symbols-outlined {
+        font-size: 1.45rem;
+        margin-bottom: 4px;
+      }
+
+      .guardias-card-row h3 {
+        font-size: 0.72rem;
+        line-height: 1.25;
+        margin-bottom: 4px;
+      }
+
+      .guardias-card-row p {
+        font-size: 0.6rem !important;
+        line-height: 1.45 !important;
+      }
+
+      #contacto {
+        padding-top: 32px;
+        padding-bottom: 34px;
+      }
+
+      #contacto .gap-xl {
+        gap: 18px;
+      }
+
+      #contacto h2 {
+        font-size: 1.15rem;
+        line-height: 1.25;
+        margin-bottom: 10px;
+      }
+
+      #contacto .font-body-lg {
+        font-size: 0.78rem;
+        line-height: 1.5;
+      }
+
+      #contacto .mb-lg {
+        margin-bottom: 16px;
+      }
+
+      #contacto .space-y-lg > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 12px;
+      }
+
+      #contacto .w-12.h-12 {
+        width: 36px;
+        height: 36px;
+      }
+
+      #contacto .flex.items-center.gap-md {
+        gap: 10px;
+      }
+
+      #contacto .contact-info-card {
+        padding: 12px;
+        align-items: flex-start;
+      }
+
+      #contacto .text-label-sm {
+        font-size: 0.58rem;
+        line-height: 1.2;
+      }
+
+      #contacto .font-bold.text-lg {
+        font-size: 0.86rem;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+      }
+
+      #contacto .maps-link {
+        width: 100%;
+        min-height: 42px;
+        gap: 8px;
+        margin-top: 8px;
+        padding: 8px 10px;
+        font-size: 0.72rem;
+        line-height: 1.35;
+      }
+
+      #contacto .maps-pin {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+      }
+
+      #contacto .p-xl {
+        padding: 16px;
+      }
+
+      #contacto input,
+      #contacto select,
+      #contacto textarea {
+        padding: 10px;
+        font-size: 0.78rem;
+      }
+
+      #contacto button[type="submit"] {
+        padding: 11px 14px;
+        font-size: 0.74rem;
+      }
+    }
+
+    #site-footer {
+      background-color: #000000 !important;
+      background: #000000 !important;
+      color: #ffffff !important;
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      border-top: 1px solid rgba(255, 102, 0, 0.3) !important;
+    }
+
+    #site-footer *,
+    #site-footer p,
+    #site-footer span,
+    #site-footer a {
+      color: #ffffff !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+
+    #site-footer a:hover {
+      text-decoration: underline;
       color: #FF6600 !important;
     }
 
@@ -609,31 +1068,35 @@
         <span class="security-brand-name text-headline-md font-extrabold tracking-tighter text-on-surface">Click Line Security</span>
       </a>
       <div class="hidden lg:flex items-center gap-md">
-        <a class="nav-link font-label-md transition-colors py-1 is-active" href="#inicio">Inicio</a>
-        <a class="nav-link font-label-md transition-colors py-1" href="#promociones">Promociones</a>
         <a class="nav-link font-label-md transition-colors py-1" href="#servicios">Servicios</a>
-        <a class="nav-link font-label-md transition-colors py-1" href="#nosotros">Nosotros</a>
+        <a class="nav-link font-label-md transition-colors py-1" href="#guardias">Guardias</a>
         <a class="nav-link font-label-md transition-colors py-1" href="#contacto">Contacto</a>
+        <a class="nav-link font-label-md transition-colors py-1 inline-flex items-center gap-2" href="../index.html" aria-label="Regresar al portal Clickline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Portal
+        </a>
       </div>
     </div>
   </nav>
 
   <main class="pt-20">
     <section class="relative min-h-[85vh] flex items-center px-margin py-xl overflow-hidden" id="inicio">
-      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-xl items-center relative z-10">
-        <div class="hero-copy flex flex-col gap-md">
+      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 gap-xl items-center relative z-10">
+        <div class="hero-visual relative w-full">
+          <div class="absolute inset-0 bg-primary-container/5 blur-[120px] rounded-full"></div>
+          <img alt="Servicios de Click Line Security" class="rounded-xl border border-surface-variant/50 shadow-2xl relative z-10 w-full object-contain" src="../photos/Security/Portada.png" width="1672" height="941" fetchpriority="high" decoding="async"/>
+        </div>
+        <div class="hero-copy mx-auto flex max-w-3xl flex-col items-center gap-md text-center">
           <div class="inline-flex items-center gap-2 bg-primary-container/10 border border-primary-container/30 px-3 py-1 rounded-full w-fit">
             <div class="w-2 h-2 rounded-full bg-primary-container animate-pulse" aria-hidden="true"></div>
             <span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Protección Activa 24/7</span>
           </div>
-          <h1 class="font-headline-xl text-headline-xl lg:text-6xl leading-tight">
-            Seguridad electrónica y monitoreo 24/7 para hogares y empresas
-          </h1>
-          <p class="font-body-lg text-body-lg text-secondary max-w-xl">
-            Instalamos y monitoreamos sistemas avanzados de alarmas, cámaras CCTV, rastreo GPS, cercas eléctricas, detección de incendios y control de acceso.
+          <img class="hero-logo-mark" src="../photos/Security/security_logo_transparent.png" alt="Click Line Security" width="420" height="410" fetchpriority="high" decoding="async"/>
+          <p class="font-body-lg text-body-lg text-secondary max-w-2xl">
+            Integramos guardias de seguridad, monitoreo 24/7, alarmas, cámaras CCTV, rastreo GPS y radio comunicación POC para proteger hogares, negocios y operaciones.
           </p>
-          <div class="flex flex-wrap gap-md mt-sm">
-            <a class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg flex items-center gap-base font-bold hover:brightness-110 transition-all shadow-lg shadow-primary-container/20" href="https://wa.me/593992789300" target="_blank" rel="noopener">
+          <div class="flex flex-wrap justify-center gap-md mt-sm">
+            <a class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg flex items-center gap-base font-bold hover:brightness-110 transition-all shadow-lg shadow-primary-container/20" href="https://wa.me/593992789300?text=Hola%20Click%20Line%20Security%2C%20quiero%20cotizar%20una%20soluci%C3%B3n%20de%20seguridad%20para%20mi%20hogar%20o%20negocio." target="_blank" rel="noopener">
               <svg class="whatsapp-logo" aria-hidden="true" viewBox="0 0 32 32">
                 <path d="M16.02 3.2A12.76 12.76 0 0 0 5.14 22.6L3.6 28.8l6.34-1.48A12.78 12.78 0 1 0 16.02 3.2Zm0 22.88c-2.08 0-4.02-.62-5.64-1.68l-.4-.26-3.76.88.9-3.64-.28-.42a10.02 10.02 0 1 1 9.18 5.12Zm5.5-7.48c-.3-.16-1.8-.9-2.08-1-.28-.1-.48-.16-.68.16-.2.3-.78 1-.96 1.2-.18.2-.36.22-.66.08-.3-.16-1.28-.48-2.44-1.52-.9-.8-1.52-1.8-1.7-2.1-.18-.3-.02-.48.14-.62.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.54-.08-.16-.68-1.64-.94-2.24-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.04 1.02-1.04 2.48s1.06 2.88 1.2 3.08c.16.2 2.1 3.2 5.08 4.48.7.3 1.26.48 1.7.62.72.22 1.36.2 1.88.12.58-.08 1.8-.74 2.06-1.44.26-.72.26-1.32.18-1.44-.08-.14-.28-.22-.58-.38Z"/>
               </svg>
@@ -644,263 +1107,119 @@
             </a>
           </div>
         </div>
-        <div class="hero-visual relative">
-          <div class="absolute inset-0 bg-primary-container/5 blur-[120px] rounded-full"></div>
-          <img alt="Modern Control Center" class="rounded-xl border border-surface-variant/50 shadow-2xl relative z-10 w-full object-cover aspect-video" data-alt="A high-tech security operations center featuring a wall of multiple glowing monitors displaying real-time surveillance footage, digital maps, and network diagnostic charts. The room is dimly lit with cool blue tones, contrasted by warm orange light reflecting off professional tactical workstations. Two security specialists are silhouetted against the bright screens in a sleek, modern workspace with clean lines and obsidian surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-mYMiQilTmPeCL49D3mIjK5TyN42vToF3Gq7slvVwFndMOuD1uR6S104xQG_wadFdROkKaNDxjokT2Tiz6ugLe5wV-z9z5lYfj-Z3oCRmUsjtDFD87epfTbPYyL7453vZ1zfAbxaXfrZwEbzbrVPT_IkE4t5NYjLnnmNaAopwwfBMX2yjJGO-_c31HCtpenhjWylP6LHOAJETvkwbKFkhJxWt4KZlhqE-hUcYLgUkG6NOyOyJ6ZQrj5XzIjFitAHRoTfSUqEtvo4"/>
-        </div>
-      </div>
-    </section>
-
-    <section class="light-section py-xl px-margin border-y border-primary-container/20" id="promociones">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col items-center text-center gap-sm mb-lg">
-          <h2 class="font-headline-lg text-headline-lg">Promociones Exclusivas</h2>
-          <div class="h-1 w-20 bg-primary-container rounded-full"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
-          <div class="group relative bg-surface-container rounded-xl overflow-hidden border border-surface-variant/30 hover:border-primary-container/50 transition-all duration-300">
-            <div class="h-64 relative overflow-hidden">
-              <img alt="Home Security Alarm" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional security keypad mounted on a modern dark gray wall next to a wooden door. The keypad glows with a subtle amber status light, indicating a secure state. The focus is sharp on the device's technical details, while the background shows a tastefully designed minimalist home interior. The lighting is sophisticated and warm, emphasizing safety and high-end residential protection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiVIHSwRQj-DF3vLQXSTgkeaOn68cjhYsN-JpDhW6b1iXaQ3bkKtaW0Hp0C96AMwIIf399B7aJZhqrDNa2kg8wFEQYntkbKzJgd203Q1-mexGIMPFgyV4gDYh8NsbJoCFt00X8PVIlgCRZ3amgehsiZ3OBUp33qZb2YXk9Va6dfoJDlAEn9JLZYipuEhXUJKd2r3b9FWG0a9ECtxUAOlhtNLLef5VzS-HrM_k7kxkI9jbQ98ZbdD93ikuaDVZ7Ll5YccFbNFrHpw8"/>
-              <div class="absolute top-4 right-4 bg-primary-container text-white px-4 py-1 rounded-full font-bold text-label-sm uppercase tracking-wider">Oferta del Mes</div>
-            </div>
-            <div class="p-lg flex flex-col gap-md">
-              <h3 class="font-headline-md text-headline-md">Promoción Alarmas Residenciales</h3>
-              <p class="font-body-md text-secondary">Asegura tu hogar con tecnología de punta. Instalación gratuita en el kit básico de monitoreo residencial.</p>
-              <a class="text-primary-container font-bold flex items-center gap-base group/btn" href="https://wa.me/593992789300" target="_blank" rel="noopener">
-                <svg class="whatsapp-logo" aria-hidden="true" viewBox="0 0 32 32">
-                  <path d="M16.02 3.2A12.76 12.76 0 0 0 5.14 22.6L3.6 28.8l6.34-1.48A12.78 12.78 0 1 0 16.02 3.2Zm0 22.88c-2.08 0-4.02-.62-5.64-1.68l-.4-.26-3.76.88.9-3.64-.28-.42a10.02 10.02 0 1 1 9.18 5.12Zm5.5-7.48c-.3-.16-1.8-.9-2.08-1-.28-.1-.48-.16-.68.16-.2.3-.78 1-.96 1.2-.18.2-.36.22-.66.08-.3-.16-1.28-.48-2.44-1.52-.9-.8-1.52-1.8-1.7-2.1-.18-.3-.02-.48.14-.62.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.54-.08-.16-.68-1.64-.94-2.24-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.04 1.02-1.04 2.48s1.06 2.88 1.2 3.08c.16.2 2.1 3.2 5.08 4.48.7.3 1.26.48 1.7.62.72.22 1.36.2 1.88.12.58-.08 1.8-.74 2.06-1.44.26-.72.26-1.32.18-1.44-.08-.14-.28-.22-.58-.38Z"/>
-                </svg>
-                Cotizar por WhatsApp
-                <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="group relative bg-surface-container rounded-xl overflow-hidden border border-surface-variant/30 hover:border-primary-container/50 transition-all duration-300">
-            <div class="h-64 relative overflow-hidden">
-              <img alt="CCTV Cameras" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern, high-definition dome surveillance camera mounted on a sleek dark industrial ceiling. The camera lens has a subtle blue-ish optical coating, reflecting its advanced sensory capabilities. The surrounding environment is a clean, corporate hallway with subtle safety orange accents and high-contrast lighting that highlights the camera's tactical design and professional integration into the architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_NrukoN0xhGjVbSP7bNU1HUbTqSGQfOUShEWJvLeGgb5BCKE2YRuMxJ33SjpJSTdZWE-V0dV5X8TMTuqku7IUJtWX98hxY6rN0o37AKdCYeB7apA-pPBmNeH45jnqn3SNIimCAQvIjMC3aw-7y3ZMgfalLUeGTTsAdgAkTYN1opN5bSYctrc6M8dAhkJnSamZ2KjOfPOftXrbFdyuYRyaSEViBGMRuLGeuugfdslKElwQG-tIJi7GKjxoelR1d8Aek2frxZiNhtI"/>
-              <div class="absolute top-4 right-4 bg-primary-container text-white px-4 py-1 rounded-full font-bold text-label-sm uppercase tracking-wider">-20% Descuento</div>
-            </div>
-            <div class="p-lg flex flex-col gap-md">
-              <h3 class="font-headline-md text-headline-md">Promoción Cámaras / CCTV</h3>
-              <p class="font-body-md text-secondary">Monitoreo HD desde tu smartphone. Paquetes especiales para empresas con mantenimiento incluido por 1 año.</p>
-              <a class="text-primary-container font-bold flex items-center gap-base group/btn" href="https://wa.me/593992789300" target="_blank" rel="noopener">
-                <svg class="whatsapp-logo" aria-hidden="true" viewBox="0 0 32 32">
-                  <path d="M16.02 3.2A12.76 12.76 0 0 0 5.14 22.6L3.6 28.8l6.34-1.48A12.78 12.78 0 1 0 16.02 3.2Zm0 22.88c-2.08 0-4.02-.62-5.64-1.68l-.4-.26-3.76.88.9-3.64-.28-.42a10.02 10.02 0 1 1 9.18 5.12Zm5.5-7.48c-.3-.16-1.8-.9-2.08-1-.28-.1-.48-.16-.68.16-.2.3-.78 1-.96 1.2-.18.2-.36.22-.66.08-.3-.16-1.28-.48-2.44-1.52-.9-.8-1.52-1.8-1.7-2.1-.18-.3-.02-.48.14-.62.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.54-.08-.16-.68-1.64-.94-2.24-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.04 1.02-1.04 2.48s1.06 2.88 1.2 3.08c.16.2 2.1 3.2 5.08 4.48.7.3 1.26.48 1.7.62.72.22 1.36.2 1.88.12.58-.08 1.8-.74 2.06-1.44.26-.72.26-1.32.18-1.44-.08-.14-.28-.22-.58-.38Z"/>
-                </svg>
-                Cotizar por WhatsApp
-                <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <section class="light-section py-xl px-margin" id="servicios">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-xl">
-          <h2 class="font-headline-lg text-headline-lg mb-sm">Nuestras Soluciones de Seguridad</h2>
-          <p class="text-secondary font-body-md max-w-2xl mx-auto">Ofrecemos un ecosistema completo de protección diseñado para mitigar riesgos y brindar tranquilidad absoluta.</p>
+          <h2 class="font-headline-lg text-headline-lg mb-sm">Servicios principales</h2>
+          <p class="text-secondary font-body-md max-w-2xl mx-auto">Lo esencial para proteger y coordinar operaciones: monitoreo, rastreo y comunicación POC.</p>
         </div>
-        <div class="bento-grid">
-          <div class="service-card bg-surface-container min-h-[250px] p-lg rounded-xl border border-surface-variant/20 hover:bg-surface-container-high transition-colors flex flex-col items-center justify-center text-center gap-md group">
-            <div class="w-16 h-16 rounded-xl bg-primary-container/10 flex items-center justify-center">
-              <span class="material-symbols-outlined text-primary-container text-5xl" data-icon="visibility">visibility</span>
-            </div>
-            <h3 class="font-headline-md text-headline-md">Monitoreo 24/7</h3>
-            <p class="text-secondary font-body-md">Vigilancia ininterrumpida de sus activos con respuesta inmediata a alarmas.</p>
+        <div class="services-carousel" aria-roledescription="carousel" aria-label="Servicios principales de Click Line Security">
+          <div class="services-track">
+            <article class="service-slide" aria-label="Monitoreo de alarmas">
+              <div class="service-slide-image">
+                <img src="../photos/Security/Monitoreo_Alarmas.png" alt="Servicio de monitoreo de alarmas Click Line Security" width="1379" height="1141" loading="lazy" decoding="async"/>
+              </div>
+              <div class="service-slide-copy">
+                <span class="service-slide-kicker">$39.99 mensual</span>
+                <h3 class="font-headline-lg text-headline-lg">Kit de alarma + Guardia Virtual</h3>
+                <p class="text-secondary font-body-md">Kit básico financiado con monitoreo 24/7 para residencia o negocio. Atención permanente de eventos desde central.</p>
+                <a class="text-primary-container font-bold flex items-center gap-base group/btn" href="https://wa.me/593992789300?text=Hola%20Click%20Line%20Security%2C%20quiero%20cotizar%20el%20Kit%20de%20alarma%20%2B%20Guardia%20Virtual%20de%20%2439.99%20mensual." target="_blank" rel="noopener">
+                  Cotizar servicio
+                  <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+                </a>
+              </div>
+            </article>
+            <article class="service-slide" aria-label="Rastreo satelital">
+              <div class="service-slide-image">
+                <img src="../photos/Security/Rastreo_Satelital.png" alt="Servicio de rastreo satelital Click Line Security" width="1122" height="1402" loading="lazy" decoding="async"/>
+              </div>
+              <div class="service-slide-copy">
+                <h3 class="font-headline-lg text-headline-lg">Rastreo Satelital</h3>
+                <p class="text-secondary font-body-md">Ubicación en tiempo real para vehículos y activos, con alertas inteligentes para mejorar el control operativo.</p>
+                <a class="text-primary-container font-bold flex items-center gap-base group/btn" href="https://wa.me/593992789300?text=Hola%20Click%20Line%20Security%2C%20quiero%20cotizar%20el%20servicio%20de%20Rastreo%20Satelital." target="_blank" rel="noopener">
+                  Cotizar servicio
+                  <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+                </a>
+              </div>
+            </article>
+            <article class="service-slide" aria-label="Radio comunicación POC">
+              <div class="service-slide-image">
+                <img src="../photos/Security/Radio_ComunicacionPOC.png" alt="Servicio de radio comunicacion POC Click Line Security" width="1092" height="1440" loading="lazy" decoding="async"/>
+              </div>
+              <div class="service-slide-copy">
+                <span class="service-slide-kicker">Nuevo producto</span>
+                <h3 class="font-headline-lg text-headline-lg">Radio Comunicación POC</h3>
+                <p class="text-secondary font-body-md">Comunicación profesional sobre red para guardias, supervisores y equipos de seguridad. Ideal para coordinar rondas, novedades y emergencias en tiempo real.</p>
+                <a class="text-primary-container font-bold flex items-center gap-base group/btn" href="https://wa.me/593992789300?text=Hola%20Click%20Line%20Security%2C%20quiero%20cotizar%20el%20servicio%20de%20Radio%20Comunicaci%C3%B3n%20POC." target="_blank" rel="noopener">
+                  Cotizar servicio
+                  <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+                </a>
+              </div>
+            </article>
           </div>
-          <div class="service-card bg-surface-container min-h-[250px] p-lg rounded-xl border border-surface-variant/20 hover:bg-surface-container-high transition-colors flex flex-col items-center justify-center text-center gap-md group">
-            <div class="w-16 h-16 rounded-xl bg-primary-container/10 flex items-center justify-center">
-              <span class="material-symbols-outlined text-primary-container text-5xl" data-icon="videocam">videocam</span>
+          <div class="carousel-controls" aria-label="Controles del carrusel de servicios">
+            <div class="carousel-dots">
+              <button class="carousel-dot is-active" type="button" aria-label="Ver Monitoreo de Alarmas" aria-current="true" data-carousel-dot="0"></button>
+              <button class="carousel-dot" type="button" aria-label="Ver Rastreo Satelital" data-carousel-dot="1"></button>
+              <button class="carousel-dot" type="button" aria-label="Ver Radio Comunicacion POC" data-carousel-dot="2"></button>
             </div>
-            <h3 class="font-headline-md text-headline-md">Cámaras CCTV</h3>
-            <p class="text-secondary font-body-md">Sistemas de video vigilancia de alta definición con acceso remoto seguro.</p>
-          </div>
-          <div class="service-card bg-surface-container min-h-[250px] p-lg rounded-xl border border-surface-variant/20 hover:bg-surface-container-high transition-colors flex flex-col items-center justify-center text-center gap-md group">
-            <div class="w-16 h-16 rounded-xl bg-primary-container/10 flex items-center justify-center">
-              <span class="material-symbols-outlined text-primary-container text-5xl" data-icon="notification_important">notification_important</span>
+            <div class="carousel-arrows">
+              <button class="carousel-arrow" type="button" aria-label="Servicio anterior" data-carousel-dir="-1">‹</button>
+              <button class="carousel-arrow" type="button" aria-label="Servicio siguiente" data-carousel-dir="1">›</button>
             </div>
-            <h3 class="font-headline-md text-headline-md">Sistemas de Alarmas</h3>
-            <p class="text-secondary font-body-md">Tecnología de detección de intrusos avanzada para perímetros y zonas críticas.</p>
           </div>
-          <div class="service-card bg-surface-container min-h-[250px] p-lg rounded-xl border border-surface-variant/20 hover:bg-surface-container-high transition-colors flex flex-col items-center justify-center text-center gap-md group">
-            <div class="w-16 h-16 rounded-xl bg-primary-container/10 flex items-center justify-center">
-              <span class="material-symbols-outlined text-primary-container text-5xl" data-icon="location_on">location_on</span>
-            </div>
-            <h3 class="font-headline-md text-headline-md">Rastreo GPS</h3>
-            <p class="text-secondary font-body-md">Localización en tiempo real de vehículos y activos con alertas inteligentes.</p>
-          </div>
-          <div class="service-card-wide bg-surface-container min-h-[250px] p-lg rounded-xl border border-surface-variant/20 hover:bg-surface-container-high transition-colors flex flex-col items-center justify-center text-center gap-md group">
-            <div class="w-16 h-16 rounded-xl bg-primary-container/10 flex items-center justify-center">
-              <span class="material-symbols-outlined text-primary-container text-5xl" data-icon="local_fire_department">local_fire_department</span>
-            </div>
-            <h3 class="font-headline-md text-headline-md">Detección de Incendios</h3>
-            <p class="text-secondary font-body-md">Sensores inteligentes y protocolos de supresión para salvar vidas.</p>
-          </div>
-          <div class="service-card-wide bg-surface-container min-h-[250px] p-lg rounded-xl border border-surface-variant/20 hover:bg-surface-container-high transition-colors flex flex-col items-center justify-center text-center gap-md group">
-            <div class="w-16 h-16 rounded-xl bg-primary-container/10 flex items-center justify-center">
-              <span class="material-symbols-outlined text-primary-container text-5xl" data-icon="bolt">bolt</span>
-            </div>
-            <h3 class="font-headline-md text-headline-md">Cercas Eléctricas</h3>
-            <p class="text-secondary font-body-md">Barreras perimetrales activas para disuasión y protección física.</p>
-          </div>
-          <div class="service-card-wide bg-surface-container min-h-[250px] p-lg rounded-xl border border-surface-variant/20 hover:bg-surface-container-high transition-colors flex flex-col items-center justify-center text-center gap-md group">
-            <div class="w-16 h-16 rounded-xl bg-primary-container/10 flex items-center justify-center">
-              <span class="material-symbols-outlined text-primary-container text-5xl" data-icon="lock">lock</span>
-            </div>
-            <h3 class="font-headline-md text-headline-md">Control de Acceso</h3>
-            <p class="text-secondary font-body-md">Gestión biométrica y digital de entradas y salidas de personal.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-xl px-margin bg-surface">
-      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-xl">
-        <div class="w-full lg:w-1/2">
-          <img alt="Monitoring Central" class="rounded-xl shadow-2xl border border-surface-variant/40 w-full" data-alt="A focused close-up of a high-resolution dashboard displaying analytical security data and live map tracking on multiple glass-surface tablets and laptops. Hands of a professional analyst are visible in the soft-focus foreground, interacting with tactical interfaces. The overall atmosphere is ultra-professional, characterized by dark charcoal backgrounds and sharp safety orange accents on the digital graphs, conveying precision and constant vigilance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB5n6UJ2ivBu3xMqymuTXPCZt30gc25-lyFQaqODWTLJzyCOYlwtwriBZHriwmKefaL4raeJvihVBcYovsmMFubMKCa-jerWBp_kaRC4P4tIeyKYLe88_9QKfNhrU0xu2k-ToT2BJN5-AhlEw6tz7z-Fq0P3M_c9GMxpXZ3oJ4A8QR-DCcSntkCfiR8vUOFK6CDX7KtwLFrCW0NkPtX4ZJSgFp7pRkVve0M7-3EjEaKu3RuMqxTmrFocSj9CYysmlI78ScpLoO-f8"/>
-        </div>
-        <div class="w-full lg:w-1/2 flex flex-col gap-md">
-          <div class="text-primary-container font-bold text-label-sm uppercase tracking-widest">Servicio Core</div>
-          <h2 class="font-headline-lg text-headline-lg">Monitoreo de Alarmas 24/7/365</h2>
-          <p class="font-body-lg text-secondary">
-            Recibimos y gestionamos las señales emitidas por los sistemas de alarma de nuestros clientes desde una central de monitoreo activa las 24 horas, los 365 días del año. Nuestro personal calificado atiende eventos de emergencia con rapidez, seguridad y confiabilidad.
-          </p>
-          <ul class="flex flex-col gap-sm mt-sm">
-            <li class="flex items-center gap-base">
-              <span class="material-symbols-outlined text-primary-container" data-icon="check_circle">check_circle</span>
-              <span>Respuesta en menos de 60 segundos</span>
-            </li>
-            <li class="flex items-center gap-base">
-              <span class="material-symbols-outlined text-primary-container" data-icon="check_circle">check_circle</span>
-              <span>Protocolos de acción con autoridades locales</span>
-            </li>
-            <li class="flex items-center gap-base">
-              <span class="material-symbols-outlined text-primary-container" data-icon="check_circle">check_circle</span>
-              <span>Reportes semanales de actividad</span>
-            </li>
-          </ul>
         </div>
       </div>
     </section>
 
-    <section class="light-section py-xl px-margin relative overflow-hidden" id="nosotros">
+    <section class="dark-section py-xl px-margin relative overflow-hidden" id="guardias">
       <div class="max-w-7xl mx-auto relative z-10">
-        <div class="text-center mb-xl">
-          <h2 class="font-headline-lg text-headline-lg mb-sm">Por qué elegir Click Line Security</h2>
-          <p class="text-secondary font-body-md">Lideramos la industria con estándares de calidad y compromiso total.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
-          <div class="flex gap-md p-6 rounded-xl bg-surface-container border border-surface-variant/20 hover:border-primary-container/30 transition-all">
-            <div class="p-3 bg-primary-container/10 rounded-lg text-primary-container h-fit">
-              <span class="material-symbols-outlined text-3xl" data-icon="support_agent">support_agent</span>
-            </div>
-            <div>
-              <h4 class="font-bold text-headline-md text-lg mb-1">Soporte 24/7</h4>
-              <p class="text-sm text-secondary">Asistencia técnica siempre disponible para resolver sus dudas y emergencias.</p>
-            </div>
-          </div>
-          <div class="flex gap-md p-6 rounded-xl bg-surface-container border border-surface-variant/20 hover:border-primary-container/30 transition-all">
-            <div class="p-3 bg-primary-container/10 rounded-lg text-primary-container h-fit">
-              <span class="material-symbols-outlined text-3xl" data-icon="public">public</span>
-            </div>
-            <div>
-              <h4 class="font-bold text-headline-md text-lg mb-1">Cobertura Nacional</h4>
-              <p class="text-sm text-secondary">Protección sin fronteras en todo el país con infraestructura robusta.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-xl items-center">
+          <div class="flex flex-col gap-md">
+            <div class="text-primary-container font-bold text-label-sm uppercase tracking-widest">Guardias de seguridad</div>
+            <h2 class="font-headline-lg text-headline-lg">Presencia humana, reacción rápida y respaldo tecnológico</h2>
+            <p class="font-body-lg text-secondary">
+              Damos mayor control a empresas, urbanizaciones, instituciones y negocios con guardias capacitados, supervisión operativa y comunicación POC para reportar novedades en tiempo real.
+            </p>
+            <div class="flex flex-wrap gap-sm mt-sm">
+              <span class="bg-primary-container/10 border border-primary-container/30 px-4 py-2 rounded-full text-primary-container font-bold text-label-sm uppercase">Control de accesos</span>
+              <span class="bg-primary-container/10 border border-primary-container/30 px-4 py-2 rounded-full text-primary-container font-bold text-label-sm uppercase">Rondas preventivas</span>
+              <span class="bg-primary-container/10 border border-primary-container/30 px-4 py-2 rounded-full text-primary-container font-bold text-label-sm uppercase">POC en campo</span>
             </div>
           </div>
-          <div class="flex gap-md p-6 rounded-xl bg-surface-container border border-surface-variant/20 hover:border-primary-container/30 transition-all">
-            <div class="p-3 bg-primary-container/10 rounded-lg text-primary-container h-fit">
-              <span class="material-symbols-outlined text-3xl" data-icon="verified">verified</span>
+          <div class="guardias-card-row grid grid-cols-1 sm:grid-cols-2 gap-md">
+            <div class="bg-surface-container p-lg rounded-xl border border-surface-variant/20">
+              <span class="material-symbols-outlined text-primary-container text-5xl mb-sm" data-icon="security">security</span>
+              <h3 class="font-headline-md text-headline-md mb-sm">Vigilancia física</h3>
+              <p class="text-secondary font-body-md">Guardias uniformados para puestos fijos, recepción, control perimetral y protección de instalaciones.</p>
             </div>
-            <div>
-              <h4 class="font-bold text-headline-md text-lg mb-1">Instalación Homologada</h4>
-              <p class="text-sm text-secondary">Técnicos certificados bajo las más estrictas normas internacionales de seguridad.</p>
+            <div class="bg-surface-container p-lg rounded-xl border border-surface-variant/20">
+              <span class="material-symbols-outlined text-primary-container text-5xl mb-sm" data-icon="walk">walk</span>
+              <h3 class="font-headline-md text-headline-md mb-sm">Rondas y reportes</h3>
+              <p class="text-secondary font-body-md">Supervisión preventiva, registro de novedades y coordinación inmediata ante eventos sospechosos.</p>
             </div>
-          </div>
-          <div class="flex gap-md p-6 rounded-xl bg-surface-container border border-surface-variant/20 hover:border-primary-container/30 transition-all">
-            <div class="p-3 bg-primary-container/10 rounded-lg text-primary-container h-fit">
-              <span class="material-symbols-outlined text-3xl" data-icon="memory">memory</span>
-            </div>
-            <div>
-              <h4 class="font-bold text-headline-md text-lg mb-1">Última Tecnología</h4>
-              <p class="text-sm text-secondary">Equipos de vanguardia global para detección temprana y prevención efectiva.</p>
-            </div>
-          </div>
-          <div class="flex gap-md p-6 rounded-xl bg-surface-container border border-surface-variant/20 hover:border-primary-container/30 transition-all">
-            <div class="p-3 bg-primary-container/10 rounded-lg text-primary-container h-fit">
-              <span class="material-symbols-outlined text-3xl" data-icon="speed">speed</span>
-            </div>
-            <div>
-              <h4 class="font-bold text-headline-md text-lg mb-1">Respuesta Rápida</h4>
-              <p class="text-sm text-secondary">Minimizamos tiempos de reacción críticos para neutralizar amenazas de inmediato.</p>
-            </div>
-          </div>
-          <div class="flex gap-md p-6 rounded-xl bg-surface-container border border-surface-variant/20 hover:border-primary-container/30 transition-all">
-            <div class="p-3 bg-primary-container/10 rounded-lg text-primary-container h-fit">
-              <span class="material-symbols-outlined text-3xl" data-icon="engineering">engineering</span>
-            </div>
-            <div>
-              <h4 class="font-bold text-headline-md text-lg mb-1">Soporte Especializado</h4>
-              <p class="text-sm text-secondary">Expertos dedicados exclusivamente al diseño y mantenimiento de su seguridad.</p>
+            <div class="bg-surface-container p-lg rounded-xl border border-surface-variant/20 sm:col-span-2">
+              <span class="material-symbols-outlined text-primary-container text-5xl mb-sm" data-icon="settings_input_antenna">settings_input_antenna</span>
+              <h3 class="font-headline-md text-headline-md mb-sm">Guardias conectados con Radio POC</h3>
+              <p class="text-secondary font-body-md">El nuevo servicio POC permite comunicación grupal instantánea, seguimiento operativo y mejor respuesta entre guardias, supervisores y central.</p>
             </div>
           </div>
         </div>
-      </div>
-      <div class="absolute -right-20 bottom-0 opacity-5 pointer-events-none">
-        <span class="material-symbols-outlined text-[400px]" data-icon="shield">shield</span>
+        <a class="mx-auto mt-lg bg-primary-container text-on-primary-container px-8 py-4 rounded-lg flex items-center justify-center gap-base font-bold hover:brightness-110 transition-all shadow-lg shadow-primary-container/20 w-fit" href="https://wa.me/593992789300?text=Hola%20Click%20Line%20Security%2C%20quiero%20cotizar%20el%20servicio%20de%20Guardias%20de%20Seguridad." target="_blank" rel="noopener">
+          Cotizar guardias
+          <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+        </a>
       </div>
     </section>
 
     <section class="light-section py-xl px-margin" id="contacto">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl">
-        <div class="flex flex-col justify-center">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 gap-lg">
+        <div class="text-center max-w-3xl mx-auto">
           <h2 class="font-headline-lg text-headline-lg mb-md">Hablemos de su seguridad</h2>
-          <p class="text-secondary mb-lg font-body-lg">No deje la protección de sus bienes al azar. Nuestros consultores están listos para diseñar una solución a su medida y brindarle la tranquilidad que merece.</p>
-          <div class="space-y-lg">
-            <div class="flex items-center gap-md">
-              <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
-                <span class="material-symbols-outlined" data-icon="call">call</span>
-              </div>
-              <div>
-                <p class="text-label-sm font-label-sm text-secondary uppercase">Teléfono / WhatsApp</p>
-                <p class="font-bold text-lg">0992789300</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-md">
-              <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
-                <span class="material-symbols-outlined" data-icon="mail">mail</span>
-              </div>
-              <div>
-                <p class="text-label-sm font-label-sm text-secondary uppercase">Correo Electrónico</p>
-                <p class="font-bold text-lg">contacto@clicklinesecurity.com</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-md">
-              <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
-                <span class="material-symbols-outlined" data-icon="location_on">location_on</span>
-              </div>
-              <div>
-                <p class="text-label-sm font-label-sm text-secondary uppercase">Dirección</p>
-                <p class="font-bold text-lg">Lope de Vega y López de Ayala, Ambato</p>
-                <a class="maps-link" href="https://google.com/maps?vet=10CAAQoqAOahcKEwjY4Im3w7eUAxUAAAAAHQAAAAAQBQ..i&amp;pvq=Cg0vZy8xMWI2Z2NzMjRiIg8KCWNsaWNrbGluZRACGAM&amp;lqi=ChBjbGlja2xpbmUgYW1iYXRvSIqR8OWZqoCACFoeEAAYABgBIhBjbGlja2xpbmUgYW1iYXRvKgQIAhAAkgEKc21hcnRfc2hvcA&amp;fvr=1&amp;cs=1&amp;um=1&amp;ie=UTF-8&amp;fb=1&amp;gl=pe&amp;sa=X&amp;ftid=0x91d381f6799571c5:0xb3e472dbcbcd883f" target="_blank" rel="noopener" aria-label="Ver ubicación de Click Line Security en Google Maps">
-                  <span class="maps-pin material-symbols-outlined" aria-hidden="true">location_on</span>
-                  Ver ubicación en Google Maps
-                  <span class="material-symbols-outlined text-base" aria-hidden="true">open_in_new</span>
-                </a>
-              </div>
-            </div>
-            <div class="flex gap-md pt-base">
-              <a class="w-10 h-10 rounded-full border border-surface-variant flex items-center justify-center hover:bg-primary-container transition-all hover:text-black" href="#">
-                <span class="material-symbols-outlined text-sm" data-icon="share">share</span>
-              </a>
-              <a class="w-10 h-10 rounded-full border border-surface-variant flex items-center justify-center hover:bg-primary-container transition-all hover:text-black" href="#">
-                <span class="material-symbols-outlined text-sm" data-icon="public">public</span>
-              </a>
-            </div>
-          </div>
+          <p class="text-secondary font-body-lg">No deje la protección de sus bienes al azar. Nuestros consultores están listos para diseñar una solución a su medida y brindarle la tranquilidad que merece.</p>
         </div>
         <div class="bg-surface-container p-xl rounded-xl border border-surface-variant/30">
           <form class="grid grid-cols-1 md:grid-cols-2 gap-md">
@@ -924,13 +1243,10 @@
               <label class="text-label-sm text-secondary uppercase block mb-2">Servicio de Interés</label>
               <select class="w-full bg-background border border-surface-variant/50 rounded-lg p-3 focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all text-on-surface" name="service">
                 <option>Seleccione un servicio</option>
-                <option>Monitoreo 24/7</option>
-                <option>Cámaras CCTV</option>
-                <option>Sistemas de Alarmas</option>
+                <option>Kit de alarma + Guardia Virtual</option>
                 <option>Rastreo GPS</option>
-                <option>Detección de Incendios</option>
-                <option>Cercas Eléctricas</option>
-                <option>Control de Acceso</option>
+                <option>Radio Comunicación POC</option>
+                <option>Guardias de Seguridad</option>
               </select>
             </div>
             <div class="md:col-span-2">
@@ -946,61 +1262,76 @@
             <p class="form-status md:col-span-2 text-sm text-secondary" role="status" aria-live="polite"></p>
           </form>
         </div>
+        <div class="contact-info-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+          <div class="contact-info-card flex items-center gap-md">
+            <div class="w-12 h-12 shrink-0 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+              <span class="material-symbols-outlined" data-icon="call">call</span>
+            </div>
+            <div>
+              <p class="text-label-sm font-label-sm text-secondary uppercase">Teléfono / WhatsApp</p>
+              <p class="font-bold text-lg">0992789300</p>
+            </div>
+          </div>
+          <div class="contact-info-card flex items-center gap-md md:col-span-2 lg:col-span-1">
+            <div class="w-12 h-12 shrink-0 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+              <span class="material-symbols-outlined" data-icon="mail">mail</span>
+            </div>
+            <div>
+              <p class="text-label-sm font-label-sm text-secondary uppercase">Correo Electrónico</p>
+              <p class="font-bold text-lg">contacto@clicklinesecurity.com</p>
+            </div>
+          </div>
+          <div class="contact-info-card flex items-center gap-md">
+            <div class="w-12 h-12 shrink-0 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+              <span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+            </div>
+            <div>
+              <p class="text-label-sm font-label-sm text-secondary uppercase">Dirección</p>
+              <p class="font-bold text-lg">Lope de Vega y López de Ayala, Ambato</p>
+              <a class="maps-link" href="https://google.com/maps?vet=10CAAQoqAOahcKEwjY4Im3w7eUAxUAAAAAHQAAAAAQBQ..i&amp;pvq=Cg0vZy8xMWI2Z2NzMjRiIg8KCWNsaWNrbGluZRACGAM&amp;lqi=ChBjbGlja2xpbmUgYW1iYXRvSIqR8OWZqoCACFoeEAAYABgBIhBjbGlja2xpbmUgYW1iYXRvKgQIAhAAkgEKc21hcnRfc2hvcA&amp;fvr=1&amp;cs=1&amp;um=1&amp;ie=UTF-8&amp;fb=1&amp;gl=pe&amp;sa=X&amp;ftid=0x91d381f6799571c5:0xb3e472dbcbcd883f" target="_blank" rel="noopener" aria-label="Ver ubicación de Click Line Security en Google Maps">
+                <span class="maps-pin material-symbols-outlined" aria-hidden="true">location_on</span>
+                Ver ubicación en Google Maps
+                <span class="material-symbols-outlined text-base" aria-hidden="true">open_in_new</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-surface-container-lowest py-xl px-margin border-t border-surface-variant/20">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-lg">
-      <div class="max-w-sm">
-        <span class="text-headline-md font-headline-md font-bold text-on-surface">Click Line Security</span>
-        <p class="text-secondary font-body-md mt-md">Líderes en soluciones tácticas de seguridad electrónica y vigilancia inteligente. Protegiendo lo que más importa con precisión y tecnología de clase mundial.</p>
+  <footer id="site-footer" class="py-10 px-6 mt-10">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+      <div>
+        <p class="text-lg font-bold tracking-wide">Click Line Security</p>
+        <p class="text-sm mt-1">Protección profesional en Ambato, Ecuador.</p>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-2 gap-xl">
-        <div>
-          <h5 class="font-bold text-label-md uppercase text-primary-container mb-md">Enlaces Rápidos</h5>
-          <ul class="flex flex-col gap-sm text-secondary font-body-md">
-            <li><a class="hover:text-primary-container transition-all" href="#inicio">Inicio</a></li>
-            <li><a class="hover:text-primary-container transition-all" href="#promociones">Promociones</a></li>
-            <li><a class="hover:text-primary-container transition-all" href="#servicios">Servicios</a></li>
-            <li><a class="hover:text-primary-container transition-all" href="#nosotros">Nosotros</a></li>
-            <li><a class="hover:text-primary-container transition-all" href="#contacto">Contacto</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="font-bold text-label-md uppercase text-primary-container mb-md">Legal</h5>
-          <ul class="flex flex-col gap-sm text-secondary font-body-md">
-            <li><a class="hover:text-primary-container transition-all" href="#">Política de Privacidad</a></li>
-            <li><a class="hover:text-primary-container transition-all" href="#">Términos de Servicio</a></li>
-            <li><a class="hover:text-primary-container transition-all" href="#">Soporte</a></li>
-            <li><a class="hover:text-primary-container transition-all" href="#">FAQs</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto mt-xl pt-lg border-t border-surface-variant/10 flex flex-col md:flex-row justify-between items-center gap-md">
-      <p class="text-label-sm font-label-sm text-secondary">© 2026 Click Line Security. Todos los derechos reservados.</p>
-      <div class="flex gap-md">
-        <span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary-container" data-icon="verified_user">verified_user</span>
-        <span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary-container" data-icon="shield">shield</span>
-        <span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary-container" data-icon="lock">lock</span>
+      <div class="text-sm sm:text-right">
+        <p>© <span id="footer-year"></span> Click Line Security. Todos los derechos reservados.</p>
+        <a class="mt-2 inline-block font-bold" href="../index.html" style="color: #FF6600 !important;">← Regresar al portal Clickline</a>
       </div>
     </div>
   </footer>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script>
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const nav = document.querySelector("nav");
     const progress = document.querySelector(".scroll-progress");
-    const heroVisual = document.querySelector(".hero-visual img");
     const navLinks = document.querySelectorAll(".nav-link");
     const leadForm = document.querySelector("form");
     const formStatus = document.querySelector(".form-status");
+    const servicesTrack = document.querySelector(".services-track");
+    const serviceSlides = document.querySelectorAll(".service-slide");
+    const carouselDots = document.querySelectorAll("[data-carousel-dot]");
+    const carouselArrows = document.querySelectorAll("[data-carousel-dir]");
     const whatsappNumber = "593992789300";
     const trackedSections = [...navLinks]
-      .map((link) => document.querySelector(link.getAttribute("href")))
+      .map((link) => link.getAttribute("href"))
+      .filter((href) => href && href.startsWith("#"))
+      .map((href) => document.querySelector(href))
       .filter(Boolean);
     const revealTargets = document.querySelectorAll(
-      "main section > div, .group, .service-card, .service-card-wide, #nosotros .grid > div, form, footer > div"
+      "main section > div, .group, .service-card, .service-card-wide, .service-slide, form"
     );
 
     revealTargets.forEach((element, index) => {
@@ -1010,7 +1341,8 @@
       if (
         element.classList.contains("group") ||
         element.classList.contains("service-card") ||
-        element.classList.contains("service-card-wide")
+        element.classList.contains("service-card-wide") ||
+        element.classList.contains("service-slide")
       ) {
         element.classList.add("lift-on-scroll");
       }
@@ -1031,6 +1363,10 @@
     revealTargets.forEach((element) => revealObserver.observe(element));
 
     function updateActiveNav(scrollTop) {
+      if (trackedSections.length === 0) {
+        return;
+      }
+
       let activeSection = trackedSections[0];
 
       trackedSections.forEach((section) => {
@@ -1044,11 +1380,55 @@
       }
 
       navLinks.forEach((link) => {
-        const isActive = link.getAttribute("href") === `#${activeSection.id}`;
+        const href = link.getAttribute("href");
+        const isActive = href === `#${activeSection.id}`;
         link.classList.toggle("is-active", isActive);
         link.toggleAttribute("aria-current", isActive);
       });
     }
+
+    let activeServiceIndex = 0;
+    let serviceCarouselTimer;
+
+    function showServiceSlide(index) {
+      if (!servicesTrack || serviceSlides.length === 0) {
+        return;
+      }
+
+      activeServiceIndex = (index + serviceSlides.length) % serviceSlides.length;
+      servicesTrack.style.transform = `translateX(-${activeServiceIndex * 100}%)`;
+
+      carouselDots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === activeServiceIndex;
+        dot.classList.toggle("is-active", isActive);
+        dot.toggleAttribute("aria-current", isActive);
+      });
+    }
+
+    function startServiceCarousel() {
+      if (prefersReducedMotion || serviceSlides.length < 2) {
+        return;
+      }
+
+      window.clearInterval(serviceCarouselTimer);
+      serviceCarouselTimer = window.setInterval(() => {
+        showServiceSlide(activeServiceIndex + 1);
+      }, 4000);
+    }
+
+    carouselDots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        showServiceSlide(Number(dot.dataset.carouselDot));
+        startServiceCarousel();
+      });
+    });
+
+    carouselArrows.forEach((arrow) => {
+      arrow.addEventListener("click", () => {
+        showServiceSlide(activeServiceIndex + Number(arrow.dataset.carouselDir));
+        startServiceCarousel();
+      });
+    });
 
     leadForm.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -1104,14 +1484,11 @@
       progress.style.transform = `scaleX(${progressScale})`;
       nav.classList.toggle("is-scrolled", scrollTop > 24);
       updateActiveNav(scrollTop);
-
-      if (!prefersReducedMotion && heroVisual) {
-        const parallax = Math.min(scrollTop * 0.08, 42);
-        heroVisual.style.transform = `translateY(${parallax}px) scale(1.02)`;
-      }
     }
 
     updateScrollEffects();
+    showServiceSlide(0);
+    startServiceCarousel();
     window.addEventListener("scroll", updateScrollEffects, { passive: true });
   </script>
 </body>
