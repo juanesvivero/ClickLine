@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Click Line Security | Guardias, Monitoreo 24/7 y Radio Comunicación POC</title>
-  <meta name="description" content="Click Line Security en Ambato ofrece guardias de seguridad, monitoreo 24/7, alarmas, cámaras CCTV, rastreo GPS y radio comunicación POC para hogares y empresas."/>
+  <title>ClickLine Security | Guardias, Monitoreo 24/7 y Radio Comunicación POC</title>
+  <meta name="description" content="ClickLine Security en Ambato ofrece guardias de seguridad, monitoreo 24/7, alarmas, cámaras CCTV, rastreo GPS y radio comunicación POC para hogares y empresas."/>
   <meta name="keywords" content="guardias de seguridad Ambato, seguridad electronica Ambato, radio comunicacion POC, camaras CCTV Ambato, alarmas Ambato, monitoreo 24/7 Ecuador, rastreo GPS"/>
-  <meta name="author" content="Click Line Security"/>
+  <meta name="author" content="ClickLine Security"/>
   <meta name="robots" content="index, follow"/>
   <meta name="theme-color" content="#0B0B0B"/>
   <meta name="geo.region" content="EC-T"/>
   <meta name="geo.placename" content="Ambato"/>
   <link rel="canonical" href="https://www.clickline.mobi/"/>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0B0B'/%3E%3Cpath d='M32 8 52 16v14c0 13-8.5 22.5-20 26C20.5 52.5 12 43 12 30V16l20-8Z' fill='%23FF6600'/%3E%3Cpath d='M32 16 44 21v9c0 7.7-4.7 13.8-12 17-7.3-3.2-12-9.3-12-17v-9l12-5Z' fill='%230B0B0B'/%3E%3C/svg%3E"/>
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230B0B0B'/%3E%3Cpath d='M90 22 146 44v40c0 38-23 65-56 75-33-10-56-37-56-75V44l56-22Z' fill='%23FF6600'/%3E%3Cpath d='M90 45 124 59v26c0 22-13 39-34 48-21-9-34-26-34-48V59l34-14Z' fill='%230B0B0B'/%3E%3C/svg%3E"/>
+  <link rel="icon" href="../photos/ClickLineLogo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../photos/ClickLineLogo.png" />
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="es_EC"/>
-  <meta property="og:site_name" content="Click Line Security"/>
-  <meta property="og:title" content="Click Line Security | Guardias, Monitoreo 24/7 y Radio Comunicación POC"/>
+  <meta property="og:site_name" content="ClickLine Security"/>
+  <meta property="og:title" content="ClickLine Security | Guardias, Monitoreo 24/7 y Radio Comunicación POC"/>
   <meta property="og:description" content="Protección integral para hogares y empresas en Ambato: guardias de seguridad, alarmas, cámaras CCTV, monitoreo 24/7, GPS y radio comunicación POC."/>
   <meta property="og:url" content="https://www.clickline.mobi/"/>
   <meta property="og:image" content="https://www.clickline.mobi/og-image.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Click Line Security | Seguridad Integral 24/7"/>
+  <meta name="twitter:title" content="ClickLine Security | Seguridad Integral 24/7"/>
   <meta name="twitter:description" content="Cotiza guardias de seguridad, monitoreo 24/7, radio comunicación POC y seguridad electrónica profesional en Ambato."/>
   <meta name="twitter:image" content="https://www.clickline.mobi/og-image.jpg"/>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -32,13 +32,13 @@
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Click Line Security",
+      "name": "ClickLine Security",
       "url": "https://www.clickline.mobi/",
       "telephone": "+593992789300",
-      "email": "contacto@clicklinesecurity.com",
+      "email": "contacto@clickline.mobi",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Lope de Vega y Lopez de Ayala",
+        "streetAddress": "López de Ayala N.W. 03-50 y Blasco Ibáñez (Sector La Cantera)",
         "addressLocality": "Ambato",
         "addressCountry": "EC"
       },
@@ -362,6 +362,28 @@
       transform: scaleX(1);
     }
 
+    .portal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid #FF6600;
+      color: #FF6600 !important;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.22s ease;
+      background: rgba(255, 102, 0, 0.05);
+    }
+
+    .portal-btn:hover {
+      background: rgba(255, 102, 0, 0.12);
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.15);
+      transform: translateY(-1px);
+    }
+
     nav .text-on-surface {
       color: #ffffff !important;
     }
@@ -472,16 +494,70 @@
     }
 
     .contact-info-card {
-      padding: 18px;
-      border: 1px solid rgba(255, 144, 69, 0.34);
-      border-radius: 0.75rem;
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 14px 36px rgba(31, 20, 12, 0.08);
-      min-width: 0;
+      padding: 32px 24px;
+      border: 1px solid rgba(255, 144, 69, 0.28);
+      border-radius: 1.25rem;
+      background: #ffffff;
+      box-shadow: 0 14px 40px rgba(31, 20, 12, 0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      min-height: 240px;
+      justify-content: center;
     }
 
-    .contact-info-card > div:last-child {
-      min-width: 0;
+    .contact-info-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 102, 0, 0.6);
+      box-shadow: 0 20px 50px rgba(255, 102, 0, 0.12);
+    }
+
+    .contact-info-card .icon-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      background: rgba(255, 102, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FF6600;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-info-card:hover .icon-circle {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .contact-info-card .value-text {
+      word-break: break-word;
+      max-width: 100%;
+      font-size: 1.15rem;
+      line-height: 1.4;
+      margin-top: 4px;
+    }
+
+    .maps-link {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(255, 102, 0, 0.06);
+      border: 1px solid rgba(255, 102, 0, 0.15);
+      border-radius: 999px;
+      color: #FF6600 !important;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .maps-link:hover {
+      background: rgba(255, 102, 0, 0.12);
+      border-color: rgba(255, 102, 0, 0.3);
+      transform: scale(1.05);
     }
 
     .service-card:hover,
@@ -664,8 +740,6 @@
 
     @media (max-width: 640px) {
       #inicio {
-        padding-left: 0;
-        padding-right: 0;
         padding-top: 34px;
         padding-bottom: 42px;
         min-height: auto;
@@ -676,10 +750,8 @@
       }
 
       .hero-visual {
-        width: 100vw;
+        width: 100%;
         max-width: none;
-        margin-left: calc(50% - 50vw);
-        margin-right: calc(50% - 50vw);
       }
 
       .hero-visual::before {
@@ -688,14 +760,12 @@
       }
 
       .hero-visual img {
-        border-left: 0;
-        border-right: 0;
-        border-radius: 0;
+        border-radius: 12px;
         box-shadow: 0 18px 42px rgba(31, 20, 12, 0.12);
       }
 
       .hero-copy {
-        width: min(100% - 32px, 420px);
+        width: 100%;
         gap: 14px;
       }
 
@@ -1064,18 +1134,18 @@
   <nav class="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-surface-variant/30 h-20">
     <div class="max-w-7xl mx-auto px-margin h-full flex justify-between items-center">
       <a class="security-brand" href="../index.html" aria-label="Volver al portal Clickline">
-        <img class="security-brand-logo" src="../photos/Security/security_logo_transparent.png" alt="Click Line Security"/>
-        <span class="security-brand-name text-headline-md font-extrabold tracking-tighter text-on-surface">Click Line Security</span>
+        <img class="security-brand-logo" src="../photos/Security/security_logo_transparent.png" alt="ClickLine Security"/>
+        <span class="security-brand-name text-headline-md font-extrabold tracking-tighter text-on-surface">ClickLine Security</span>
       </a>
       <div class="hidden lg:flex items-center gap-md">
         <a class="nav-link font-label-md transition-colors py-1" href="#servicios">Servicios</a>
         <a class="nav-link font-label-md transition-colors py-1" href="#guardias">Guardias</a>
         <a class="nav-link font-label-md transition-colors py-1" href="#contacto">Contacto</a>
-        <a class="nav-link font-label-md transition-colors py-1 inline-flex items-center gap-2" href="../index.html" aria-label="Regresar al portal Clickline">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          Portal
-        </a>
       </div>
+      <a class="portal-btn ml-auto lg:ml-0" href="../index.html" aria-label="Regresar al portal ClickLine">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Portal
+      </a>
     </div>
   </nav>
 
@@ -1084,14 +1154,14 @@
       <div class="max-w-7xl mx-auto w-full grid grid-cols-1 gap-xl items-center relative z-10">
         <div class="hero-visual relative w-full">
           <div class="absolute inset-0 bg-primary-container/5 blur-[120px] rounded-full"></div>
-          <img alt="Servicios de Click Line Security" class="rounded-xl border border-surface-variant/50 shadow-2xl relative z-10 w-full object-contain" src="../photos/Security/portada.png" width="1672" height="941" fetchpriority="high" decoding="async"/>
+          <img alt="Servicios de ClickLine Security" class="rounded-xl border border-surface-variant/50 shadow-2xl relative z-10 w-full object-contain" src="../photos/Security/portada.png" width="1672" height="941" fetchpriority="high" decoding="async"/>
         </div>
         <div class="hero-copy mx-auto flex max-w-3xl flex-col items-center gap-md text-center">
           <div class="inline-flex items-center gap-2 bg-primary-container/10 border border-primary-container/30 px-3 py-1 rounded-full w-fit">
             <div class="w-2 h-2 rounded-full bg-primary-container animate-pulse" aria-hidden="true"></div>
             <span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Protección Activa 24/7</span>
           </div>
-          <img class="hero-logo-mark" src="../photos/Security/security_logo_transparent.png" alt="Click Line Security" width="420" height="410" fetchpriority="high" decoding="async"/>
+          <img class="hero-logo-mark" src="../photos/Security/security_logo_transparent.png" alt="ClickLine Security" width="420" height="410" fetchpriority="high" decoding="async"/>
           <p class="font-body-lg text-body-lg text-secondary max-w-2xl">
             Integramos guardias de seguridad, monitoreo 24/7, alarmas, cámaras CCTV, rastreo GPS y radio comunicación POC para proteger hogares, negocios y operaciones.
           </p>
@@ -1116,11 +1186,11 @@
           <h2 class="font-headline-lg text-headline-lg mb-sm">Servicios principales</h2>
           <p class="text-secondary font-body-md max-w-2xl mx-auto">Lo esencial para proteger y coordinar operaciones: monitoreo, rastreo y comunicación POC.</p>
         </div>
-        <div class="services-carousel" aria-roledescription="carousel" aria-label="Servicios principales de Click Line Security">
+        <div class="services-carousel" aria-roledescription="carousel" aria-label="Servicios principales de ClickLine Security">
           <div class="services-track">
             <article class="service-slide" aria-label="Monitoreo de alarmas">
               <div class="service-slide-image">
-                <img src="../photos/Security/Monitoreo_Alarmas.png" alt="Servicio de monitoreo de alarmas Click Line Security" width="1379" height="1141" loading="lazy" decoding="async"/>
+                <img src="../photos/Security/Monitoreo_Alarmas.png" alt="Servicio de monitoreo de alarmas ClickLine Security" width="1379" height="1141" loading="lazy" decoding="async"/>
               </div>
               <div class="service-slide-copy">
                 <span class="service-slide-kicker">$39.99 mensual</span>
@@ -1134,7 +1204,7 @@
             </article>
             <article class="service-slide" aria-label="Rastreo satelital">
               <div class="service-slide-image">
-                <img src="../photos/Security/Rastreo_Satelital.png" alt="Servicio de rastreo satelital Click Line Security" width="1122" height="1402" loading="lazy" decoding="async"/>
+                <img src="../photos/Security/Rastreo_Satelital.png" alt="Servicio de rastreo satelital ClickLine Security" width="1122" height="1402" loading="lazy" decoding="async"/>
               </div>
               <div class="service-slide-copy">
                 <h3 class="font-headline-lg text-headline-lg">Rastreo Satelital</h3>
@@ -1147,7 +1217,7 @@
             </article>
             <article class="service-slide" aria-label="Radio comunicación POC">
               <div class="service-slide-image">
-                <img src="../photos/Security/Radio_ComunicacionPOC.png" alt="Servicio de radio comunicacion POC Click Line Security" width="1092" height="1440" loading="lazy" decoding="async"/>
+                <img src="../photos/Security/Radio_ComunicacionPOC.png" alt="Servicio de radio comunicacion POC ClickLine Security" width="1092" height="1440" loading="lazy" decoding="async"/>
               </div>
               <div class="service-slide-copy">
                 <span class="service-slide-kicker">Nuevo producto</span>
@@ -1262,34 +1332,38 @@
             <p class="form-status md:col-span-2 text-sm text-secondary" role="status" aria-live="polite"></p>
           </form>
         </div>
-        <div class="contact-info-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
-          <div class="contact-info-card flex items-center gap-md">
-            <div class="w-12 h-12 shrink-0 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
-              <span class="material-symbols-outlined" data-icon="call">call</span>
+        <div class="contact-info-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+          <!-- TELÉFONO -->
+          <div class="contact-info-card">
+            <div class="icon-circle">
+              <span class="material-symbols-outlined text-3xl" data-icon="call">call</span>
             </div>
             <div>
-              <p class="text-label-sm font-label-sm text-secondary uppercase">Teléfono / WhatsApp</p>
-              <p class="font-bold text-lg">0992789300</p>
+              <p class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Teléfono / WhatsApp</p>
+              <p class="font-bold value-text">0992789300</p>
             </div>
           </div>
-          <div class="contact-info-card flex items-center gap-md md:col-span-2 lg:col-span-1">
-            <div class="w-12 h-12 shrink-0 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
-              <span class="material-symbols-outlined" data-icon="mail">mail</span>
+
+          <!-- CORREO -->
+          <div class="contact-info-card">
+            <div class="icon-circle">
+              <span class="material-symbols-outlined text-3xl" data-icon="mail">mail</span>
             </div>
             <div>
-              <p class="text-label-sm font-label-sm text-secondary uppercase">Correo Electrónico</p>
-              <p class="font-bold text-lg">contacto@clicklinesecurity.com</p>
+              <p class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Correo Electrónico</p>
+              <p class="font-bold value-text">contacto@clickline.mobi</p>
             </div>
           </div>
-          <div class="contact-info-card flex items-center gap-md">
-            <div class="w-12 h-12 shrink-0 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
-              <span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+
+          <!-- DIRECCIÓN -->
+          <div class="contact-info-card md:col-span-2 lg:col-span-1">
+            <div class="icon-circle">
+              <span class="material-symbols-outlined text-3xl" data-icon="location_on">location_on</span>
             </div>
             <div>
-              <p class="text-label-sm font-label-sm text-secondary uppercase">Dirección</p>
-              <p class="font-bold text-lg">Lope de Vega y López de Ayala, Ambato</p>
-              <a class="maps-link" href="https://google.com/maps?vet=10CAAQoqAOahcKEwjY4Im3w7eUAxUAAAAAHQAAAAAQBQ..i&amp;pvq=Cg0vZy8xMWI2Z2NzMjRiIg8KCWNsaWNrbGluZRACGAM&amp;lqi=ChBjbGlja2xpbmUgYW1iYXRvSIqR8OWZqoCACFoeEAAYABgBIhBjbGlja2xpbmUgYW1iYXRvKgQIAhAAkgEKc21hcnRfc2hvcA&amp;fvr=1&amp;cs=1&amp;um=1&amp;ie=UTF-8&amp;fb=1&amp;gl=pe&amp;sa=X&amp;ftid=0x91d381f6799571c5:0xb3e472dbcbcd883f" target="_blank" rel="noopener" aria-label="Ver ubicación de Click Line Security en Google Maps">
-                <span class="maps-pin material-symbols-outlined" aria-hidden="true">location_on</span>
+              <p class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Dirección</p>
+              <p class="font-bold value-text">López de Ayala N.W. 03-50 y Blasco Ibáñez (Sector La Cantera), Ambato</p>
+              <a class="maps-link" href="https://google.com/maps?vet=10CAAQoqAOahcKEwjY4Im3w7eUAxUAAAAAHQAAAAAQBQ..i&amp;pvq=Cg0vZy8xMWI2Z2NzMjRiIg8KCWNsaWNrbGluZRACGAM&amp;lqi=ChBjbGlja2xpbmUgYW1iYXRvSIqR8OWZqoCACFoeEAAYABgBIhBjbGlja2xpbmUgYW1iYXRvKgQIAhAAkgEKc21hcnRfc2hvcA&amp;fvr=1&amp;cs=1&amp;um=1&amp;ie=UTF-8&amp;fb=1&amp;gl=pe&amp;sa=X&amp;ftid=0x91d381f6799571c5:0xb3e472dbcbcd883f" target="_blank" rel="noopener" aria-label="Ver ubicación de ClickLine Security en Google Maps">
                 Ver ubicación en Google Maps
                 <span class="material-symbols-outlined text-base" aria-hidden="true">open_in_new</span>
               </a>
@@ -1303,12 +1377,12 @@
   <footer id="site-footer" class="py-10 px-6 mt-10">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
       <div>
-        <p class="text-lg font-bold tracking-wide">Click Line Security</p>
+        <p class="text-lg font-bold tracking-wide">ClickLine Security</p>
         <p class="text-sm mt-1">Protección profesional en Ambato, Ecuador.</p>
       </div>
       <div class="text-sm sm:text-right">
-        <p>© <span id="footer-year"></span> Click Line Security. Todos los derechos reservados.</p>
-        <a class="mt-2 inline-block font-bold" href="../index.html" style="color: #FF6600 !important;">← Regresar al portal Clickline</a>
+        <p>© <span id="footer-year"></span> ClickLine Security. Todos los derechos reservados.</p>
+        <a class="mt-2 inline-block font-bold" href="../index.html" style="color: #FF6600 !important;">← Regresar al portal ClickLine</a>
       </div>
     </div>
   </footer>
@@ -1444,7 +1518,7 @@
         message: data.get("message") || ""
       };
       const message = [
-        "Hola Click Line Security, quiero cotizar por WhatsApp.",
+        "Hola ClickLine Security, quiero cotizar por WhatsApp.",
         `Nombre: ${payload.name}`,
         `Email: ${payload.email}`,
         `Ciudad: ${payload.city}`,

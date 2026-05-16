@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Clickline | Portal de Marcas</title>
-  <meta name="description" content="Portal corporativo de Clickline. Elige entre Clickline Security — seguridad electrónica 24/7 — y Clickline Solutions — tecnología y soluciones digitales."/>
+  <title>ClickLine | Portal de Marcas</title>
+  <meta name="description" content="ClickLine: Seguridad electrónica y soluciones digitales innovadoras."/>
   <meta name="theme-color" content="#060606"/>
   <link rel="canonical" href="https://www.clickline.mobi/"/>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060606'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='26' fill='%23ff6600'%3ECL%3C/text%3E%3C/svg%3E"/>
+  <link rel="icon" href="./photos/ClickLineLogo.png" type="image/png" />
   <link rel="stylesheet" href="shared.css"/>
   <style>
     /* ── PORTAL OVERRIDES ──────────────────────────── */
@@ -15,7 +15,10 @@
       min-height: 100vh;
       display: grid;
       grid-template-rows: auto 1fr auto;
-      background: #ffffff;
+      background: 
+        radial-gradient(circle at 15% 0%, rgba(255, 102, 0, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 20%, rgba(148, 163, 184, 0.12), transparent 25%),
+        linear-gradient(180deg, #ffffff 0%, #f8f9fb 50%, #ffffff 100%);
       color: #333333;
     }
 
@@ -41,15 +44,32 @@
       transform: translateY(0);
     }
 
-    /* NAVBAR Blanco */
+    /* NAVBAR Estilo Solutions */
     .cl-nav {
-      background: rgba(255,255,255,0.9);
-      border-bottom: 1px solid #eaeaea;
+      position: sticky;
+      top: 12px;
+      left: 0;
+      right: 0;
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      height: 64px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      z-index: 100;
     }
+
     .cl-nav.scrolled {
-      background: rgba(255,255,255,0.98);
-      border-color: #e0e0e0;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      background: rgba(255, 255, 255, 0.96);
+      border-color: rgba(255, 102, 0, 0.2);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.08),
+        0 0 20px rgba(255, 102, 0, 0.05);
     }
     .cl-logo {
       color: #000000;
@@ -66,10 +86,10 @@
 
     /* HERO del portal */
     .portal-hero {
-      min-height: calc(100vh - 72px - 87px);
+      min-height: calc(100vh - 84px - 87px);
       display: grid;
       place-items: center;
-      padding: 104px 0 56px;
+      padding: 64px 0 56px;
     }
 
     .portal-hero > .cl-wrap {
@@ -91,10 +111,10 @@
 
     .portal-intro h1 {
       margin: 0;
-      font-size: clamp(2.6rem, 7vw, 5.8rem);
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
       font-weight: 800;
-      line-height: 0.96;
-      letter-spacing: -0.06em;
+      line-height: 1.05;
+      letter-spacing: -0.05em;
       color: #000000;
     }
 
@@ -123,7 +143,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      min-height: 460px;
+      min-height: 420px;
       overflow: hidden;
       border-radius: var(--cl-radius-xl);
       background: #ffffff;
@@ -334,9 +354,10 @@
 
     /* FOOTER del portal */
     .portal-footer {
-      border-top: 1px solid #eaeaea;
-      padding: 28px 0;
-      background: #ffffff;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 40px 0;
+      background: #0d0d12;
+      color: #9a9a9a;
     }
 
     .portal-footer-inner {
@@ -344,9 +365,22 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      color: #666666;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       text-align: center;
+    }
+
+    .portal-footer-inner span {
+      color: #666666;
+    }
+
+    .portal-footer-links a {
+      color: #ffffff;
+      font-weight: 600;
+      transition: color var(--cl-ease);
+    }
+
+    .portal-footer-links a:hover {
+      color: var(--cl-orange);
     }
 
     .portal-footer-links {
@@ -370,15 +404,16 @@
     @media (max-width: 820px) {
       .portal-hero {
         min-height: auto;
-        padding: 104px 0 56px;
+        padding: 64px 0 40px;
       }
 
       .brand-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
 
       .brand-card {
-        min-height: 380px;
+        min-height: 340px;
       }
 
       .stats-strip {
@@ -424,19 +459,7 @@
 <body>
   <a class="skip-link" href="#portal-main">Saltar al contenido</a>
 
-  <!-- NAVBAR -->
-  <nav class="cl-nav" id="cl-nav" aria-label="Navegación principal">
-    <div class="cl-wrap cl-nav-inner">
-      <a class="cl-logo" href="./index.html" aria-label="Clickline — Portal corporativo">
-        <span class="cl-logo-mark" aria-hidden="true">CL</span>
-        <span>Clickline</span>
-      </a>
 
-      <div class="cl-nav-links" id="cl-nav-links">
-        <!-- Links removed per user request -->
-      </div>
-    </div>
-  </nav>
 
   <!-- MAIN -->
   <main id="portal-main" tabindex="-1">
@@ -445,7 +468,7 @@
 
         <!-- INTRO -->
         <div class="portal-intro">
-          <span class="cl-eyebrow">Portal corporativo</span>
+
           <h1>Elige la <em>solución</em><br>que necesitas</h1>
           <p>Accede a la división de seguridad electrónica o a la línea de soluciones tecnológicas y digitales. Dos marcas, un solo compromiso de calidad.</p>
         </div>
@@ -454,14 +477,14 @@
         <div class="brand-grid">
 
           <!-- SECURITY -->
-          <a class="brand-card card-security" href="./security/index.html" aria-label="Entrar a Clickline Security">
+          <a class="brand-card card-security" href="./security/index.html" aria-label="Entrar a ClickLine Security">
             <div class="brand-card-top">
               <div class="brand-tag">
                 <span class="brand-tag-dot"></span>
                 Seguridad electrónica
               </div>
               <div class="brand-logo-block">
-                <img src="./photos/Security/security_logo_transparent.png" alt="Clickline Security"/>
+                <img src="./photos/Security/security_logo_transparent.png" alt="ClickLine Security"/>
               </div>
               <p class="brand-card-desc">Monitoreo Electrónico de Alarmas, Monitoreo Satelital de Vehículos, Radio Comunicación Satelital, Servicio de Guardiania Física para Hogares y Empresas</p>
             </div>
@@ -472,14 +495,14 @@
           </a>
 
           <!-- SOLUTIONS -->
-          <a class="brand-card card-solutions" href="./solutions/index.html" aria-label="Entrar a Clickline Solutions">
+          <a class="brand-card card-solutions" href="./solutions/index.html" aria-label="Entrar a ClickLine Solutions">
             <div class="brand-card-top">
               <div class="brand-tag">
                 <span class="brand-tag-dot"></span>
                 Tecnología & software
               </div>
               <div class="brand-logo-block">
-                <img src="./photos/Solutions/solutions_logo_transparent.webp" alt="Clickline Solutions"/>
+                <img src="./photos/Solutions/solutions_logo_transparent.webp" alt="ClickLine Solutions"/>
               </div>
               <p class="brand-card-desc">Software, soluciones digitales, automatización y servicios de innovación tecnológica para tu negocio.</p>
             </div>
@@ -501,11 +524,8 @@
   <!-- FOOTER -->
   <footer class="portal-footer">
     <div class="cl-wrap portal-footer-inner">
-      <span>© 2026 Clickline. Todos los derechos reservados.</span>
-      <nav class="portal-footer-links" aria-label="Accesos rápidos">
-        <a href="./security/index.html">Clickline Security →</a>
-        <a href="./solutions/index.html">Clickline Solutions →</a>
-      </nav>
+      <span>© 2026 ClickLine. Todos los derechos reservados.</span>
+
     </div>
   </footer>
 
