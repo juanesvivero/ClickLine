@@ -3,12 +3,55 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Clickline Solutions | Soluciones digitales</title>
-  <meta name="description" content="Clickline Solutions: tecnología, software, soluciones digitales y servicios de innovación."/>
+  <title>Clickline Solutions | POS, impresoras térmicas y asesoría digital en Ambato</title>
+  <meta name="description" content="Clickline Solutions en Ambato: sistemas POS para restaurantes, impresoras térmicas, equipos biométricos, asesoría gastronómica, páginas web y automatización para negocios en Ecuador."/>
+  <meta name="keywords" content="POS Ambato, impresoras térmicas Ecuador, sistema POS restaurantes Ambato, RunFood App Ecuador, equipos biométricos Ambato, páginas web Ambato, automatización negocios Ecuador"/>
   <meta name="theme-color" content="#ffffff"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://www.clickline.mobi/solutions/#business",
+          "name": "Clickline Solutions",
+          "url": "https://www.clickline.mobi/solutions/",
+          "telephone": "+593984454938",
+          "email": "contacto@clickline.mobi",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "López de Ayala y Blasco Ibáñez",
+            "addressLocality": "Ambato",
+            "addressCountry": "EC"
+          },
+          "areaServed": ["Ambato", "Ecuador"],
+          "description": "Sistemas POS, impresoras térmicas, equipos biométricos, asesoría para restaurantes y servicios digitales para negocios."
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://www.clickline.mobi/solutions/#products",
+          "name": "Catálogo Clickline Solutions",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "item": { "@type": "Product", "name": "RunFood App", "category": "Sistema POS para restaurantes" } },
+            { "@type": "ListItem", "position": 2, "item": { "@type": "Product", "name": "Impresoras térmicas SAT", "category": "Impresoras POS" } },
+            { "@type": "ListItem", "position": 3, "item": { "@type": "Product", "name": "Equipos POS", "category": "Computadores punto de venta" } },
+            { "@type": "ListItem", "position": 4, "item": { "@type": "Product", "name": "Equipos biométricos ZKTeco", "category": "Control de acceso" } }
+          ]
+        },
+        {
+          "@type": "Service",
+          "@id": "https://www.clickline.mobi/solutions/#services",
+          "name": "Asesoría integral y servicios digitales",
+          "provider": { "@id": "https://www.clickline.mobi/solutions/#business" },
+          "areaServed": ["Ambato", "Ecuador"],
+          "serviceType": ["Asesoría para restaurantes", "Creación de páginas web", "Automatización para negocios", "Dashboards y reportes"]
+        }
+      ]
+    }
+  </script>
   <style>
     :root {
       --black: #030308;
@@ -143,6 +186,16 @@
       gap: 16px;
     }
 
+    .nav-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding-left: 16px;
+      border-left: 1px solid rgba(255,255,255,0.12);
+      position: relative;
+      z-index: 1;
+    }
+
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -190,6 +243,53 @@
       box-shadow: 0 0 30px rgba(21,23,26,0.32);
     }
 
+    .nav-cart-link {
+      position: relative;
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border-cyan);
+      color: #ffffff;
+      transition: transform var(--ease), border-color var(--ease), background var(--ease);
+    }
+
+    .nav-cart-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0,229,255,0.45);
+      background: rgba(0,229,255,0.12);
+    }
+
+    .nav-cart-link svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .quote-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: #25D366;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 14px 28px rgba(37,211,102,0.22);
+      transition: transform var(--ease), filter var(--ease), box-shadow var(--ease);
+    }
+
+    .quote-link:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 18px 34px rgba(37,211,102,0.3);
+    }
+
     .hero {
       display: flex;
       flex-direction: column;
@@ -214,22 +314,108 @@
       box-shadow: 0 0 0 1px rgba(0,229,255,0.05), 0 40px 100px rgba(0,0,0,0.5), inset 0 1px 0 rgba(0,229,255,0.06);
     }
 
-    h1 {
-      margin: 0;
-      max-width: 720px;
-      font-size: clamp(2.35rem, 7vw, 5.2rem);
-      line-height: 0.98;
-      letter-spacing: -0.07em;
-      color: #ffffff;
+    .hero-content {
+      display: grid;
+      justify-items: center;
+      gap: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .hero-logo {
-      display: block;
-      width: min(100%, 420px);
-      max-height: 220px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 24px rgba(0,229,255,0.35)) brightness(1.05);
-      margin: 0 auto;
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 7px 12px;
+      border: 1px solid rgba(63,70,82,0.18);
+      border-radius: 999px;
+      background: rgba(63,70,82,0.07);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 880px;
+      font-size: clamp(2.1rem, 6vw, 4.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+    }
+
+    .hero-subtitle {
+      max-width: 780px;
+      margin: 0;
+      color: #4b5563;
+      font-size: clamp(0.98rem, 2vw, 1.18rem);
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: transform var(--ease), filter var(--ease), box-shadow var(--ease);
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    .hero-btn-primary {
+      background: #15171a;
+      color: #ffffff;
+      box-shadow: 0 16px 34px rgba(21,23,26,0.18);
+    }
+
+    .hero-btn-secondary {
+      background: #25D366;
+      color: #ffffff;
+      box-shadow: 0 16px 34px rgba(37,211,102,0.24);
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .trust-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 8px 12px;
+      border: 1px solid rgba(63,70,82,0.14);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.82);
+      color: #374151;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
     p {
@@ -303,7 +489,7 @@
     }
     .categories-section {
       width: 100%;
-      margin-top: 80px;
+      margin-top: 88px;
       padding-top: 64px;
       border-top: 1px solid var(--border-cyan);
     }
@@ -926,13 +1112,57 @@
       padding-inline: clamp(6px, 2vw, 18px);
     }
 
+    .audience-tabs {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 52px;
+      padding-top: 34px;
+      border-top: 1px solid rgba(63,70,82,0.14);
+    }
+
+    .audience-tab {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid rgba(63,70,82,0.16);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.88);
+      box-shadow: 0 14px 38px rgba(21,23,26,0.07);
+      transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+    }
+
+    .audience-tab:hover {
+      transform: translateY(-3px);
+      border-color: rgba(63,70,82,0.38);
+      box-shadow: 0 20px 48px rgba(21,23,26,0.1);
+    }
+
+    .audience-tab strong {
+      color: var(--ink);
+      font-size: 0.88rem;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .audience-tab span {
+      color: #4b5563;
+      font-size: 0.76rem;
+      line-height: 1.45;
+    }
+
     p,
     .product-desc {
-      color: var(--muted);
+      color: #4b5563;
     }
 
     .categories-section {
       border-top-color: rgba(63,70,82,0.18);
+      margin-top: 96px;
+      padding-top: 72px;
     }
 
     .categories-section h2 {
@@ -1039,9 +1269,72 @@
       box-shadow: 0 22px 48px rgba(21,23,26,0.3);
     }
 
+    .whatsapp-floating-btn {
+      position: fixed;
+      left: 24px;
+      bottom: 24px;
+      z-index: 1000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 56px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: #25D366;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      box-shadow: 0 18px 38px rgba(37,211,102,0.28);
+      transition: transform var(--ease), filter var(--ease), box-shadow var(--ease);
+    }
+
+    .whatsapp-floating-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 22px 48px rgba(37,211,102,0.36);
+    }
+
+    .whatsapp-floating-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      flex: 0 0 20px;
+    }
+
     .cart-count-badge {
       background: #151111;
       color: #ffffff;
+    }
+
+    .cart-count-badge,
+    .mobile-cart-count,
+    .nav-cart-badge {
+      display: none;
+    }
+
+    .cart-count-badge.is-visible,
+    .mobile-cart-count.is-visible,
+    .nav-cart-badge.is-visible {
+      display: grid;
+    }
+
+    .nav-cart-badge {
+      position: absolute;
+      top: -7px;
+      right: -7px;
+      place-items: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
+      border: 1px solid #ffffff;
+      border-radius: 999px;
+      background: #25D366;
+      color: #ffffff;
+      font-size: 0.62rem;
+      font-weight: 800;
     }
 
     footer {
@@ -1130,6 +1423,21 @@
       justify-content: flex-end;
     }
 
+    .nav-actions {
+      border-left-color: rgba(63,70,82,0.16);
+    }
+
+    .nav-cart-link {
+      background: rgba(63,70,82,0.07);
+      border-color: rgba(63,70,82,0.16);
+      color: #15171a;
+    }
+
+    .nav-cart-link:hover {
+      border-color: rgba(63,70,82,0.38);
+      background: rgba(63,70,82,0.11);
+    }
+
     .header-nav-link {
       display: inline-flex;
       align-items: center;
@@ -1162,7 +1470,7 @@
 
     .advisory-section {
       width: 100%;
-      margin-top: 58px;
+      margin-top: 96px;
       padding: clamp(26px, 5vw, 48px);
       border: 1px solid rgba(63,70,82,0.16);
       border-radius: 24px;
@@ -1411,7 +1719,7 @@
       --license-accent-soft: rgba(8,122,85,0.09);
       --license-border: rgba(8,122,85,0.24);
       width: 100%;
-      margin-top: 80px;
+      margin-top: 88px;
       padding: clamp(28px, 5vw, 52px);
       border: 1px solid var(--license-border);
       border-radius: 24px;
@@ -1644,6 +1952,16 @@
         box-shadow: 0 14px 34px rgba(8,82,58,0.1);
       }
 
+      .audience-tabs {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .audience-tab {
+        padding: 14px;
+      }
+
       .license-card:hover {
         transform: none;
       }
@@ -1822,6 +2140,10 @@
         overflow: hidden;
       }
 
+      .nav-actions {
+        display: none;
+      }
+
       .header-nav {
         display: flex;
         justify-content: flex-start;
@@ -1896,7 +2218,7 @@
         position: absolute;
         top: -5px;
         right: -5px;
-        display: grid;
+        display: none;
         place-items: center;
         min-width: 18px;
         height: 18px;
@@ -1914,8 +2236,16 @@
         display: none;
       }
 
+      .whatsapp-floating-btn {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        min-height: 52px;
+      }
+
       .hero,
       .panel,
+      .audience-tabs,
       .advisory-section,
       .advisory-grid,
       .advisory-group,
@@ -1992,6 +2322,7 @@
     <div class="nav-right">
       <nav class="header-nav" aria-label="Navegación de Clickline Solutions">
         <a class="header-nav-link is-featured" href="#runfoodapp">RunFoodApp</a>
+        <a class="header-nav-link" href="#asesoria">Asesoría</a>
         <a class="header-nav-link" href="#productos">Productos</a>
         <a class="header-nav-link" href="#contacto">Contacto</a>
         <a class="back-link" href="../index.html">
@@ -1999,17 +2330,53 @@
           Portal
         </a>
       </nav>
+      <div class="nav-actions" aria-label="Acciones rápidas">
+        <a class="nav-cart-link" href="cesta.html" aria-label="Abrir cesta">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="nav-cart-badge" id="desktop-cart-count">0</span>
+        </a>
+        <a class="quote-link" href="https://wa.me/593984454938?text=Hola%20Clickline%20Solutions%2C%20quiero%20cotizar%20una%20soluci%C3%B3n%20para%20mi%20negocio." target="_blank" rel="noopener">Cotizar</a>
+      </div>
     </div>
   </header>
 
   <main class="hero">
     <div class="hero-visual-bg"></div>
     <section class="panel" id="inicio" aria-label="Clickline Solutions">
-      <div>
-        <img class="hero-logo" src="../photos/Solutions/solutions_logo_transparent.webp" alt="Clickline Solutions" width="420" height="220" fetchpriority="high" decoding="async">
-        <p>Click Line Solutions se especializa en optimizar la operación de negocios mediante tecnología de vanguardia, ofreciendo soluciones en sistemas POS, impresoras térmicas y dispositivos biométricos. Su compromiso principal es mejorar la eficiencia y seguridad empresarial a través de productos de alta calidad, soporte especializado y asesoría personalizada.</p>
+      <div class="hero-content">
+        <span class="hero-kicker">Tecnología para negocios</span>
+        <h1>POS, equipos y asesoría para operar mejor</h1>
+        <p class="hero-subtitle">Implementamos sistemas, equipos y procesos para restaurantes y comercios en Ambato y Ecuador.</p>
+        <div class="hero-actions">
+          <a class="hero-btn hero-btn-primary" href="#runfoodapp">Ver RunFoodApp</a>
+          <a class="hero-btn hero-btn-secondary" href="https://wa.me/593984454938?text=Hola%20Clickline%20Solutions%2C%20quiero%20cotizar%20una%20soluci%C3%B3n%20para%20mi%20negocio." target="_blank" rel="noopener">Cotizar ahora</a>
+        </div>
+        <div class="hero-trust" aria-label="Garantías de servicio">
+          <span class="trust-chip">Garantía local</span>
+          <span class="trust-chip">Soporte especializado</span>
+          <span class="trust-chip">Ambato, Ecuador</span>
+        </div>
       </div>
     </section>
+
+    <nav class="audience-tabs" aria-label="Seleccionar solución por necesidad">
+      <a class="audience-tab" href="#runfoodapp">
+        <strong>Restaurantes y POS</strong>
+        <span>RunFood App para ventas, inventario, facturación y reportes.</span>
+      </a>
+      <a class="audience-tab" href="#asesoria">
+        <strong>Asesoría gastronómica</strong>
+        <span>Procesos, costos, logística y experiencia del cliente.</span>
+      </a>
+      <a class="audience-tab" href="#productos">
+        <strong>Equipos para negocios</strong>
+        <span>Impresoras térmicas, computadores POS, scanners y biométricos.</span>
+      </a>
+    </nav>
 
     <section class="licenses-section" id="runfoodapp" aria-labelledby="licencias-title">
       <div class="licenses-header">
@@ -2146,7 +2513,7 @@
         <div class="product-grid">
           <article class="product-card">
             <div class="product-image-placeholder">
-              <img src="../photos/Solutions/SAT_15T.webp" alt="Impresora Térmica SAT 15T" loading="lazy" decoding="async">
+              <img src="../photos/Solutions/SAT_15T.webp" alt="Impresora térmica SAT 15T para punto de venta en restaurantes y comercios" loading="lazy" decoding="async">
             </div>
             <div class="product-content">
               <h4>Impresora Térmica SAT 15T</h4>
@@ -2161,7 +2528,7 @@
           </article>
           <article class="product-card">
             <div class="product-image-placeholder">
-              <img src="../photos/Solutions/SAT_22T.webp" alt="Impresora Térmica SAT 22T" loading="lazy" decoding="async">
+              <img src="../photos/Solutions/SAT_22T.webp" alt="Impresora térmica SAT 22T con conexión USB, serial y Ethernet para POS" loading="lazy" decoding="async">
             </div>
             <div class="product-content">
               <h4>Impresora Térmica SAT 22T</h4>
@@ -2176,7 +2543,7 @@
           </article>
           <article class="product-card">
             <div class="product-image-placeholder">
-              <img src="../photos/Solutions/SAT_38T.webp" alt="Impresora Térmica SAT 38T" loading="lazy" decoding="async">
+              <img src="../photos/Solutions/SAT_38T.webp" alt="Impresora térmica SAT 38T profesional para operación continua en negocios" loading="lazy" decoding="async">
             </div>
             <div class="product-content">
               <h4>Impresora Térmica SAT 38T</h4>
@@ -2199,7 +2566,7 @@
           <div class="product-grid">
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/Equipo_IAO.webp" alt="Equipo IAO" loading="lazy" decoding="async">
+                <img src="../photos/Solutions/Equipo_IAO.webp" alt="Equipo POS IAO todo en uno con pantalla táctil para comercios" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Equipo IAO</h4>
@@ -2214,7 +2581,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/Mini_CPU.webp" alt="Mini CPU" loading="lazy" decoding="async">
+                <img src="../photos/Solutions/Mini_CPU.webp" alt="Mini CPU para estación POS con monitor y almacenamiento SSD" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Mini CPU</h4>
@@ -2235,7 +2602,7 @@
           <div class="product-grid">
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/SAT AI402.webp" alt="Scanner SAT AI402" loading="lazy" decoding="async">
+                <img src="../photos/Solutions/SAT AI402.webp" alt="Scanner SAT AI402 para lectura de códigos 1D y 2D en punto de venta" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Scanner SAT AI402</h4>
@@ -2250,7 +2617,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/SAT AI8600.webp" alt="Scanner SAT AI8600" loading="lazy" decoding="async">
+                <img src="../photos/Solutions/SAT AI8600.webp" alt="Scanner de mesa SAT AI8600 para lectura de alto volumen en comercios" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Scanner SAT AI8600</h4>
@@ -2275,7 +2642,7 @@
           <div class="horizontal-scroll-small" id="misc-products">
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/SPEEDFACE-V5L.webp" alt="ZKTeco SpeedFace-V5L" loading="lazy" decoding="async">
+                <img src="../photos/Solutions/SPEEDFACE-V5L.webp" alt="Biométrico facial ZKTeco SpeedFace-V5L para control de acceso empresarial" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>ZKTeco SpeedFace</h4>
@@ -2290,7 +2657,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img src="../photos/Solutions/ZKTECO-MB20-VL-.webp" alt="ZKTeco MB20" loading="lazy" decoding="async">
+                <img src="../photos/Solutions/ZKTECO-MB20-VL-.webp" alt="Equipo biométrico ZKTeco MB20 para control de asistencia y acceso" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>ZKTeco MB20</h4>
@@ -2305,7 +2672,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img class="cash-drawer-img" src="../photos/Solutions/cajon-119x.webp" alt="Cajón 119X" loading="lazy" decoding="async">
+                <img class="cash-drawer-img" src="../photos/Solutions/cajon-119x.webp" alt="Cajón monedero metálico 119X para sistemas POS" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Cajón 119X</h4>
@@ -2320,7 +2687,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder paper-rolls-bg">
-                <img src="../photos/Solutions/papel.webp" alt="Rollos Papel" loading="lazy" decoding="async">
+                <img src="../photos/Solutions/papel.webp" alt="Rollos de papel térmico para impresoras POS de 50mm y 79mm" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Rollos Papel</h4>
@@ -2335,7 +2702,7 @@
             </article>
             <article class="product-card">
               <div class="product-image-placeholder">
-                <img class="bill-counter-img" src="../photos/Solutions/Contador de billetes.webp" alt="Contador de billetes SAT BC5120" loading="lazy" decoding="async">
+                <img class="bill-counter-img" src="../photos/Solutions/Contador de billetes.webp" alt="Contador de billetes SAT BC5120 con detección UV y MG" loading="lazy" decoding="async">
               </div>
               <div class="product-content">
                 <h4>Contador de billetes</h4>
@@ -2410,6 +2777,13 @@
     </div>
   </footer>
 
+  <a class="whatsapp-floating-btn" href="https://wa.me/593984454938?text=Hola%20Clickline%20Solutions%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20POS%2C%20impresoras%20o%20asesor%C3%ADa%20para%20mi%20negocio." target="_blank" rel="noopener" aria-label="Contactar a Clickline Solutions por WhatsApp">
+    <svg aria-hidden="true" viewBox="0 0 32 32">
+      <path d="M16.02 3.2A12.76 12.76 0 0 0 5.14 22.6L3.6 28.8l6.34-1.48A12.78 12.78 0 1 0 16.02 3.2Zm0 22.88c-2.08 0-4.02-.62-5.64-1.68l-.4-.26-3.76.88.9-3.64-.28-.42a10.02 10.02 0 1 1 9.18 5.12Zm5.5-7.48c-.3-.16-1.8-.9-2.08-1-.28-.1-.48-.16-.68.16-.2.3-.78 1-.96 1.2-.18.2-.36.22-.66.08-.3-.16-1.28-.48-2.44-1.52-.9-.8-1.52-1.8-1.7-2.1-.18-.3-.02-.48.14-.62.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.54-.08-.16-.68-1.64-.94-2.24-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.04 1.02-1.04 2.48s1.06 2.88 1.2 3.08c.16.2 2.1 3.2 5.08 4.48.7.3 1.26.48 1.7.62.72.22 1.36.2 1.88.12.58-.08 1.8-.74 2.06-1.44.26-.72.26-1.32.18-1.44-.08-.14-.28-.22-.58-.38Z"/>
+    </svg>
+    WhatsApp
+  </a>
+
   <!-- Cart UI -->
   <button class="cart-floating-btn" id="cart-btn" aria-label="Abrir cesta">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2438,15 +2812,15 @@
     const cartBtn = document.getElementById('cart-btn');
     const cartCount = document.getElementById('cart-count');
     const mobileCartCount = document.getElementById('mobile-cart-count');
+    const desktopCartCount = document.getElementById('desktop-cart-count');
 
     function updateCartCount() {
       const total = Object.values(cart).reduce((sum, qty) => sum + Number(qty || 0), 0);
-      if (cartCount) {
-        cartCount.textContent = total;
-      }
-      if (mobileCartCount) {
-        mobileCartCount.textContent = total;
-      }
+      [cartCount, mobileCartCount, desktopCartCount].forEach((badge) => {
+        if (!badge) return;
+        badge.textContent = total;
+        badge.classList.toggle('is-visible', total > 0);
+      });
     }
 
     // Redirect to checkout page on cart click
