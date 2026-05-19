@@ -5,9 +5,27 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 const projectRoot = path.join(__dirname, '..');
+const assetCache = process.env.NODE_ENV === 'production' ? '30d' : 0;
+const contactWindowMs = 15 * 60 * 1000;
+const contactLimit = 5;
+const contactAttempts = new Map();
 
-app.use(express.json());
-app.use('/photos', express.static(path.join(projectRoot, 'photos')));
+app.disable('x-powered-by');
+app.set('trust proxy', 1);
+
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(self)');
+  next();
+});
+
+app.use(express.json({ limit: '32kb' }));
+app.use('/photos', express.static(path.join(projectRoot, 'photos'), {
+  immutable: process.env.NODE_ENV === 'production',
+  maxAge: assetCache
+}));
 app.use('/frontend', express.static(path.join(projectRoot, 'frontend')));
 app.use('/security', express.static(path.join(projectRoot, 'security'), { redirect: false }));
 app.use('/solutions', express.static(path.join(projectRoot, 'solutions'), { redirect: false }));
@@ -15,7 +33,33 @@ app.use('/solutions', express.static(path.join(projectRoot, 'solutions'), { redi
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function cleanText(value = '', maxLength = 1000) {
-  return String(value).trim().slice(0, maxLength);
+  return String(value)
+    .replace(/[\u0000-\u001F\u007F]/g, ' ')
+    .trim()
+    .slice(0, maxLength);
+}
+
+function contactRateLimit(req, res, next) {
+  const now = Date.now();
+  const key = req.ip || req.headers['x-forwarded-for'] || 'unknown';
+  const record = contactAttempts.get(key) || { count: 0, resetAt: now + contactWindowMs };
+
+  if (record.resetAt <= now) {
+    record.count = 0;
+    record.resetAt = now + contactWindowMs;
+  }
+
+  record.count += 1;
+  contactAttempts.set(key, record);
+
+  if (record.count > contactLimit) {
+    return res.status(429).json({
+      success: false,
+      message: 'Recibimos muchas solicitudes seguidas. Intenta nuevamente en unos minutos.'
+    });
+  }
+
+  next();
 }
 
 function getTransporter() {
@@ -81,7 +125,7 @@ function buildEmail({ name, email, city, phone, service, message }) {
   return { text, html };
 }
 
-app.post('/api/contact', async (req, res) => {
+app.post('/api/contact', contactRateLimit, async (req, res) => {
   const payload = {
     name: cleanText(req.body.name, 120),
     email: cleanText(req.body.email, 160),
@@ -136,12 +180,35 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(projectRoot, 'index.html'));
 });
 
-app.get('/security', (req, res) => {
+app.get('/healthz', (req, res) => {
+  res.json({ ok: true });
+});
+
+app.get('/shared.css', (req, res) => {
+  res.sendFile(path.join(projectRoot, 'shared.css'));
+});
+
+app.get(['/security', '/security/'], (req, res) => {
   res.sendFile(path.join(projectRoot, 'security', 'index.html'));
 });
 
-app.get('/solutions', (req, res) => {
+app.get(['/solutions', '/solutions/'], (req, res) => {
   res.sendFile(path.join(projectRoot, 'solutions', 'index.html'));
+});
+
+app.get(['/solutions/cesta', '/solutions/cesta/'], (req, res) => {
+  res.sendFile(path.join(projectRoot, 'solutions', 'cesta.html'));
+});
+
+app.use((error, req, res, next) => {
+  if (error instanceof SyntaxError && 'body' in error) {
+    return res.status(400).json({
+      success: false,
+      message: 'La solicitud no tiene un formato válido.'
+    });
+  }
+
+  next(error);
 });
 
 app.get('*', (req, res) => {

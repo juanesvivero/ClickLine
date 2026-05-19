@@ -40,11 +40,20 @@ Sitio web dividido en frontend y backend para el portal corporativo de Clickline
 - `/` — selector de marca.
 - `/security` — página de Clickline Security.
 - `/solutions` — página de Clickline Solutions.
+- `/solutions/cesta` — cesta de Clickline Solutions.
+- `/healthz` — verificación básica del servidor.
+
+## Verificación antes de producción
+
+```bash
+npm run check
+npm run audit:high
+```
 
 ## Notas
 
 - El formulario de contacto envía datos al endpoint `/api/contact`.
-- El backend usa Nodemailer. Configura estas variables de entorno antes de iniciar el servidor:
+- El backend usa Nodemailer. Copia `.env.example` en tu proveedor de hosting o configura estas variables de entorno antes de iniciar el servidor:
 
   ```bash
   SMTP_HOST=smtp.sendgrid.net

@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cesta de Compras | Clickline Solutions</title>
+  <meta name="robots" content="noindex, nofollow"/>
   <meta name="theme-color" content="#ffffff"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -52,6 +53,12 @@
     }
 
     a { color: inherit; text-decoration: none; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(63,70,82,0.24);
+      outline-offset: 4px;
+    }
 
     header, main, footer {
       width: min(900px, calc(100% - 40px));
@@ -325,6 +332,7 @@
       }
 
       .cart-item { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .cart-item-controls { width: 100%; justify-content: space-between; }
       .cart-summary { flex-direction: column; align-items: stretch; gap: 24px; text-align: center; padding: 24px; }
     }
 
@@ -429,6 +437,7 @@
       let itemsHtml = '<div class="cart-items">';
       items.forEach(([item, qty]) => {
         const safeItem = escapeHtml(item);
+        const itemKey = encodeURIComponent(item);
         itemsHtml += `
           <div class="cart-item">
             <div class="cart-item-info">
@@ -436,9 +445,9 @@
               <p>Unidad</p>
             </div>
             <div class="cart-item-controls">
-              <button class="qty-btn" type="button" data-cart-item="${safeItem}" data-cart-delta="-1" aria-label="Quitar una unidad de ${safeItem}">-</button>
+              <button class="qty-btn" type="button" data-cart-item="${itemKey}" data-cart-delta="-1" aria-label="Quitar una unidad de ${safeItem}">-</button>
               <span class="qty-display">${Number(qty || 0)}</span>
-              <button class="qty-btn" type="button" data-cart-item="${safeItem}" data-cart-delta="1" aria-label="Añadir una unidad de ${safeItem}">+</button>
+              <button class="qty-btn" type="button" data-cart-item="${itemKey}" data-cart-delta="1" aria-label="Añadir una unidad de ${safeItem}">+</button>
             </div>
           </div>
         `;
@@ -484,7 +493,7 @@
     cartContainer.addEventListener('click', (event) => {
       const quantityButton = event.target.closest('[data-cart-item]');
       if (quantityButton) {
-        updateQuantity(quantityButton.dataset.cartItem, Number(quantityButton.dataset.cartDelta));
+        updateQuantity(decodeURIComponent(quantityButton.dataset.cartItem), Number(quantityButton.dataset.cartDelta));
         return;
       }
 

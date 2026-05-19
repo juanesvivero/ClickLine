@@ -4,7 +4,9 @@
   "description": "Sitio web de Click Line Security con frontend estático y backend en Node.js.",
   "main": "backend/server.js",
   "scripts": {
-    "start": "node backend/server.js"
+    "start": "node backend/server.js",
+    "check": "node --check backend/server.js && node --check frontend/script.js",
+    "audit:high": "npm audit --audit-level=high"
   },
   "dependencies": {
     "express": "^4.18.4",
