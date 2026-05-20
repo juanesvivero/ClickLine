@@ -498,6 +498,9 @@
 
       .card-solutions .brand-card-desc {
         max-width: 16ch;
+        display: flex;
+        min-height: 100%;
+        align-items: center;
         margin-inline: auto;
         align-self: center;
       }
@@ -589,7 +592,17 @@
           <a class="brand-card card-security" href="./security/index.html" aria-label="Entrar a ClickLine Security">
             <div class="brand-card-top">
               <div class="brand-logo-block">
-                <img src="./photos/Security/security_logo_transparent.png" alt="ClickLine Security"/>
+                <img
+                  src="./photos/Security/security_logo_transparent.png"
+                  srcset="./photos/Security/security_logo_transparent-mobile.webp 360w, ./photos/Security/security_logo_transparent.png 800w"
+                  sizes="(max-width: 820px) 40vw, 380px"
+                  alt="ClickLine Security"
+                  width="380"
+                  height="371"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                />
               </div>
               <p class="brand-card-desc">Monitoreo Electrónico de Alarmas, Monitoreo Satelital de Vehículos, Radio Comunicación Satelital, Servicio de Guardiania Física para Hogares y Empresas</p>
             </div>
@@ -603,7 +616,17 @@
           <a class="brand-card card-solutions" href="./solutions/index.html" aria-label="Entrar a ClickLine Solutions">
             <div class="brand-card-top">
               <div class="brand-logo-block">
-                <img src="./photos/Solutions/solutions_logo_transparent.webp" alt="ClickLine Solutions"/>
+                <img
+                  src="./photos/Solutions/solutions_logo_transparent.webp"
+                  srcset="./photos/Solutions/solutions_logo_transparent-mobile.webp 640w, ./photos/Solutions/solutions_logo_transparent.webp 1186w"
+                  sizes="(max-width: 820px) 40vw, 380px"
+                  alt="ClickLine Solutions"
+                  width="380"
+                  height="148"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                />
               </div>
               <p class="brand-card-desc">Software, soluciones digitales, automatización y servicios de innovación tecnológica para tu negocio.</p>
             </div>
