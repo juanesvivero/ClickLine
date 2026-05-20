@@ -46,8 +46,17 @@
       background: var(--cyan);
     }
 
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       width: 100%;
+      max-width: 100%;
       min-width: 0;
       min-height: 100vh;
       margin: 0;
@@ -485,7 +494,7 @@
       right: -22px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .scroll-arrow {
         display: none;
       }
@@ -1860,28 +1869,39 @@
       }
 
       .license-carousel {
+        position: relative;
         width: 100%;
-        overflow-x: hidden;
+        overflow: hidden;
+        border-radius: 16px;
       }
 
       .license-track {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 16px;
         width: 100%;
         margin-inline: auto;
-        padding: 8px 0;
-        overflow-x: hidden;
+        padding: 8px 16px 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; /* Hide scrollbar for a super clean premium look */
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .license-track::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome/Safari */
       }
 
       .license-card {
-        width: 100%;
-        max-width: 420px;
-        margin-inline: auto;
+        flex: 0 0 285px;
+        width: 285px;
+        max-width: 85vw; /* Ensure card is never wider than the screen */
+        scroll-snap-align: center;
         border-radius: 16px;
-        box-shadow: 0 14px 34px rgba(8, 82, 58, 0.1);
+        box-shadow: 0 12px 30px rgba(8, 82, 58, 0.08);
         box-sizing: border-box;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
       .license-card:hover {
@@ -1890,7 +1910,7 @@
 
       .license-body {
         gap: 12px;
-        padding: 14px;
+        padding: 16px;
       }
 
       .license-body h3 {
@@ -1907,7 +1927,37 @@
       }
 
       .license-mobile-arrow {
-        display: none;
+        display: grid;
+        place-items: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--license-border);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.94);
+        color: var(--license-accent);
+        font-size: 1.3rem;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(8, 82, 58, 0.16);
+        transition: all 0.2s ease;
+      }
+
+      .license-mobile-arrow:active {
+        background: var(--license-accent);
+        color: #ffffff;
+        transform: translateY(-50%) scale(0.9);
+      }
+
+      .license-mobile-arrow-left {
+        left: 8px;
+      }
+
+      .license-mobile-arrow-right {
+        right: 8px;
       }
 
       .footer-inner {
@@ -1981,10 +2031,11 @@
       body {
         align-items: stretch;
         inline-size: 100%;
+        overflow-x: hidden;
       }
 
       main {
-        overflow-x: clip;
+        overflow-x: hidden;
       }
 
       header {
@@ -2000,12 +2051,12 @@
         border-radius: 0 0 20px 20px;
         box-shadow: 0 12px 30px rgba(21, 23, 26, 0.10);
         min-height: 0;
-        overflow: clip;
+        overflow: hidden;
       }
 
       footer {
         padding-inline: var(--mobile-gutter);
-        overflow-x: clip;
+        overflow-x: hidden;
       }
 
       header::before {

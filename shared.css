@@ -47,6 +47,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
   background: var(--cl-black);
+  overflow-x: hidden;
 }
 
 body {
@@ -60,6 +61,7 @@ body {
     radial-gradient(ellipse 60% 50% at 90% 90%, rgba(255,102,0,0.06) 0%, transparent 55%),
     linear-gradient(180deg, #0e0e0e 0%, #080808 100%);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 a {
