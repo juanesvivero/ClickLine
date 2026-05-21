@@ -61,7 +61,7 @@ npm run audit:high
   SMTP_SECURE=false
   SMTP_USER=apikey
   SMTP_PASS=TU_API_KEY_DE_SENDGRID
-  EMAIL_FROM=contacto@clickline.mobi
+  EMAIL_FROM=ventas@clickline.mobi
   EMAIL_TO=correo-destino@ejemplo.com
   ```
 
